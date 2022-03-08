@@ -18,10 +18,13 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'org.spigotmc:spigot-api:1.18.1-R0.1-SNAPSHOT'
+    implementation 'org.projectlombok:lombok:1.18.22'
+    implementation files("$rootDir/lib/UhcCore-1.19.4.jar")
+    compileOnly 'org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
 }
 
-def targetJavaVersion = 17
+def targetJavaVersion = 11
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion
@@ -44,4 +47,8 @@ processResources {
     filesMatching('plugin.yml') {
         expand props
     }
+}
+
+tasks.withType(Jar) {
+    destinationDirectory = file("$rootDir/run/plugins/")
 }

@@ -1,0 +1,66 @@
+###############################
+# UhcRecipeBookEx Config File #
+###############################
+
+# The crafts that will be ignored in the recipe book.
+ignore-crafts:
+  - 'War Axe'
+
+inventory:
+  # The gui name.
+  # You can use {page_num} for the page number.
+  # You can also use it in the item's name & lore.
+  name: "&3Custom Recipe Book (Page &1{page_num}&3)"
+
+  # The gui pattern of the recipe book.
+  # There can be 1~6 lines, and each line must be exactly 9 characters long.
+  inventory-pattern: |
+    _________
+    _#######_
+    _#######_
+    _#######_
+    _________
+    <&&&o&&&>
+  
+  
+
+  # The recipe viewer's gui name.
+  # You can use {item_name} for the item's name.
+  recipe-view-name: "&3View &1{item_name}&3's recipe"
+
+  # Every character means what item.
+  items:
+    '_':
+      type: item
+      material: AIR
+    '#':
+      type: slot
+      fallback: '_' # if the slot is empty, what item will it show
+    '<':
+      type: previous-page
+      material: EMERALD
+      name: "&5← Previous Page"
+      fallback: '&' # if the slot is not available (the first page), what item will it show
+      # other configs is same as item
+    '>':
+      type: next-page
+      material: EMERALD
+      name: "&5→ Next Page"
+      fallback: '&'
+    'o': # This is an example of the item config.
+      type: item
+      material: PAPER
+      name: "&3Custom Recipe Book (Page &1{page_num}&3)"
+      lore: |
+        &2 These are all kinds of custom recipes
+        &2 you can craft in the game!
+        &2 Try to make good use of them!
+      glow: true
+      amount: 1
+    '&':
+      type: item
+      material: WHITE_STAINED_GLASS_PANE
+      name: ""
+
+message:
+  right-click-open: "&3Right click to check the recipe!"

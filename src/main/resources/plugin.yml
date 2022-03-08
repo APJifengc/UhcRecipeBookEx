@@ -1,7 +1,7 @@
 name: UhcRecipeBookEx
 version: '${version}'
 main: io.github.apjifengc.uhcrecipebookex.UhcRecipeBookEx
-api-version: 1.18
+api-version: 1.17
 prefix: UHCRBE
 depend: [ UhcCore ]
 authors: [ APJifengc ]
