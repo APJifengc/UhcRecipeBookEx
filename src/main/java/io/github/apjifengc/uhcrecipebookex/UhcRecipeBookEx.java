@@ -24,6 +24,7 @@ public final class UhcRecipeBookEx extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         Config.loadConfig();
         new PlayerListener();
         Bukkit.getPluginManager().registerEvents(this, this);
