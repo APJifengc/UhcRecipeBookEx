@@ -10,6 +10,7 @@ import io.github.apjifengc.uhcrecipebookex.inventory.item.NextPageItem;
 import io.github.apjifengc.uhcrecipebookex.inventory.item.PreviousPageItem;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -27,7 +28,7 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     void onRightClick(PlayerInteractEvent event) {
-        if (event.getAction() != Action.RIGHT_CLICK_AIR || event.getAction() != Action.RIGHT_CLICK_BLOCK) {
+        if (event.getAction() != Action.RIGHT_CLICK_AIR && event.getAction() != Action.RIGHT_CLICK_BLOCK) {
             return;
         }
         ItemStack hand = event.getItem();
