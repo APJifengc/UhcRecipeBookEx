@@ -35,6 +35,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class PlayerListener implements Listener {
     private final UhcRecipeBookEx plugin = UhcRecipeBookEx.getInstance();
@@ -236,16 +237,6 @@ public class PlayerListener implements Listener {
         }
         if (event.getView().getTopInventory().getHolder() instanceof CraftRecipeViewerInventoryHolder) {
             event.setCancelled(true);
-        }
-    }
-
-    @EventHandler
-    void onInventoryClose(InventoryCloseEvent event) {
-        if (event.getInventory().getHolder() instanceof CraftRecipeViewerInventoryHolder) {
-            CraftRecipeViewerInventoryHolder holder = (CraftRecipeViewerInventoryHolder) event.getInventory().getHolder();
-            if (holder.getLastInventory() != null) {
-                event.getPlayer().openInventory(holder.getLastInventory());
-            }
         }
     }
 
