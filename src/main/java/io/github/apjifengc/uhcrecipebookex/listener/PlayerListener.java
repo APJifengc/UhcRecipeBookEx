@@ -13,6 +13,7 @@ import com.gmail.val59000mc.languages.Lang;
 import com.gmail.val59000mc.players.PlayerState;
 import com.gmail.val59000mc.players.UhcPlayer;
 import com.gmail.val59000mc.players.UhcTeam;
+import io.github.apjifengc.uhcrecipebookex.Config;
 import io.github.apjifengc.uhcrecipebookex.UhcRecipeBookEx;
 import io.github.apjifengc.uhcrecipebookex.inventory.CraftRecipeInventory;
 import io.github.apjifengc.uhcrecipebookex.inventory.CraftRecipeInventoryHolder;
@@ -225,11 +226,11 @@ public class PlayerListener implements Listener {
                             + recipe.getSlotId().get(event.getSlot());
                     Craft craft = recipe.getCrafts().get(craftId);
                     event.getWhoClicked().openInventory(recipe.createRecipeViewerInventory(craft, event.getClickedInventory()));
-                } else if (recipe.getInventoryItem(event.getSlot()) instanceof PreviousPageItem) {
+                } else if (recipe.getInventoryItem(Config.INVENTORY_PATTERN, event.getSlot()) instanceof PreviousPageItem) {
                     if (holder.getPage() != CraftRecipeInventory.getFirstPage()) {
                         event.getWhoClicked().openInventory(recipe.createMainInventory(holder.getPage() - 1));
                     }
-                } else if (recipe.getInventoryItem(event.getSlot()) instanceof NextPageItem) {
+                } else if (recipe.getInventoryItem(Config.INVENTORY_PATTERN, event.getSlot()) instanceof NextPageItem) {
                     if (holder.getPage() != CraftRecipeInventory.getLastPage()) {
                         event.getWhoClicked().openInventory(recipe.createMainInventory(holder.getPage() + 1));
                     }
@@ -241,7 +242,7 @@ public class PlayerListener implements Listener {
             if (event.getClickedInventory() == event.getView().getTopInventory()) {
                 CraftRecipeInventory recipe = UhcRecipeBookEx.getRecipeInventory();
                 CraftRecipeViewerInventoryHolder holder = (CraftRecipeViewerInventoryHolder) event.getView().getTopInventory().getHolder();
-                if (recipe.getInventoryItem(event.getSlot()) instanceof GoBackItem) {
+                if (recipe.getInventoryItem(Config.RECIPE_VIEWER_PATTERN, event.getSlot()) instanceof GoBackItem) {
                     event.getWhoClicked().closeInventory();
                     event.getWhoClicked().openInventory(holder.getLastInventory());
                 }

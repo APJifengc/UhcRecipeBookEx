@@ -46,12 +46,12 @@ public class CraftRecipeInventory {
         return clone;
     }
 
-    public InventoryItem getInventoryItem(int slot) {
-        return getInventoryItem(slot / 9, slot % 9);
+    public InventoryItem getInventoryItem(List<String> strings, int slot) {
+        return getInventoryItem(strings, slot / 9, slot % 9);
     }
 
-    public InventoryItem getInventoryItem(int i, int j) {
-        return Config.GUI_ITEM_MAP.get(Config.INVENTORY_PATTERN.get(i).charAt(j));
+    public InventoryItem getInventoryItem(List<String> strings, int i, int j) {
+        return Config.GUI_ITEM_MAP.get(strings.get(i).charAt(j));
     }
 
     public Inventory createMainInventory(int page) {
@@ -61,7 +61,7 @@ public class CraftRecipeInventory {
                 );
         for (int i = 0; i < Config.INVENTORY_PATTERN.size(); i++) {
             for (int j = 0; j < 9; j++) {
-                InventoryItem item = getInventoryItem(i, j);
+                InventoryItem item = getInventoryItem(Config.INVENTORY_PATTERN, i, j);
                 if (item instanceof SlotItem) {
                     int craftId = page * slots.size() + slotId.get(i * 9 + j);
                     if (craftId >= crafts.size()) {
@@ -84,7 +84,7 @@ public class CraftRecipeInventory {
                 );
         for (int i = 0; i < Config.RECIPE_VIEWER_PATTERN.size(); i++) {
             for (int j = 0; j < 9; j++) {
-                InventoryItem item = getInventoryItem(i, j);
+                InventoryItem item = getInventoryItem(Config.RECIPE_VIEWER_PATTERN, i, j);
                 if (item instanceof RecipeSlotItem) {
                     int slot = ((RecipeSlotItem) item).getSlot();
                     if (slot == 0) {
