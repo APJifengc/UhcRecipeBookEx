@@ -21,8 +21,17 @@ inventory:
     _#######_
     _________
     <&&&o&&&>
-  
-  
+
+  # The gui pattern of the recipe viewer.
+  # There can be 1~6 lines, and each line must be exactly 9 characters long.
+  # The characters from 0 to 9 is builtin, and 1-9 means 9 ingredients, the 0 is the crafted item.
+  recipe-viewer-pattern: |
+    _________
+    __123____
+    __456_0__
+    __789____
+    _________
+    @&&&&&&&&
 
   # The recipe viewer's gui name.
   # You can use {item_name} for the item's name.
@@ -61,6 +70,10 @@ inventory:
       type: item
       material: WHITE_STAINED_GLASS_PANE
       name: ""
+    '@':
+      type: go-back
+      material: REDSTONE
+      name: "&2← Go Back"
 
 message:
   right-click-open: "&3Right click to check the recipe!"

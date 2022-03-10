@@ -4,6 +4,7 @@ import com.gmail.val59000mc.customitems.Craft;
 import com.gmail.val59000mc.customitems.CraftsManager;
 import io.github.apjifengc.uhcrecipebookex.Config;
 import io.github.apjifengc.uhcrecipebookex.inventory.item.InventoryItem;
+import io.github.apjifengc.uhcrecipebookex.inventory.item.RecipeSlotItem;
 import io.github.apjifengc.uhcrecipebookex.inventory.item.SlotItem;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -30,8 +31,6 @@ public class CraftRecipeInventory {
     @Getter
     private final Map<Integer, Integer> slotId = new HashMap<>();
 
-    private final int lineNumber;
-
     @Getter
     private final List<Craft> crafts;
 
@@ -56,11 +55,11 @@ public class CraftRecipeInventory {
     }
 
     public Inventory createMainInventory(int page) {
-        Inventory gui = Bukkit.createInventory(new CraftRecipeInventoryHolder(page), lineNumber * 9,
+        Inventory gui = Bukkit.createInventory(new CraftRecipeInventoryHolder(page), Config.INVENTORY_PATTERN.size() * 9,
                 Config.GUI_NAME.replace("{page_num}", String.valueOf(page + 1))
                         .replace("&", "\u00A7")
                 );
-        for (int i = 0; i < lineNumber; i++) {
+        for (int i = 0; i < Config.INVENTORY_PATTERN.size(); i++) {
             for (int j = 0; j < 9; j++) {
                 InventoryItem item = getInventoryItem(i, j);
                 if (item instanceof SlotItem) {
@@ -79,25 +78,33 @@ public class CraftRecipeInventory {
     }
 
     public Inventory createRecipeViewerInventory(Craft craft, Inventory lastInventory) {
-        Inventory gui = Bukkit.createInventory(new CraftRecipeViewerInventoryHolder(lastInventory), 5 * 9,
+        Inventory gui = Bukkit.createInventory(new CraftRecipeViewerInventoryHolder(lastInventory), Config.RECIPE_VIEWER_PATTERN.size() * 9,
                 Config.GUI_RECIPE_VIEWER_NAME.replace("{item_name}", craft.getName())
                         .replace("&", "\u00A7")
                 );
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                gui.setItem((1 + i) * 9 + (1 + j), craft.getRecipe().get(i * 3 + j));
+        for (int i = 0; i < Config.RECIPE_VIEWER_PATTERN.size(); i++) {
+            for (int j = 0; j < 9; j++) {
+                InventoryItem item = getInventoryItem(i, j);
+                if (item instanceof RecipeSlotItem) {
+                    int slot = ((RecipeSlotItem) item).getSlot();
+                    if (slot == 0) {
+                        gui.setItem(i * 9 + j, craft.getCraft());
+                    } else {
+                        gui.setItem((1 + i) * 9 + (1 + j), craft.getRecipe().get(slot - 1));
+                    }
+                } else {
+                    gui.setItem(i * 9 + j, item.getItemStack(0));
+                }
             }
         }
-        gui.setItem(2 * 9 + 7, craft.getCraft());
         return gui;
     }
 
     public CraftRecipeInventory() {
-        lineNumber = Config.INVENTORY_PATTERN.size();
         crafts = CraftsManager.getCrafts().stream()
                 .filter(craft -> !Config.IGNORE_CRAFTS.contains(craft.getName()))
                 .collect(Collectors.toList());
-        for (int i = 0; i < lineNumber; i++) {
+        for (int i = 0; i < Config.INVENTORY_PATTERN.size(); i++) {
             for (int j = 0; j < 9; j++) {
                 if (Config.GUI_ITEM_MAP.get(Config.INVENTORY_PATTERN.get(i).charAt(j)) instanceof SlotItem) {
                     slotId.put(i * 9 + j, slots.size());

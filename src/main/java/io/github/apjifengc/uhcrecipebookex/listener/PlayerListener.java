@@ -17,6 +17,7 @@ import io.github.apjifengc.uhcrecipebookex.UhcRecipeBookEx;
 import io.github.apjifengc.uhcrecipebookex.inventory.CraftRecipeInventory;
 import io.github.apjifengc.uhcrecipebookex.inventory.CraftRecipeInventoryHolder;
 import io.github.apjifengc.uhcrecipebookex.inventory.CraftRecipeViewerInventoryHolder;
+import io.github.apjifengc.uhcrecipebookex.inventory.item.GoBackItem;
 import io.github.apjifengc.uhcrecipebookex.inventory.item.NextPageItem;
 import io.github.apjifengc.uhcrecipebookex.inventory.item.PreviousPageItem;
 import net.wesjd.anvilgui.AnvilGUI;
@@ -237,6 +238,14 @@ public class PlayerListener implements Listener {
         }
         if (event.getView().getTopInventory().getHolder() instanceof CraftRecipeViewerInventoryHolder) {
             event.setCancelled(true);
+            if (event.getClickedInventory() == event.getView().getTopInventory()) {
+                CraftRecipeInventory recipe = UhcRecipeBookEx.getRecipeInventory();
+                CraftRecipeViewerInventoryHolder holder = (CraftRecipeViewerInventoryHolder) event.getView().getTopInventory().getHolder();
+                if (recipe.getInventoryItem(event.getSlot()) instanceof GoBackItem) {
+                    event.getWhoClicked().closeInventory();
+                    event.getWhoClicked().openInventory(holder.getLastInventory());
+                }
+            }
         }
     }
 
