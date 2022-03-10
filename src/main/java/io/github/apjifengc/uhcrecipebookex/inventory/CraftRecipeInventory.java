@@ -90,7 +90,7 @@ public class CraftRecipeInventory {
                     if (slot == 0) {
                         gui.setItem(i * 9 + j, craft.getCraft());
                     } else {
-                        gui.setItem((1 + i) * 9 + (1 + j), craft.getRecipe().get(slot - 1));
+                        gui.setItem(i * 9 + j, craft.getRecipe().get(slot - 1));
                     }
                 } else {
                     gui.setItem(i * 9 + j, item.getItemStack(0));
