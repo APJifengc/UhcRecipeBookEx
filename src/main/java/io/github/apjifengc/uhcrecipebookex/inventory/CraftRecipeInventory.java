@@ -41,7 +41,7 @@ public class CraftRecipeInventory {
         List<String> lores = meta.getLore();
         if (lores == null) lores = new ArrayList<>();
         lores.add("");
-        lores.add(Config.MESSAGE.getString("right-click-open").replace("&", "§"));
+        lores.add(Config.MESSAGE.getString("right-click-open").replace("&", "\u00A7"));
         meta.setLore(lores);
         clone.setItemMeta(meta);
         return clone;
@@ -58,7 +58,7 @@ public class CraftRecipeInventory {
     public Inventory createMainInventory(int page) {
         Inventory gui = Bukkit.createInventory(new CraftRecipeInventoryHolder(page), lineNumber * 9,
                 Config.GUI_NAME.replace("{page_num}", String.valueOf(page + 1))
-                        .replace("&", "§")
+                        .replace("&", "\u00A7")
                 );
         for (int i = 0; i < lineNumber; i++) {
             for (int j = 0; j < 9; j++) {
@@ -81,7 +81,7 @@ public class CraftRecipeInventory {
     public Inventory createRecipeViewerInventory(Craft craft, Inventory lastInventory) {
         Inventory gui = Bukkit.createInventory(new CraftRecipeViewerInventoryHolder(lastInventory), 5 * 9,
                 Config.GUI_RECIPE_VIEWER_NAME.replace("{item_name}", craft.getName())
-                        .replace("&", "§")
+                        .replace("&", "\u00A7")
                 );
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {

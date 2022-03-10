@@ -44,15 +44,15 @@ public class NormalItem extends InventoryItem {
         ItemStack newItemStack = itemStack.clone();
         ItemMeta meta = newItemStack.getItemMeta();
         if (name != null) {
-            meta.setDisplayName("§r" + name.replace("{page_num}", String.valueOf(page + 1))
-                    .replace("&", "§"));
+            meta.setDisplayName("\u00A7r" + name.replace("{page_num}", String.valueOf(page + 1))
+                    .replace("&", "\u00A7"));
         }
         if (lore != null) {
             meta.setLore(
                     Arrays.stream(lore.replace("{page_num}", String.valueOf(page + 1))
-                            .replace("&", "§")
+                            .replace("&", "\u00A7")
                             .split("\n"))
-                            .map(s -> "§r" + s)
+                            .map(s -> "\u00A7r" + s)
                             .collect(Collectors.toList())
             );
         }
