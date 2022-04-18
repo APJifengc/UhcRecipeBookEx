@@ -30,7 +30,6 @@ public final class UhcRecipeBookEx extends JavaPlugin implements Listener {
     public void onEnable() {
         saveDefaultConfig();
         Config.loadConfig();
-        new PlayerListener();
         Bukkit.getPluginManager().registerEvents(this, this);
         if (GameManager.getGameManager().getGameState() != null) {
             // If you use yum or other plugins, the UhcCore plugin will be already loaded, so load immediately.
@@ -51,6 +50,7 @@ public final class UhcRecipeBookEx extends JavaPlugin implements Listener {
 
     private void load() {
         recipeInventory = new CraftRecipeInventory();
+        new PlayerListener();
         // Remove the default listener for the book item.
         for (RegisteredListener listener : PlayerInteractEvent.getHandlerList().getRegisteredListeners()) {
             if (listener.getListener() instanceof ItemsListener) {

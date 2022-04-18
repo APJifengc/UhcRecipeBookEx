@@ -37,6 +37,23 @@ inventory:
   # You can use {item_name} for the item's name.
   recipe-view-name: "&3View &1{item_name}&3's recipe"
 
+  # The gui pattern of the crafting GUI.
+  # There can be 1~6 lines, and each line must be exactly 9 characters long.
+  # The characters from 0 to 9 is builtin, and 1-9 means 9 ingredients, the 0 is the crafted item.
+  crafting-pattern: |
+    &&&&&&&&&
+    &&123&&&&
+    &&456&0&&
+    &&789&&&&
+    &&&&&&&&&
+
+  # The crafting GUI's title.
+  crafting-name: "&3Crafting Table"
+
+  click-to-craft: "&3Click to craft!"
+
+  limit-times: "&4Limit: {times}/{limit}"
+
   # Every character means what item.
   items:
     '_':

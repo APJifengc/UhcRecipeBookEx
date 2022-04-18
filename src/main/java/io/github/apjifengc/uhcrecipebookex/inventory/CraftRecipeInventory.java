@@ -51,7 +51,11 @@ public class CraftRecipeInventory {
     }
 
     public InventoryItem getInventoryItem(List<String> strings, int i, int j) {
-        return Config.GUI_ITEM_MAP.get(strings.get(i).charAt(j));
+        try {
+            return Config.GUI_ITEM_MAP.get(strings.get(i).charAt(j));
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public Inventory createMainInventory(int page) {
@@ -93,6 +97,21 @@ public class CraftRecipeInventory {
                         gui.setItem(i * 9 + j, craft.getRecipe().get(slot - 1));
                     }
                 } else {
+                    gui.setItem(i * 9 + j, item.getItemStack(0));
+                }
+            }
+        }
+        return gui;
+    }
+
+    public Inventory createCraftingInventory() {
+        Inventory gui = Bukkit.createInventory(new CraftingInventoryHolder(), Config.CRAFTING_PATTERN.size() * 9,
+                Config.GUI_CRAFTING_NAME.replace("&", "\u00A7")
+        );
+        for (int i = 0; i < Config.CRAFTING_PATTERN.size(); i++) {
+            for (int j = 0; j < 9; j++) {
+                InventoryItem item = getInventoryItem(Config.CRAFTING_PATTERN, i, j);
+                if (!(item instanceof RecipeSlotItem)) {
                     gui.setItem(i * 9 + j, item.getItemStack(0));
                 }
             }

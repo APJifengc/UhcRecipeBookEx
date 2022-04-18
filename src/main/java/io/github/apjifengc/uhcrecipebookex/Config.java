@@ -12,6 +12,8 @@ public class Config {
 
     public static List<String> RECIPE_VIEWER_PATTERN;
 
+    public static List<String> CRAFTING_PATTERN;
+
     public static Map<Character, InventoryItem> GUI_ITEM_MAP;
 
     public static List<String> IGNORE_CRAFTS;
@@ -22,6 +24,12 @@ public class Config {
 
     public static String GUI_RECIPE_VIEWER_NAME;
 
+    public static String GUI_CRAFTING_NAME;
+
+    public static String CLICK_TO_CRAFT;
+
+    public static String LIMIT_TIMES;
+
     static void loadConfig() throws NullPointerException {
         FileConfiguration config = UhcRecipeBookEx.getInstance().getConfig();
         INVENTORY_PATTERN = Arrays.asList(
@@ -29,6 +37,9 @@ public class Config {
         );
         RECIPE_VIEWER_PATTERN = Arrays.asList(
                 Objects.requireNonNull(config.getString("inventory.recipe-viewer-pattern")).split("\n")
+        );
+        CRAFTING_PATTERN = Arrays.asList(
+                Objects.requireNonNull(config.getString("inventory.crafting-pattern")).split("\n")
         );
         IGNORE_CRAFTS = config.getStringList("ignore-crafts");
         var map = config.getConfigurationSection("inventory.items");
@@ -39,7 +50,10 @@ public class Config {
         }
         MESSAGE = config.getConfigurationSection("message");
         GUI_NAME = config.getString("inventory.name");
+        CLICK_TO_CRAFT = config.getString("inventory.click-to-craft");
+        LIMIT_TIMES = config.getString("inventory.limit-times");
         GUI_RECIPE_VIEWER_NAME = config.getString("inventory.recipe-view-name");
+        GUI_CRAFTING_NAME = config.getString("inventory.crafting-name");
         for (var key : Objects.requireNonNull(map).getKeys(false)) {
             switch (Objects.requireNonNull(map.getString(key + ".type"))) {
                 case "item":
