@@ -303,7 +303,7 @@ public class PlayerListener implements Listener {
             new BukkitRunnable() {
                 @Override
                 public void run() {
-                    updateInventory(player, inventory);
+                    updateInventory(player, event.getView().getTopInventory());
                 }
             }.runTaskLater(plugin, 1);
         }
