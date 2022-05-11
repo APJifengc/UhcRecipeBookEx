@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'io.github.apjifengc'
-version = '1.1.0'
+version = '1.2.0'
 
 repositories {
     mavenCentral()
@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
     implementation 'org.projectlombok:lombok:1.18.22'
-    implementation files("$rootDir/lib/UhcCore-1.19.4.jar")
+    implementation files("$rootDir/libs/UhcCore-1.19.4.jar")
     compileOnly 'org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
 }

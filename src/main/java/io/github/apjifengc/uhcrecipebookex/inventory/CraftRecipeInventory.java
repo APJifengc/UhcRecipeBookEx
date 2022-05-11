@@ -6,6 +6,7 @@ import io.github.apjifengc.uhcrecipebookex.Config;
 import io.github.apjifengc.uhcrecipebookex.inventory.item.InventoryItem;
 import io.github.apjifengc.uhcrecipebookex.inventory.item.RecipeSlotItem;
 import io.github.apjifengc.uhcrecipebookex.inventory.item.SlotItem;
+import io.github.apjifengc.uhcrecipebookex.listener.PlayerListener;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
@@ -113,6 +114,8 @@ public class CraftRecipeInventory {
                 InventoryItem item = getInventoryItem(Config.CRAFTING_PATTERN, i, j);
                 if (!(item instanceof RecipeSlotItem)) {
                     gui.setItem(i * 9 + j, item.getItemStack(0));
+                } else if (((RecipeSlotItem) item).getSlot() == 0) {
+                    gui.setItem(i * 9 + j, PlayerListener.BARRIER);
                 }
             }
         }

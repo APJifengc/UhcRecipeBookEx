@@ -35,10 +35,16 @@ import java.util.*;
 
 public class PlayerListener implements Listener {
     private final UhcRecipeBookEx plugin = UhcRecipeBookEx.getInstance();
-
     private final CraftRecipeInventory recipe = UhcRecipeBookEx.getRecipeInventory();
-
     private final Map<Player, Map<Craft, Integer>> craftedItems = new HashMap<>();
+
+    public static final ItemStack BARRIER = new ItemStack(Material.BARRIER);
+
+    static {
+        ItemMeta meta = BARRIER.getItemMeta();
+        meta.setDisplayName("\u00A7a");
+        BARRIER.setItemMeta(meta);
+    }
 
     public PlayerListener() {
         Bukkit.getPluginManager().registerEvents(this, plugin);
@@ -55,7 +61,7 @@ public class PlayerListener implements Listener {
 
         Player player = event.getPlayer();
         UhcPlayer uhcPlayer = GameManager.getGameManager().getPlayerManager().getUhcPlayer(player);
-        ItemStack hand = player.getItemInHand();
+        ItemStack hand = player.getInventory().getItemInMainHand();
 
         if (GameItem.isGameItem(hand)) {
             event.setCancelled(true);
@@ -73,7 +79,35 @@ public class PlayerListener implements Listener {
         ) {
             event.setCancelled(true);
             uhcPlayer.getTeam().regenTeam(GameManager.getGameManager().getConfig().get(MainConfig.DOUBLE_REGEN_HEAD));
-            player.getInventory().remove(hand);
+            if (hand.getAmount() > 0) {
+                hand.setAmount(hand.getAmount() - 1);
+            }
+        }
+
+        if ((state == GameState.PLAYING || state == GameState.DEATHMATCH)
+                && UhcItems.isGoldenHeadItem(hand)
+                && uhcPlayer.getState().equals(PlayerState.PLAYING)
+                && (event.getAction() == Action.RIGHT_CLICK_AIR
+                || event.getAction() == Action.RIGHT_CLICK_BLOCK)
+        ) {
+            event.setCancelled(true);
+            uhcPlayer.getTeam().regenTeamGold(false);
+            if (hand.getAmount() > 0) {
+                hand.setAmount(hand.getAmount() - 1);
+            }
+        }
+
+        if ((state == GameState.PLAYING || state == GameState.DEATHMATCH)
+                && UhcItems.isMasterCompassItem(hand)
+                && uhcPlayer.getState().equals(PlayerState.PLAYING)
+                && (event.getAction() == Action.RIGHT_CLICK_AIR
+                || event.getAction() == Action.RIGHT_CLICK_BLOCK)
+        ) {
+            event.setCancelled(true);
+            //if (hand.getAmount() > 0) {
+            //	hand.setAmount(hand.getAmount() - 1);
+            //}
+            uhcPlayer.pointMasterCompassToPlayer(1);
         }
     }
 
@@ -265,7 +299,7 @@ public class PlayerListener implements Listener {
                             ItemStack addedItems = itemStack.clone();
                             int addedItemCount = ((int) Math.floor(
                                     (double) Math.min(getAddableItemCount(event.getView().getBottomInventory(), addedItems),
-                                    itemStack.getAmount() * getMaximumCrafts(inventory)) / itemStack.getAmount())
+                                            itemStack.getAmount() * getMaximumCrafts(inventory)) / itemStack.getAmount())
                             );
                             if (craft.hasLimit()) {
                                 addedItemCount = Math.min(addedItemCount, craft.getLimit() - getCraftedTimes(player, craft.getRealCraft()));
@@ -418,7 +452,7 @@ public class PlayerListener implements Listener {
     void updateInventory(Player player, Inventory inventory) {
         Optional<CraftRecipe> craft = getCurrentCraft(inventory, player);
         ItemStack newStack;
-        newStack = craft.map(value -> value.getCraft().clone()).orElseGet(() -> new ItemStack(Material.AIR));
+        newStack = craft.map(value -> value.getCraft().clone()).orElse(BARRIER);
         ItemMeta meta = newStack.getItemMeta();
         if (meta != null) {
             List<String> lore = meta.getLore();

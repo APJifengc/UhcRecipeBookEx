@@ -1,9 +1,11 @@
 package io.github.apjifengc.uhcrecipebookex;
 
+import com.gmail.val59000mc.UhcCore;
+import com.gmail.val59000mc.configuration.MainConfig;
 import com.gmail.val59000mc.events.UhcGameStateChangedEvent;
 import com.gmail.val59000mc.game.GameManager;
 import com.gmail.val59000mc.game.GameState;
-import com.gmail.val59000mc.listeners.ItemsListener;
+import com.gmail.val59000mc.listeners.*;
 import io.github.apjifengc.uhcrecipebookex.inventory.CraftRecipeInventory;
 import io.github.apjifengc.uhcrecipebookex.listener.PlayerListener;
 import lombok.Getter;
@@ -13,6 +15,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.plugin.RegisteredListener;
 import org.bukkit.plugin.java.JavaPlugin;
+import com.gmail.val59000mc.configuration.MainConfig;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public final class UhcRecipeBookEx extends JavaPlugin implements Listener {
 
@@ -51,6 +57,7 @@ public final class UhcRecipeBookEx extends JavaPlugin implements Listener {
     private void load() {
         recipeInventory = new CraftRecipeInventory();
         new PlayerListener();
+
         // Remove the default listener for the book item.
         for (RegisteredListener listener : PlayerInteractEvent.getHandlerList().getRegisteredListeners()) {
             if (listener.getListener() instanceof ItemsListener) {
@@ -60,3 +67,5 @@ public final class UhcRecipeBookEx extends JavaPlugin implements Listener {
         Bukkit.getPluginCommand("craft").setExecutor(new CraftsCommandExecutor());
     }
 }
+
+
