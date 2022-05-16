@@ -454,7 +454,7 @@ public class PlayerListener implements Listener {
         ItemStack newStack;
         newStack = craft.map(value -> value.getCraft().clone()).orElse(BARRIER);
         ItemMeta meta = newStack.getItemMeta();
-        if (meta != null) {
+        if (meta != null && newStack != BARRIER) {
             List<String> lore = meta.getLore();
             if (lore == null) {
                 lore = new ArrayList<>();
