@@ -78,10 +78,7 @@ public class PlayerListener implements Listener {
                 || event.getAction() == Action.RIGHT_CLICK_BLOCK)
         ) {
             event.setCancelled(true);
-            uhcPlayer.getTeam().regenTeam(GameManager.getGameManager().getConfig().get(MainConfig.DOUBLE_REGEN_HEAD));
-            if (hand.getAmount() > 0) {
-                hand.setAmount(hand.getAmount() - 1);
-            }
+            uhcPlayer.getTeam().regenTeam(false,1,uhcPlayer);
         }
 
         if ((state == GameState.PLAYING || state == GameState.DEATHMATCH)
@@ -91,10 +88,17 @@ public class PlayerListener implements Listener {
                 || event.getAction() == Action.RIGHT_CLICK_BLOCK)
         ) {
             event.setCancelled(true);
-            uhcPlayer.getTeam().regenTeamGold(false);
-            if (hand.getAmount() > 0) {
-                hand.setAmount(hand.getAmount() - 1);
-            }
+            uhcPlayer.getTeam().regenTeamGold(false,1,uhcPlayer);
+        }
+
+        if ((state == GameState.PLAYING || state == GameState.DEATHMATCH )
+                && UhcItems.isCornItem(hand)
+                && uhcPlayer.getState().equals(PlayerState.PLAYING)
+                && (event.getAction() == Action.RIGHT_CLICK_AIR
+                || event.getAction() == Action.RIGHT_CLICK_BLOCK)
+        ) {
+            event.setCancelled(true);
+            uhcPlayer.regenPlayerCorn(1);
         }
 
         if ((state == GameState.PLAYING || state == GameState.DEATHMATCH)
