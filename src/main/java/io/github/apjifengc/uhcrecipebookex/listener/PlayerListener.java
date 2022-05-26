@@ -7,6 +7,7 @@ import com.gmail.val59000mc.exceptions.UhcTeamException;
 import com.gmail.val59000mc.game.GameManager;
 import com.gmail.val59000mc.game.GameState;
 import com.gmail.val59000mc.languages.Lang;
+import com.gmail.val59000mc.listeners.ItemsListener;
 import com.gmail.val59000mc.players.PlayerState;
 import com.gmail.val59000mc.players.UhcPlayer;
 import com.gmail.val59000mc.players.UhcTeam;
@@ -18,6 +19,8 @@ import net.wesjd.anvilgui.AnvilGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.block.BrewingStand;
+import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -25,13 +28,18 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.*;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.BrewerInventory;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.potion.PotionType;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.*;
+
+import static org.bukkit.Bukkit.broadcastMessage;
 
 public class PlayerListener implements Listener {
     private final UhcRecipeBookEx plugin = UhcRecipeBookEx.getInstance();
@@ -345,6 +353,12 @@ public class PlayerListener implements Listener {
                 }
             }.runTaskLater(plugin, 1);
         }
+
+        /*if(event.getInventory().getType().equals(InventoryType.BREWING) && config.get(MainConfig.BAN_LEVEL_TWO_POTIONS)){
+            final BrewerInventory inv = (BrewerInventory) event.getInventory();
+            final HumanEntity human = event.getWhoClicked();
+            Bukkit.getScheduler().runTaskLater(plugin, new CheckBrewingStandAfterClick(inv.getHolder(), human),1);
+        }*/
     }
 
     @EventHandler
@@ -535,4 +549,53 @@ public class PlayerListener implements Listener {
         }
         return Optional.empty();
     }
+
+    /*@EventHandler(priority = EventPriority.HIGHEST)
+    public void onHopperEvent(InventoryMoveItemEvent event) {
+        Inventory inv = event.getDestination();
+        if(inv.getType().equals(InventoryType.BREWING) && config.get(MainConfig.BAN_LEVEL_TWO_POTIONS) && inv.getHolder() instanceof BrewingStand){
+            Bukkit.getScheduler().runTaskLater(plugin, new PlayerListener.CheckBrewingStandAfterClick((BrewingStand) inv.getHolder(), null),1);
+        }
+
+    }
+
+    private static class CheckBrewingStandAfterClick implements Runnable{
+        private final BrewingStand stand;
+        private final HumanEntity human;
+
+        private CheckBrewingStandAfterClick(BrewingStand stand, HumanEntity human) {
+            this.stand = stand;
+            this.human = human;
+        }
+
+        @Override
+        public void run(){
+            ItemStack ingredient = stand.getInventory().getIngredient();
+            PotionType type0 = null;
+            PotionType type1 = null;
+            PotionType type2 = null;
+            if (stand.getInventory().getItem(0) != null){
+                PotionMeta potion0 = (PotionMeta) stand.getInventory().getItem(0).getItemMeta();
+                type0 = potion0.getBasePotionData().getType();
+            }
+            if (stand.getInventory().getItem(1) != null){
+                PotionMeta potion1 = (PotionMeta) stand.getInventory().getItem(1).getItemMeta();
+                type1 = potion1.getBasePotionData().getType();
+            }
+            if (stand.getInventory().getItem(2) != null){
+                PotionMeta potion2 = (PotionMeta) stand.getInventory().getItem(2).getItemMeta();
+                type2 = potion2.getBasePotionData().getType();
+            }
+
+            if(ingredient != null && ingredient.getType().equals(Material.GLOWSTONE_DUST)
+                    && (type0==PotionType.STRENGTH||type1==PotionType.STRENGTH||type2==PotionType.STRENGTH)){
+                if(human != null){
+                    human.sendMessage(Lang.ITEMS_POTION_BANNED);
+                }
+
+                stand.getLocation().getWorld().dropItemNaturally(stand.getLocation(), ingredient.clone());
+                stand.getInventory().setIngredient(new ItemStack(Material.AIR));
+            }
+        }
+    }*/
 }
