@@ -7,7 +7,7 @@ import com.gmail.val59000mc.exceptions.UhcTeamException;
 import com.gmail.val59000mc.game.GameManager;
 import com.gmail.val59000mc.game.GameState;
 import com.gmail.val59000mc.languages.Lang;
-import com.gmail.val59000mc.listeners.ItemsListener;
+import com.gmail.val59000mc.players.PlayerManager;
 import com.gmail.val59000mc.players.PlayerState;
 import com.gmail.val59000mc.players.UhcPlayer;
 import com.gmail.val59000mc.players.UhcTeam;
@@ -19,8 +19,6 @@ import net.wesjd.anvilgui.AnvilGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.block.BrewingStand;
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -28,23 +26,19 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.*;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.BrewerInventory;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.PotionMeta;
-import org.bukkit.potion.PotionType;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.*;
 
-import static org.bukkit.Bukkit.broadcastMessage;
-
 public class PlayerListener implements Listener {
     private final UhcRecipeBookEx plugin = UhcRecipeBookEx.getInstance();
     private final CraftRecipeInventory recipe = UhcRecipeBookEx.getRecipeInventory();
-    private final Map<Player, Map<Craft, Integer>> craftedItems = new HashMap<>();
+    private final Map<UhcPlayer, Map<Craft, Integer>> craftedItems = new HashMap<>();
+    private final PlayerManager playerManager;
 
     public static final ItemStack BARRIER = new ItemStack(Material.BARRIER);
 
@@ -54,7 +48,9 @@ public class PlayerListener implements Listener {
         BARRIER.setItemMeta(meta);
     }
 
-    public PlayerListener() {
+    public PlayerListener(PlayerManager playerManager) {
+        assert playerManager != null;
+        this.playerManager = playerManager;
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
@@ -417,17 +413,21 @@ public class PlayerListener implements Listener {
     }
 
     int getCraftedTimes(Player player, Craft craft) {
-        return craftedItems.getOrDefault(player, new HashMap<>()).getOrDefault(craft, 0);
+
+        UhcPlayer uhcPlayer = playerManager.getUhcPlayer(player);
+
+        return craftedItems.getOrDefault(uhcPlayer, new HashMap<>()).getOrDefault(craft, 0);
     }
 
     void addCraftedTimes(Player player, Craft craft, int amount) {
+        UhcPlayer uhcPlayer = playerManager.getUhcPlayer(player);
         if (craft == null) {
             return;
         }
-        if (!craftedItems.containsKey(player)) {
-            craftedItems.put(player, new HashMap<>());
+        if (!craftedItems.containsKey(uhcPlayer)) {
+            craftedItems.put(uhcPlayer, new HashMap<>());
         }
-        Map<Craft, Integer> map = craftedItems.get(player);
+        Map<Craft, Integer> map = craftedItems.get(uhcPlayer);
         if (!map.containsKey(craft)) {
             map.put(craft, amount);
         } else {
