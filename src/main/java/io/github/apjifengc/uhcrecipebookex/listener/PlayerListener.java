@@ -19,6 +19,7 @@ import net.wesjd.anvilgui.AnvilGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -37,7 +38,7 @@ import java.util.*;
 public class PlayerListener implements Listener {
     private final UhcRecipeBookEx plugin = UhcRecipeBookEx.getInstance();
     private final CraftRecipeInventory recipe = UhcRecipeBookEx.getRecipeInventory();
-    private final Map<UhcPlayer, Map<Craft, Integer>> craftedItems = new HashMap<>();
+    private final Map<UhcPlayer, Map<ItemStack, Integer>> craftedItems = new HashMap<>();
     private final PlayerManager playerManager;
     GameManager gm = GameManager.getGameManager();
     public static final ItemStack BARRIER = new ItemStack(Material.BARRIER);
@@ -424,22 +425,22 @@ public class PlayerListener implements Listener {
 
         UhcPlayer uhcPlayer = playerManager.getUhcPlayer(player);
 
-        return craftedItems.getOrDefault(uhcPlayer, new HashMap<>()).getOrDefault(craft, 0);
+        return craftedItems.getOrDefault(uhcPlayer, new HashMap<>()).getOrDefault(craft.getCraft(), 0);
     }
 
     void addCraftedTimes(Player player, Craft craft, int amount) {
         UhcPlayer uhcPlayer = playerManager.getUhcPlayer(player);
-        if (craft == null) {
+        if (craft.getCraft() == null) {
             return;
         }
         if (!craftedItems.containsKey(uhcPlayer)) {
             craftedItems.put(uhcPlayer, new HashMap<>());
         }
-        Map<Craft, Integer> map = craftedItems.get(uhcPlayer);
-        if (!map.containsKey(craft)) {
-            map.put(craft, amount);
+        Map<ItemStack, Integer> map = craftedItems.get(uhcPlayer);
+        if (!map.containsKey(craft.getCraft())) {
+            map.put(craft.getCraft(), amount);
         } else {
-            map.put(craft, map.get(craft) + amount);
+            map.put(craft.getCraft(), map.get(craft.getCraft()) + amount);
         }
     }
 
