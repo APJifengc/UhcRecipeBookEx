@@ -39,7 +39,7 @@ public class PlayerListener implements Listener {
     private final CraftRecipeInventory recipe = UhcRecipeBookEx.getRecipeInventory();
     private final Map<UhcPlayer, Map<Craft, Integer>> craftedItems = new HashMap<>();
     private final PlayerManager playerManager;
-
+    GameManager gm = GameManager.getGameManager();
     public static final ItemStack BARRIER = new ItemStack(Material.BARRIER);
 
     static {
@@ -303,6 +303,14 @@ public class PlayerListener implements Listener {
                         }
                         CraftRecipe craft = craftOptional.get();
                         ItemStack itemStack = craft.getCraft();
+                        if (gm.getConfig().get(MainConfig.ENABLE_CRAFTS_PERMISSIONS) && itemStack.getItemMeta()!=null&&itemStack.getItemMeta().getLore()!=null) {
+                            String permission = "uhc-core.craft." + itemStack.getItemMeta().getLore().get(0).toLowerCase().replaceAll(" ", "-");
+                            if(!player.hasPermission(permission)){
+                                player.sendMessage(Lang.ITEMS_CRAFT_NO_PERMISSION.replace("%craft%", ChatColor.translateAlternateColorCodes('&', itemStack.getItemMeta().getDisplayName())));
+                                event.setCancelled(true);
+                                return;
+                            }
+                        }
                         if (event.isShiftClick()) {
                             ItemStack addedItems = itemStack.clone();
                             int addedItemCount = ((int) Math.floor(
