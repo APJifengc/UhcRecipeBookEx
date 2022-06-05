@@ -30,7 +30,9 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
+import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.*;
@@ -83,7 +85,7 @@ public class PlayerListener implements Listener {
                 || event.getAction() == Action.RIGHT_CLICK_BLOCK)
         ) {
             event.setCancelled(true);
-            uhcPlayer.getTeam().regenTeam(false,1,uhcPlayer);
+            uhcPlayer.getTeam().regenTeam(false, 1, uhcPlayer);
         }
 
         if ((state == GameState.PLAYING || state == GameState.DEATHMATCH)
@@ -93,10 +95,10 @@ public class PlayerListener implements Listener {
                 || event.getAction() == Action.RIGHT_CLICK_BLOCK)
         ) {
             event.setCancelled(true);
-            uhcPlayer.getTeam().regenTeamGold(false,1,uhcPlayer);
+            uhcPlayer.getTeam().regenTeamGold(false, 1, uhcPlayer);
         }
 
-        if ((state == GameState.PLAYING || state == GameState.DEATHMATCH )
+        if ((state == GameState.PLAYING || state == GameState.DEATHMATCH)
                 && UhcItems.isCornItem(hand)
                 && uhcPlayer.getState().equals(PlayerState.PLAYING)
                 && (event.getAction() == Action.RIGHT_CLICK_AIR
@@ -304,9 +306,9 @@ public class PlayerListener implements Listener {
                         }
                         CraftRecipe craft = craftOptional.get();
                         ItemStack itemStack = craft.getCraft();
-                        if (gm.getConfig().get(MainConfig.ENABLE_CRAFTS_PERMISSIONS) && itemStack.getItemMeta()!=null&&itemStack.getItemMeta().getLore()!=null) {
+                        if (gm.getConfig().get(MainConfig.ENABLE_CRAFTS_PERMISSIONS) && itemStack.getItemMeta() != null && itemStack.getItemMeta().getLore() != null) {
                             String permission = "uhc-core.craft." + itemStack.getItemMeta().getLore().get(0).toLowerCase().replaceAll(" ", "-");
-                            if(!player.hasPermission(permission)){
+                            if (!player.hasPermission(permission)) {
                                 player.sendMessage(Lang.ITEMS_CRAFT_NO_PERMISSION.replace("%craft%", ChatColor.translateAlternateColorCodes('&', itemStack.getItemMeta().getDisplayName())));
                                 event.setCancelled(true);
                                 return;
@@ -511,8 +513,49 @@ public class PlayerListener implements Listener {
             if (stacks[i] == null) {
                 stacks[i] = new ItemStack(Material.AIR);
             }
-            if (!craft.getRecipe().get(i).isSimilar(stacks[i])) {
-                return false;
+            ItemStack oriItem = stacks[i];
+            ItemStack oriTarget = craft.getRecipe().get(i);
+            if (!craft.getRecipe().get(i).hasItemMeta()) {
+                if (!(oriItem.getType() == oriTarget.getType())) {
+                    return false;
+                }
+            } else {
+                ItemStack item = oriItem.clone();
+                ItemStack target = oriTarget.clone();
+                if (item.hasItemMeta() && target.hasItemMeta()) {
+                    var itemMeta = item.getItemMeta();
+                    var targetMeta = target.getItemMeta();
+                    // ignore damage
+                    if (itemMeta instanceof Damageable && targetMeta instanceof Damageable) {
+                        ((Damageable) itemMeta).setDamage(0);
+                        ((Damageable) targetMeta).setDamage(0);
+                    }
+                    if (itemMeta instanceof SkullMeta && targetMeta instanceof SkullMeta) {
+                        ((SkullMeta) itemMeta).setOwningPlayer(null);
+                        ((SkullMeta) targetMeta).setOwningPlayer(null);
+                    }
+                    // ignore enchantments
+                    item.getEnchantments().forEach((k, v) -> item.removeEnchantment(k));
+                    target.getEnchantments().forEach((k, v) -> target.removeEnchantment(k));
+                    // ignore name
+                    itemMeta.setDisplayName(null);
+                    targetMeta.setDisplayName(null);
+                    // ignore lore
+                    itemMeta.setLore(null);
+                    targetMeta.setLore(null);
+                    // ignore attributes
+                    if (itemMeta.hasAttributeModifiers()) {
+                        itemMeta.getAttributeModifiers().forEach((k, v) -> itemMeta.removeAttributeModifier(k));
+                    }
+                    if (targetMeta.hasAttributeModifiers()) {
+                        targetMeta.getAttributeModifiers().forEach((k, v) -> itemMeta.removeAttributeModifier(k));
+                    }
+                    item.setItemMeta(itemMeta);
+                    target.setItemMeta(targetMeta);
+                }
+                if (!target.isSimilar(item)) {
+                    return false;
+                }
             }
         }
         return true;

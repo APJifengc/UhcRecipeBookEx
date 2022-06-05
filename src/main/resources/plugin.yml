@@ -4,6 +4,6 @@ main: io.github.apjifengc.uhcrecipebookex.UhcRecipeBookEx
 api-version: 1.17
 prefix: UHCRBE
 depend: [ UhcCore ]
-authors: [ APJifengc ]
+authors: [ APJifengc, AceMiffy ]
 description: A plugin to extend UhcCore's recipe book's functionalities.
 website: https://www.github.com/APJifengc/UhcRecipeBookEx
