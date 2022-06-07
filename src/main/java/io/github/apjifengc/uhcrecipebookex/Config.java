@@ -30,6 +30,8 @@ public class Config {
 
     public static String LIMIT_TIMES;
 
+    public static String SHOW_LIMIT_MESSAGE;
+
     static void loadConfig() throws NullPointerException {
         FileConfiguration config = UhcRecipeBookEx.getInstance().getConfig();
         INVENTORY_PATTERN = Arrays.asList(
@@ -54,6 +56,8 @@ public class Config {
         LIMIT_TIMES = config.getString("inventory.limit-times");
         GUI_RECIPE_VIEWER_NAME = config.getString("inventory.recipe-view-name");
         GUI_CRAFTING_NAME = config.getString("inventory.crafting-name");
+
+        SHOW_LIMIT_MESSAGE = config.getString("message.limit-show");
         for (var key : Objects.requireNonNull(map).getKeys(false)) {
             switch (Objects.requireNonNull(map.getString(key + ".type"))) {
                 case "item":

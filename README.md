@@ -1,2 +1,1 @@
-# UhcRecipeBookEx
-Extend UhcCore's recipe book's functionalities.
+关注内谁喵，后面忘了喵。

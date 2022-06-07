@@ -327,6 +327,7 @@ public class PlayerListener implements Listener {
                             event.getWhoClicked().getInventory().addItem(addedItems);
                             reduce(inventory, addedItemCount);
                             addCraftedTimes(player, craft.getRealCraft(), addedItemCount);
+                            showLimitMessage(player, craft);
                         } else {
                             if (craft.hasLimit() && getCraftedTimes(player, craft.getRealCraft()) == craft.getLimit()) {
                                 return;
@@ -345,6 +346,7 @@ public class PlayerListener implements Listener {
                                     event.getView().setCursor(newStack);
                                     reduce(inventory, 1);
                                     addCraftedTimes(player, craft.getRealCraft(), 1);
+                                    showLimitMessage(player, craft);
                                 }
                             }
                         }
@@ -508,6 +510,29 @@ public class PlayerListener implements Listener {
         }
     }
 
+    void showLimitMessage(Player player, CraftRecipe craft) {
+        if (craft.hasLimit()) {
+            if (player != null) {
+                String text = Config.SHOW_LIMIT_MESSAGE.replace("&", "\u00A7")
+                        .replace("{times}", String.valueOf(getCraftedTimes(player, craft.getRealCraft())))
+                        .replace("{limit}", String.valueOf(craft.getLimit()));
+                String name = craft.getRealCraft().getName().replace("0","")
+                        .replace("1","")
+                        .replace("2","")
+                        .replace("3","")
+                        .replace("4","")
+                        .replace("5","")
+                        .replace("6","")
+                        .replace("7","")
+                        .replace("8","")
+                        .replace("9","")
+                        .replace("&", "");
+                text = text.replace("{item}", name);
+                player.sendMessage(text);
+            }
+        }
+    }
+
     boolean matches(ItemStack[] stacks, Craft craft) {
         for (int i = 0; i < 9; i++) {
             if (stacks[i] == null) {
@@ -530,6 +555,7 @@ public class PlayerListener implements Listener {
                         ((Damageable) itemMeta).setDamage(0);
                         ((Damageable) targetMeta).setDamage(0);
                     }
+                    //ignore skull meta
                     if (itemMeta instanceof SkullMeta && targetMeta instanceof SkullMeta) {
                         ((SkullMeta) itemMeta).setOwningPlayer(null);
                         ((SkullMeta) targetMeta).setOwningPlayer(null);

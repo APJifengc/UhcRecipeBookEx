@@ -5,39 +5,70 @@
 # The crafts that will be ignored in the recipe book.
 ignore-crafts:
   - 'War Axe'
+  - '学徒之盔1'
+  - '冰斗湖头盔1'
+  - '巨龙之甲1'
+  - '巨龙之甲2'
+  - '蛮族之甲1'
+  - '速度药水1'
+  - '速度药水2'
+  - '抵抗药水1'
+  - '抵抗药水2'
+  - '圣水1'
+  - '圣水2'
+  - '圣水3'
+  - '圣水4'
+  - '圣水5'
+  - '圣水6'
+  - '圣水7'
+  - '圣水8'
+  - '圣水9'
+  - '圣水10'
+  - '圣水11'
+  - '圣水12'
+  - '圣水13'
+  - '虚弱药水1'
+  - '虚弱药水2'
+  - '锻炉1'
+  - '炼铁1'
+  - '炼金1'
+  - '炼铜1'
+  - '炼铁2'
+  - '炼金2'
+  - '炼铜2'
+  - '炼铁3'
+  - '炼金3'
+  - '炼铜3'
+  - '牛排1'
+  - '甘蔗1'
+  - '甘蔗2'
+  - '甘蔗3'
+  - '甘蔗4'
+  - '甘蔗5'
+  - '甘蔗6'
+  - '甘蔗7'
+  - '甘蔗8'
+  - '甘蔗9'
+  - '甘蔗10'
+  - '甘蔗11'
+  - '苹果1'
+  - '苹果2'
+  - '苹果3'
+  - '黑曜石1'
+  - '黑曜石2'
+  - '黑曜石3'
+  - "哲人之镐1"
+  - "效率铁镐1"
+  - "效率铁镐2"
+  - "效率铁镐3"
 
 inventory:
   # The gui name.
   # You can use {page_num} for the page number.
   # You can also use it in the item's name & lore.
-  name: "&3Custom Recipe Book (Page &1{page_num}&3)"
+  name: "&8({page_num}/4)配方书"
 
-  # The gui pattern of the recipe book.
-  # There can be 1~6 lines, and each line must be exactly 9 characters long.
-  inventory-pattern: |
-    _________
-    _#######_
-    _#######_
-    _#######_
-    _________
-    <&&&o&&&>
-
-  # The gui pattern of the recipe viewer.
-  # There can be 1~6 lines, and each line must be exactly 9 characters long.
-  # The characters from 0 to 9 is builtin, and 1-9 means 9 ingredients, the 0 is the crafted item.
-  recipe-viewer-pattern: |
-    _________
-    __123____
-    __456_0__
-    __789____
-    _________
-    @&&&&&&&&
-
-  # The recipe viewer's gui name.
-  # You can use {item_name} for the item's name.
-  recipe-view-name: "&3View &1{item_name}&3's recipe"
-
-  # The gui pattern of the crafting GUI.
+ # The gui pattern of the crafting GUI.
   # There can be 1~6 lines, and each line must be exactly 9 characters long.
   # The characters from 0 to 9 is builtin, and 1-9 means 9 ingredients, the 0 is the crafted item.
   crafting-pattern: |
@@ -48,11 +79,35 @@ inventory:
     &&&&&&&&&
 
   # The crafting GUI's title.
-  crafting-name: "&3Crafting Table"
+  crafting-name: "&8工作台"
 
-  click-to-craft: "&3Click to craft!"
+  click-to-craft: "&3点击合成物品!"
 
-  limit-times: "&4Limit: {times}/{limit}"
+  limit-times: "&a限制次数: {times}/{limit}"
+  # The gui pattern of the recipe book.
+  # There can be 1~6 lines, and each line must be exactly 9 characters long.
+  inventory-pattern: |
+    _________
+    _#######_
+    _#######_
+    _#######_
+    _________
+    <___o___>
+
+  # The gui pattern of the recipe viewer.
+  # There can be 1~6 lines, and each line must be exactly 9 characters long.
+  # The characters from 0 to 9 is builtin, and 1-9 means 9 ingredients, the 0 is the crafted item.
+  recipe-viewer-pattern: |
+    &&&&&&&&&
+    &&123&&&&
+    &&456&0&&
+    &&789&&&&
+    &&&&&&&&&
+    &&&&@&&&&
+
+  # The recipe viewer's gui name.
+  # You can use {item_name} for the item's name.
+  recipe-view-name: "&8查看&7{item_name}&8的配方"
 
   # Every character means what item.
   items:
@@ -64,33 +119,43 @@ inventory:
       fallback: '_' # if the slot is empty, what item will it show
     '<':
       type: previous-page
-      material: EMERALD
-      name: "&5← Previous Page"
-      fallback: '&' # if the slot is not available (the first page), what item will it show
+      material: ARROW
+      name: "&a上一页"
+      fallback: '_' # if the slot is not available (the first page), what item will it show
       # other configs is same as item
     '>':
       type: next-page
-      material: EMERALD
-      name: "&5→ Next Page"
-      fallback: '&'
+      material: ARROW
+      name: "&a下一页"
+      fallback: '_'
     'o': # This is an example of the item config.
       type: item
       material: PAPER
-      name: "&3Custom Recipe Book (Page &1{page_num}&3)"
+      name: "&a自定义合成"
       lore: |
-        &2 These are all kinds of custom recipes
-        &2 you can craft in the game!
-        &2 Try to make good use of them!
+        &e这些是全部的自定义合成
+        &e你可以在游戏中合成!
+        &e尝试去合理地利用它们!
       glow: true
       amount: 1
     '&':
       type: item
-      material: WHITE_STAINED_GLASS_PANE
+      material: GRAY_STAINED_GLASS_PANE
       name: ""
     '@':
       type: go-back
-      material: REDSTONE
-      name: "&2← Go Back"
+      material: ARROW
+      name: "&a返回"
+      lore: |
+        &7至配方书
+    '+':
+      type: item
+      material: REDSTONE_TORCH
+      name: "&a提示"
+      lore: |
+        &e如果你无法正常合成物品
+        &e可尝试输入/ci清除手持物品数据
 
 message:
-  right-click-open: "&3Right click to check the recipe!"
+  right-click-open: "&3点击查看配方!"
+  limit-show: "&a你已合成&e{item}&a! (&e{times}&a/{limit})"
