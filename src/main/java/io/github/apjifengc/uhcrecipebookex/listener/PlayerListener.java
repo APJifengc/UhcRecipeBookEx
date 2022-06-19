@@ -7,10 +7,13 @@ import com.gmail.val59000mc.exceptions.UhcTeamException;
 import com.gmail.val59000mc.game.GameManager;
 import com.gmail.val59000mc.game.GameState;
 import com.gmail.val59000mc.languages.Lang;
+import com.gmail.val59000mc.listeners.ItemsListener;
 import com.gmail.val59000mc.players.PlayerManager;
 import com.gmail.val59000mc.players.PlayerState;
 import com.gmail.val59000mc.players.UhcPlayer;
 import com.gmail.val59000mc.players.UhcTeam;
+import com.gmail.val59000mc.utils.TimeUtils;
+import com.gmail.val59000mc.utils.UniversalMaterial;
 import io.github.apjifengc.uhcrecipebookex.Config;
 import io.github.apjifengc.uhcrecipebookex.UhcRecipeBookEx;
 import io.github.apjifengc.uhcrecipebookex.inventory.*;
@@ -19,6 +22,8 @@ import net.wesjd.anvilgui.AnvilGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.Sound;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -37,6 +42,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.*;
 
+import static org.bukkit.Bukkit.broadcastMessage;
+
 public class PlayerListener implements Listener {
     private final UhcRecipeBookEx plugin = UhcRecipeBookEx.getInstance();
     private final CraftRecipeInventory recipe = UhcRecipeBookEx.getRecipeInventory();
@@ -44,6 +51,9 @@ public class PlayerListener implements Listener {
     private final PlayerManager playerManager;
     GameManager gm = GameManager.getGameManager();
     public static final ItemStack BARRIER = new ItemStack(Material.BARRIER);
+    public static final ItemStack AIR = new ItemStack(Material.AIR);
+
+    private final Map<Player,Long> modularUsingLastUpdate = new HashMap<>();
 
     static {
         ItemMeta meta = BARRIER.getItemMeta();
@@ -55,6 +65,75 @@ public class PlayerListener implements Listener {
         assert playerManager != null;
         this.playerManager = playerManager;
         Bukkit.getPluginManager().registerEvents(this, plugin);
+    }
+
+    @EventHandler
+    public void onLeftClickItem(PlayerInteractEvent event) {
+        if (
+                event.getAction() != Action.LEFT_CLICK_AIR &&
+                        event.getAction() != Action.LEFT_CLICK_BLOCK
+        ) {
+            return;
+        }
+        Player player = event.getPlayer();
+        ItemStack hand = player.getInventory().getItemInMainHand();
+
+        if (UhcItems.isModularBowPunchItem(hand)
+                ||UhcItems.isModularBowLightningItem(hand)
+                ||UhcItems.isModularBowPoisonItem(hand)){
+            handleModularSwitch(10, hand, player);
+        }
+    }
+
+    public void handleModularSwitch(int cooldown, ItemStack hand, Player player){
+        // Check cooldown
+        if (cooldown != -1 && (cooldown*TimeUtils.SECOND_TICKS) + modularUsingLastUpdate.getOrDefault(player,-1L) > System.currentTimeMillis()){
+            return;
+        }
+
+        modularUsingLastUpdate.put(player,System.currentTimeMillis());
+
+        player.playSound(player.getLocation(),Sound.ENTITY_ARROW_HIT_PLAYER,1,1);
+        ItemMeta itemMeta = hand.getItemMeta();
+
+        if(UhcItems.isModularBowPunchItem(hand)){
+            player.sendMessage(Lang.ITEMS_MODULAR_BOW_TO_POISON_1);
+            player.sendMessage(Lang.ITEMS_MODULAR_BOW_TO_POISON_2);
+            itemMeta.removeEnchant(Enchantment.ARROW_KNOCKBACK);
+            itemMeta.setLore(List.of(Lang.ITEMS_MODULAR_BOW_POISON
+                    ,Lang.ITEMS_MODULAR_BOW_LORE_1
+                    ,Lang.ITEMS_MODULAR_BOW_LORE_2
+                    ,Lang.ITEMS_MODULAR_BOW_LORE_3
+                    ,Lang.ITEMS_MODULAR_BOW_LORE_4));
+            hand.setItemMeta(itemMeta);
+            return;
+        }
+
+        if(UhcItems.isModularBowLightningItem(hand)){
+            player.sendMessage(Lang.ITEMS_MODULAR_BOW_TO_PUNCH_1);
+            player.sendMessage(Lang.ITEMS_MODULAR_BOW_TO_PUNCH_2);
+            itemMeta.addEnchant(Enchantment.ARROW_KNOCKBACK,1,true);
+            itemMeta.setLore(List.of(Lang.ITEMS_MODULAR_BOW_PUNCH
+                    ,Lang.ITEMS_MODULAR_BOW_LORE_1
+                    ,Lang.ITEMS_MODULAR_BOW_LORE_2
+                    ,Lang.ITEMS_MODULAR_BOW_LORE_3
+                    ,Lang.ITEMS_MODULAR_BOW_LORE_4));
+            hand.setItemMeta(itemMeta);
+            return;
+        }
+
+        if(UhcItems.isModularBowPoisonItem(hand)){
+            player.sendMessage(Lang.ITEMS_MODULAR_BOW_TO_LIGHTNING_1);
+            player.sendMessage(Lang.ITEMS_MODULAR_BOW_TO_LIGHTNING_2);
+            itemMeta.removeEnchant(Enchantment.ARROW_KNOCKBACK);
+            itemMeta.setLore(List.of(Lang.ITEMS_MODULAR_BOW_LIGHTNING
+                    ,Lang.ITEMS_MODULAR_BOW_LORE_1
+                    ,Lang.ITEMS_MODULAR_BOW_LORE_2
+                    ,Lang.ITEMS_MODULAR_BOW_LORE_3
+                    ,Lang.ITEMS_MODULAR_BOW_LORE_4));
+            hand.setItemMeta(itemMeta);
+            return;
+        }
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -105,7 +184,7 @@ public class PlayerListener implements Listener {
                 || event.getAction() == Action.RIGHT_CLICK_BLOCK)
         ) {
             event.setCancelled(true);
-            uhcPlayer.regenPlayerCorn(1);
+            uhcPlayer.regenPlayerCorn(1,uhcPlayer);
         }
 
         if ((state == GameState.PLAYING || state == GameState.DEATHMATCH)
@@ -118,7 +197,7 @@ public class PlayerListener implements Listener {
             //if (hand.getAmount() > 0) {
             //	hand.setAmount(hand.getAmount() - 1);
             //}
-            uhcPlayer.pointMasterCompassToPlayer(1);
+            uhcPlayer.pointMasterCompassToPlayer(1,uhcPlayer);
         }
     }
 
@@ -156,7 +235,7 @@ public class PlayerListener implements Listener {
                 GameManager.getGameManager().getPlayerManager().sendPlayerToBungeeServer(player);
                 break;
             case COMPASS_ITEM:
-                uhcPlayer.pointCompassToNextPlayer(GameManager.getGameManager().getConfig().get(MainConfig.PLAYING_COMPASS_MODE), GameManager.getGameManager().getConfig().get(MainConfig.PLAYING_COMPASS_COOLDOWN));
+                uhcPlayer.pointCompassToNextPlayer(GameManager.getGameManager().getConfig().get(MainConfig.PLAYING_COMPASS_MODE), GameManager.getGameManager().getConfig().get(MainConfig.PLAYING_COMPASS_COOLDOWN),uhcPlayer);
                 break;
             case TEAM_READY:
             case TEAM_NOT_READY:
@@ -294,6 +373,12 @@ public class PlayerListener implements Listener {
         if (event.getView().getTopInventory().getHolder() instanceof CraftingInventoryHolder) {
             Inventory inventory = event.getClickedInventory();
             Player player = (Player) event.getWhoClicked();
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    updateInventory(player, event.getView().getTopInventory());
+                }
+            }.runTaskLater(plugin, 1);
             if (event.getClickedInventory() == event.getView().getTopInventory()) {
                 InventoryItem item = recipe.getInventoryItem(Config.CRAFTING_PATTERN, event.getSlot());
                 if (item instanceof RecipeSlotItem) {
@@ -306,8 +391,11 @@ public class PlayerListener implements Listener {
                         }
                         CraftRecipe craft = craftOptional.get();
                         ItemStack itemStack = craft.getCraft();
+                        if(itemStack == null || itemStack.getType().equals(Material.AIR)){
+                            return;
+                        }
                         if (gm.getConfig().get(MainConfig.ENABLE_CRAFTS_PERMISSIONS) && itemStack.getItemMeta() != null && itemStack.getItemMeta().getLore() != null) {
-                            String permission = "uhc-core.craft." + itemStack.getItemMeta().getLore().get(0).toLowerCase().replaceAll(" ", "-");
+                            String permission = "uhc-core.craft." + itemStack.getItemMeta().getLore().get(0).toLowerCase().replaceAll(" ", "-").replaceAll("\\u00fa", "u").replaceAll("\\u00a78", "").replaceAll("&8", "");
                             if (!player.hasPermission(permission)) {
                                 player.sendMessage(Lang.ITEMS_CRAFT_NO_PERMISSION.replace("%craft%", ChatColor.translateAlternateColorCodes('&', itemStack.getItemMeta().getDisplayName())));
                                 event.setCancelled(true);
@@ -316,6 +404,9 @@ public class PlayerListener implements Listener {
                         }
                         if (event.isShiftClick()) {
                             ItemStack addedItems = itemStack.clone();
+                            if(addedItems.getItemMeta()!=null&&addedItems.getItemMeta().getLore()!=null&&addedItems.getItemMeta().getLore().contains(Lang.ITEMS_FUSION_ARMOR)){
+                                addedItems = UhcItems.createFusionArmor();
+                            }
                             int addedItemCount = ((int) Math.floor(
                                     (double) Math.min(getAddableItemCount(event.getView().getBottomInventory(), addedItems),
                                             itemStack.getAmount() * getMaximumCrafts(inventory)) / itemStack.getAmount())
@@ -323,8 +414,14 @@ public class PlayerListener implements Listener {
                             if (craft.hasLimit()) {
                                 addedItemCount = Math.min(addedItemCount, craft.getLimit() - getCraftedTimes(player, craft.getRealCraft()));
                             }
-                            addedItems.setAmount(addedItemCount * itemStack.getAmount());
-                            event.getWhoClicked().getInventory().addItem(addedItems);
+                            if (itemStack.getType().getMaxStackSize()==1){
+                                for(int i = 0 ; i < addedItemCount ; i++){
+                                    event.getWhoClicked().getInventory().addItem(addedItems);
+                                }
+                            }else{
+                                addedItems.setAmount(addedItemCount * itemStack.getAmount());
+                                event.getWhoClicked().getInventory().addItem(addedItems);
+                            }
                             reduce(inventory, addedItemCount);
                             addCraftedTimes(player, craft.getRealCraft(), addedItemCount);
                             showLimitMessage(player, craft);
@@ -342,6 +439,12 @@ public class PlayerListener implements Listener {
                                 }
                                 if (amount <= itemStack.getType().getMaxStackSize()) {
                                     ItemStack newStack = itemStack.clone();
+                                    if(newStack.getItemMeta()!=null&&newStack.getItemMeta().getLore()!=null&&newStack.getItemMeta().getLore().contains(Lang.ITEMS_FUSION_ARMOR)){
+                                        newStack = UhcItems.createFusionArmor();
+                                    }
+                                    if(newStack.getItemMeta()!=null&&newStack.getItemMeta().getLore()!=null&&newStack.getItemMeta().getLore().contains(Lang.ITEMS_DEUS_EX_MACHINA)){
+                                        player.setHealth(player.getHealth()/2);
+                                    }
                                     newStack.setAmount(amount);
                                     event.getView().setCursor(newStack);
                                     reduce(inventory, 1);
@@ -355,12 +458,6 @@ public class PlayerListener implements Listener {
                     event.setCancelled(true);
                 }
             }
-            new BukkitRunnable() {
-                @Override
-                public void run() {
-                    updateInventory(player, event.getView().getTopInventory());
-                }
-            }.runTaskLater(plugin, 1);
         }
 
         /*if(event.getInventory().getType().equals(InventoryType.BREWING) && config.get(MainConfig.BAN_LEVEL_TWO_POTIONS)){
@@ -492,7 +589,7 @@ public class PlayerListener implements Listener {
             }
             lore.add("");
             lore.add(Config.CLICK_TO_CRAFT.replace("&", "\u00A7"));
-            if (craft.isPresent() && craft.get().hasLimit()) {
+            if (craft.get().hasLimit()) {
                 lore.add(Config.LIMIT_TIMES.replace("&", "\u00A7")
                         .replace("{times}", String.valueOf(getCraftedTimes(player, craft.get().getRealCraft())))
                         .replace("{limit}", String.valueOf(craft.get().getLimit())));
@@ -587,6 +684,22 @@ public class PlayerListener implements Listener {
         return true;
     }
 
+    boolean fusionMatches(ItemStack[] stacks, Craft craft) {
+        for (int i = 0; i < 9; i++) {
+            if (stacks[i] == null) {
+                stacks[i] = new ItemStack(Material.AIR);
+            }
+            ItemStack oriItem = stacks[i];
+            ItemStack oriTarget = craft.getRecipe().get(i);
+            if (UniversalMaterial.isDiamondArmor(oriItem.getType())!=UniversalMaterial.isDiamondArmor(oriTarget.getType())){
+                if (UniversalMaterial.isDiamondArmor(oriTarget.getType())){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     int getMaximumCrafts(Inventory inventory) {
         int maximum = Integer.MAX_VALUE;
         for (int i = 0; i < Config.CRAFTING_PATTERN.size(); i++) {
@@ -618,6 +731,11 @@ public class PlayerListener implements Listener {
         }
         for (Craft craft : CraftsManager.getCrafts()) {
             if (matches(itemStacks, craft)) {
+                return Optional.of(new CraftRecipe(craft.getLimit(), craft.getCraft(), craft));
+            }else if(fusionMatches(itemStacks, craft)
+                    &&craft.getCraft().getItemMeta()!=null
+                    &&craft.getCraft().getItemMeta().getLore()!=null
+                    &&craft.getCraft().getItemMeta().getLore().contains(Lang.ITEMS_FUSION_ARMOR)){
                 return Optional.of(new CraftRecipe(craft.getLimit(), craft.getCraft(), craft));
             }
         }
