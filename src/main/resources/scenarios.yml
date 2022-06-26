@@ -1,0 +1,50 @@
+cutclean:
+  # Set to false to disable unlimited lapis in CutClean
+  unlimited-lapis: true
+  check-correct-tool: false
+fastleavesdecay:
+  # Time to decay leaves in ticks.
+  time-decay: 5
+timebomb:
+  # Time between killing of players.
+  delay: 30
+bestpve:
+  delay: 600
+teaminventory:
+  # Should the team inventory be dropped when the last player on a team is eliminated?
+  drop-on-team-elimination: false
+noclean:
+  # Time players are invulnerable for.
+  duration: 30
+skyhigh:
+  # Time before first damage.
+  time-before-start: 1800
+  # Time between damaging players after first damage.
+  time-between-damage: 30
+  # Y-layer where below players take damage.
+  y-layer: 120
+fastsmelting:
+  # Smelting speed, high number = faster smelting.
+  speed: 10
+weakestlink:
+  delay: 600
+loveatfirstsight:
+  # Set to true if you want to disable the broadcasts when teams are created.
+  disable-broadcasts: false
+achievementhunter:
+  # Amount of health players start with. (1 heart = 2 health)
+  health-at-start: 10
+  # Amount of health added per achievement.
+  health-added: 1
+hastey_boys:
+  # Level of Efficiency enchantment.
+  efficiency: 3
+  # Level of Durability enchantment.
+  durability: 1
+  # Set to true if crafting wooden tools should create stone tools instead.
+  stone-tools: false
+timber:
+  # Set to true if you want to trees drop oak planks.
+  drop-planks: false
+vein_miner:
+  calculate-tool-damage: true

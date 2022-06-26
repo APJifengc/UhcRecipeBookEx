@@ -1,0 +1,104 @@
+# TIP: Scoreboard can support a maximum of 15 lines!
+
+# Placeholders
+# Only on game started:
+#  %deathmatch% = Time until deathmatch.
+#  %time% = Shows how long the game has been going for.
+#  %pvp% = Shows how long left before PvP starts.
+#  %timers% = Shows one of three timers (PvP, Deathmatch & Border) depending on which one is first. (Formatted as "name: time")
+#  %timer-name% = Shows the name of one of three timers (PvP, Deathmatch & Border) depending on which one is first.
+#  %timer-time% = Shows the time of one of three timers (PvP, Deathmatch & Border) depending on which one is first.
+#  %teamAlive% = Show number of team alive.
+#  %playerSpectator% = Show number of spectator.
+#  %playerAlive% = Show number of player alive.
+#  %border% = Show the size of World Border.
+#  %kills% = Number of kills that the player has.
+#  %teamKills% = Number of kills that the team of the player has.
+#  %ylayer% = Display the y layer where the player is.
+#  %xCoordinate% = Display the x coordinate of where the player is.
+#  %zCoordinate% = Display the z coordinate of where the player is.
+#  %kit% = Name of the kit the player is using.
+#  %episode% = Episode number.
+#  %nextEpisode% = Time until next episode.
+#  %money% = The amount of money a player has. (Make sure you have Vault installed!)
+#  %members-name% = Toggles between the members on your team.
+#  %members-health% = Shows the health of the member shows with '%members-name%'.
+#  %scenarios% = The active scenarios.
+# Only on game waiting:
+#  %online% = Show number of players.
+#  %needed% = Show number of needed players to start the game.
+# On game started or waiting:
+#  %teamColor% = The color of the team on tab. (Only a color so you need to put text behind it inorder for it to show.)
+
+# Title of the scoreboard
+title: '&6&lUHC'
+
+# Scoreboard while waiting...
+waiting:
+  - '                         '
+  - '&f玩家:'
+  - '&a%online% / 至少 %needed%'
+#  - '&6队伍颜色:'
+#  - '&a%teamColor%'
+#  - '&6职业:'
+#  - '&a%kit%'
+  - '&f特殊规则(输入/game查看):'
+  - '&a%scenarios%'
+  - '&f玩法:'
+  - '&aUHC是一个纯净生存游戏'
+  - '&a在游戏中将无法自然回血'
+  - '&a开始十分钟后PVP将开启'
+  - '&a存活的玩家会传送至决赛'
+  - '&a游戏中采集资源制作装备'
+  - '&a击杀玩家活到最后以取胜'
+  - '&f输入/stats查看数据'
+  - ''
+  - '&cminecraft.net'
+
+# Scoreboard while game is playing.
+playing:
+  - '&8游戏时长: &8%time%'
+  - '                         '
+  - '&f%timer-name%'
+  - '&a%timer-time%'
+  - '                         '
+  - '&f剩余队伍: &a%teamAlive%'
+  - '&f存活人数: &a%alive%'
+  - '                         '
+  - '&f队伍'
+  - '%teamColor%&a%members-name%'
+  - '                         '
+  - '&f个人击杀: &a%kills% &f队伍击杀: &a%teamKills%'
+  - '                         '
+  - '&f边界: &a%border%'
+  - '&cminecraft.net'
+
+
+# Scoreboard while game is in deathmatch.
+deathmatch:
+  - '&8游戏时长: &8%time%'
+  - '                         '
+  - '&f剩余队伍: &a%teamAlive%'
+  - '&f存活人数: &a%alive%'
+  - '                         '
+  - '&f队伍'
+  - '%teamColor%&a%members-name%'
+  - '                         '
+  - '&f个人击杀: &a%kills% &f队伍击杀: &a%teamKills%'
+  - '                         '
+  - '&f边界: &a%border%'
+  - '&cminecraft.net'
+
+# Scoreboard while in spectator
+spectating:
+  - '&f%timer-name%:'
+  - '&a%timer-time%'
+  - '&f个人击杀: &a%kills%'
+  - '&f存活人数: &a%alive%'
+  - '&f剩余队伍: &a%teamAlive%'
+  - '&f边界: &a%border%'
+  - ''
+  - '&f传送玩家: &a/teleport <玩家名>'
+  - '&f退出游戏: &a/hub'
+  - ''
+  - '&cminecraft.net'

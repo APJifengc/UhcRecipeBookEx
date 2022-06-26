@@ -1,0 +1,73 @@
+# Edit kits here, to remove all kits write only an empty node: "kits: {}"
+kits:
+  # Choose a keyword for the kit (not displayed in game)
+  tools:
+    symbol:
+      item: '{"type":"IRON_PICKAXE","lore":["&8效率3耐久1石镐","&8效率3耐久1石斧","&8效率3耐久1石锹","&8抢夺1铁剑","&a适合前期采集资源"]}'
+      name: 工具套装
+    items:
+      - '{"type":"STONE_PICKAXE","enchantments":[{"type":"efficiency","level":3},{"type":"unbreaking","level":1}]}'
+      - '{"type":"STONE_AXE","enchantments":[{"type":"efficiency","level":3},{"type":"unbreaking","level":1}]}'
+      - '{"type":"STONE_SHOVEL","enchantments":[{"type":"efficiency","level":3},{"type":"unbreaking","level":1}]}'
+      - '{"type":"IRON_SWORD","enchantments":[{"type":"looting","level":1}]}'
+  armors:
+    symbol:
+      item: '{"type":"IRON_CHESTPLATE","lore":["&8保护1铁头盔","&8保护1铁胸甲","&8保护1铁护腿","&8保护1铁靴子","&a适合前期对抗玩家"]}'
+      name: 护甲套装
+    items:
+      - '{"type":"IRON_HELMET","enchantments":[{"type":"protection","level":1}]}'
+      - '{"type":"IRON_CHESTPLATE","enchantments":[{"type":"protection","level":1}]}'
+      - '{"type":"IRON_LEGGINGS","enchantments":[{"type":"protection","level":1}]}'
+      - '{"type":"IRON_BOOTS","enchantments":[{"type":"protection","level":1}]}'
+  enchants:
+    symbol:
+      item: '{"type":"BOOK","lore":["&8书x4","&8附魔之瓶x15","&8青金石x18","&8效率3耐久1石镐","&8锋利1力量1保护1摔落保护1附魔书","&a适合中后期附魔装备","&e便于制作:","&e附魔书 哲人之镐 矿神的祝福"]}'
+      name: 附魔套装
+    items:
+      - '{"type":"BOOK","amount":4}'
+      - '{"type":"EXPERIENCE_BOTTLE","amount":15}'
+      - '{"type":"LAPIS_LAZULI","amount":18}'
+      - '{"type":"STONE_PICKAXE","enchantments":[{"type":"efficiency","level":3},{"type":"unbreaking","level":1}]}'
+      - '{"type":"ENCHANTED_BOOK","enchantments":[{"type":"sharpness","level":1},{"type":"power","level":1},{"type":"protection","level":1},{"type":"feather_falling","level":1}]}'
+  archer:
+    symbol:
+      item: '{"type":"BOW","lore":["&8线x6","&8羽毛x9","&8效率3耐久1石锹","&8箭x32","&a适合弓箭爱好者使用","&e便于制作:","&e学徒之弓","&e搭配职业:","&e骑手 掠夺者"]}'
+      name: 弓箭手套装
+    items:
+      - '{"type":"STRING","amount":6}'
+      - '{"type":"FEATHER","amount":9}'
+      - '{"type":"STONE_SHOVEL","enchantments":[{"type":"efficiency","level":3},{"type":"unbreaking","level":1}]}'
+      - '{"type":"ARROW","amount":32}'
+  horsetrainer:
+    symbol:
+      item: '{"type":"SADDLE","lore":["&8皮革x12","&8干草块","&8线x4","&8钻石马凯","&8马刷怪蛋","&a适合用于骑马射弓","&e搭配职业:","&e弓箭手套装"]}'
+      name: 骑手
+    items:
+      - '{"type":"LEATHER","amount":12}'
+      - '{"type":"HAY_BLOCK","amount":1}'
+      - '{"type":"STRING","amount":4}'
+      - '{"type":"DIAMOND_HORSE_ARMOR","amount":1}'
+      - '{"type":"HORSE_SPAWN_EGG"}'
+  ecologists:
+    symbol:
+      item: '{"type":"OAK_LOG","lore":["&8藤蔓x21","&8睡莲x64","&8甘蔗x12","&8效率3耐久1石镐","&8绿宝石","&a适合中后期制作物品","&e便于制作:","&e王之钓竿 潮汐护腿 上帝之骰","&e搭配职业:","&e弓箭手套装"]}'
+      name: 生态学家
+    items:
+      - '{"type":"VINE","amount":21}'
+      - '{"type":"LILY_PAD","amount":64}'
+      - '{"type":"SUGAR_CANE","amount":12}'
+      - '{"type":"STONE_PICKAXE","enchantments":[{"type":"efficiency","level":3},{"type":"unbreaking","level":1}]}'
+      - '{"type":"EMERALD","amount":2}'
+  predator:
+    symbol:
+      item: '{"type":"BONE","lore":["&8骨头x3","&8史莱姆球x3","&8火药x2","&8蜘蛛眼x2","&8抢夺1石剑","&8岩浆膏","&a适合做有意思的合成","&e便于制作:","&e命运之书 变幻之弓","&e搭配职业:","&e弓箭手套装"]}'
+      name: 掠夺者
+    items:
+      - '{"type":"BONE","amount":3}'
+      - '{"type":"SLIME_BALL","amount":3}'
+      - '{"type":"GUNPOWDER","amount":2}'
+      - '{"type":"SPIDER_EYE","amount":2}'
+      - '{"type":"STONE_SWORD","enchantments":[{"type":"looting","level":1}]}'
+      - '{"type":"MAGMA_CREAM","amount":1}'
+
+  # Write other kits

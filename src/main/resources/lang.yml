@@ -1,0 +1,430 @@
+game:
+  enough-teams-ready: 已有足够队伍准备
+  starting: 现在游戏开始!
+  starting-in: 游戏将在 %time% 秒内开始
+  starting-cancelled: 准备的队伍数量不足, 游戏已被取消
+  finished: 游戏结束!
+  end-stopped: 游戏继续
+  shutdown: 服务器将在 %time% 秒内重启
+  please-wait-teleporting: 请在所有玩家被传送时等待
+  start-deathmatch: 死亡竞赛已开始! 请在PVP开启前做好准备!
+  border-start-shrinking: 边界开始收缩
+  final-heal: 所有玩家已被恢复至满血
+players:
+  nether-off: '&c下界已被关闭'
+  build-height: '&c达到建造最大限制!'
+  welcome-new: 欢迎来到UHC, 请选择你的队伍
+  welcome-back-in-game: 你已重新回到游戏
+  welcome-back-spectating: 你已死亡并进入观战.
+  eliminated: '%player% 已被清除!'
+  won-solo: '%player% 获得胜利!'
+  won-team: 队伍 %team% 获得胜利!
+  all-have-left: 所有玩家离开, 游戏即将结束
+  ff-off: '&7友军伤害已被关闭'
+  send-bungee: '&e你将传送至大厅 %time%'
+  send-bungee-now: '&e正在连接至大厅 ...'
+  send-bungee-disabled: '&c指令无效'
+  killed: '%killed% 死于 %killer%'
+display:
+  message-prefix: '&a[UHC]&r'
+  episode-mark: End of episode %episode%!
+  spectator-chat: '&7[旁观者] &r%player%&r: %message%'
+  motd-loading: 正在为诸君打扫RabbiTown战场
+  motd-waiting: 今晚八点, 我在RabbiTown等你
+  motd-starting: RabbiTown战争正在开始
+  motd-playing: RabbiTown战争进入白热化阶段
+  motd-ended: RabbiTown战争已结束
+kick:
+  loading: 正在加载. 请在几分钟后重试
+  starting: 正在开始 ... 加入过晚
+  playing: 正在游戏 ... 你无法加入
+  ended: 已结束 ... 请在几分钟后重试
+  dead: 你已死亡!
+command:
+  chat-global: '&a你现在处于全体聊天室'
+  chat-team: '&a你现在处于队伍聊天室'
+  chat-help: '&7输入 ''/chat'' 或 ''/c'' 来切换聊天室'
+  chat-error: '&c你只能在游玩时使用这个指令'
+  spectating-help: 使用 '/teleport <玩家名>' 来传送至其他玩家
+  spectating-teleport: '&a正在传送至 %player%'
+  spectating-teleport-error: '&c你无法传送至那个玩家'
+  recipes-error: '&c此游戏没有自定义配方'
+  top-teleport: '&a你已被传送至顶层方块'
+  top-error-playing: '&c你只能在游玩时使用这个指令'
+  top-error-nether: '&c你只能在主世界中使用这个指令'
+  spectate:
+    error: '&c你只能在游戏尚未开始时切换为旁观者'
+    playing: '&a你正在游玩!'
+    spectating: '&a你正在观战!'
+team:
+  inventory:
+    main: '&2队伍菜单'
+    teams-list: '&2队伍列表'
+    team-view: '&2查看队伍'
+    settings: '&2队伍设置'
+    rename: '&2重命名队伍'
+    invites: '&2队伍邀请'
+    reply-invite: '&2邀请列表'
+    invite-player: '&2邀请玩家'
+    color: '&2选择队伍颜色'
+  item:
+    leave: '&c离开队伍'
+    settings: '&a修改队伍设置'
+    rename: '&a重命名队伍'
+    invite: '&a邀请玩家'
+    invite-search: '&a搜索玩家并邀请'
+    invites: '&a查看邀请'
+    invite-accept: '&a接受'
+    invite-deny: '&c拒绝'
+    ready-toggle: '&7点击来更改'
+    color: '&a选择队伍颜色'
+    ready: '&a准备'
+    not-ready: '&c未准备'
+  message:
+    player-not-online: '&c%player% 不在线'
+    now-ready: '&6你队伍已准备!'
+    now-not-ready: '&6你队伍取消准备!'
+    not-leader: '&c你不是队长'
+    join-as-player: '&a你已加入 %leader% 的队伍'
+    player-joins: '&a%player% 已加入队伍'
+    leave-as-leader: '&a你已离开队伍, %newleader% 将成为新的队长'
+    leave-as-player: '&a你已离开队伍'
+    player-leaves: '&a%player% 已离开队伍'
+    leader-leaves: '&a队长 %leader% 已离开队伍, %newleader% 成为新的队长'
+    cant-leave: '&c你无法离开你的队伍, 你是单独的'
+    deny-request: '&c取消请求d'
+    no-longer-exists: '&c此队伍已不存在'
+    invite-already-sent: '&c你已经向那个玩家发送邀请了'
+    invite-receive: '&a你收到了 %name% 的队伍邀请, 你可以在队伍菜单中回应邀请'
+    invite-receive-hover: '&a点击以回应'
+    already-in-team: '&c那个玩家已在队伍中'
+    player-already-in-team: '&c%player% 已经在一个队伍里了'
+    full: '&c%player% 无法加入 %leader% 的队伍因为队伍已满 (%limit%players)'
+    color-already-selected: '&c你已经选择这个颜色了'
+    color-unavailable: '&c这个颜色不再支持'
+    color-changed: '&a你的队伍颜色已成功更改'
+    name-changed: '&a你的队伍名称已成功更改'
+    name-changed-error: '&c这个队伍名称无效!'
+items:
+  team-list: '&9右键查看队伍'
+  sword: '&b右键选择队伍'
+  bungee: '&c右键返回大厅'
+  regen-head: '&e右键使队伍获得7秒生命回复II和21秒速度II'
+  regen-head-action: '&a你的队伍因使用头颅获得7秒生命回复II和21秒速度II'
+  corn: '&8Cornucopia'
+  golden-head:
+    skull-name: '&6%player%的头'
+    skull-help: '&e用金锭和头可以合成金头颅'
+    apple-name: '&a金头颅'
+    apple-help: '&8Golden Head'
+    apple-lore: '&e使用获得5秒生命回复IV,120秒伤害吸收I以及20秒速度II'
+    apple-action: '&a你的队伍因使用金头颅获得5秒生命回复IV,120秒伤害吸收I以及20秒速度II'
+  compass-playing: '&a右键以指向队友'
+  compass-playing-error: '&c没有可以指向的玩家'
+  compass-playing-cooldown: '&c你点击过快! 请等待1秒'
+  compass-playing-pointing: '&a正在指向 %player% 先前的位置 (%distance% 个方块)'
+  kit-selection: '&a右键选择职业'
+  kit-inventory: '&2职业选择'
+  kit-selected: '&a你选择了职业 %kit%'
+  kit-no-permission: '&c你没有权限使用此职业'
+  kit-scoreboard-no-kit: 无职业
+  craft-no-permission: '&c你没有权限使用合成配方 %craft%'
+  craft-crafted: '&a你合成了一个 %craft%'
+  craft-left-click: '&c你只能同时合成一个 %craft% (左键合成)'
+  craft-limit: '&c你用完了所有 %limit% 次数的 %craft% 配方'
+  craft-book: '&d右键查看自定义合成'
+  craft-book-inventory: '&2自定义合成'
+  craft-book-back: '&7返回合成列表'
+  potion-banned: '&c二级药水已被禁用'
+  strength-2-potion-banned: '&c力量II药水已被禁用'
+  sharpness-axe-banned: '&c斧禁止附魔锋利'
+  revive-success: '&a%player% 已被复活!'
+  revive-error: '&c无法找到死亡队友!'
+  master-compass: '&8Master''s Compass'
+  artemis-bow: '&8Artemis'' Bow'
+  modular-bow-lightning: '&8Modular Bow:[Lightning]'
+  modular-bow-poison: '&8Modular Bow:[Poison]'
+  modular-bow-punch: '&8Modular Bow:[Punch]'
+  modular-bow-to-lightning-1: '&a已将变幻之弓模式设为: &6闪电'
+  modular-bow-to-lightning-2: '&7对命中目标造成2点真实伤害'
+  modular-bow-to-poison-1: '&a已将变幻之弓模式设为: &6剧毒'
+  modular-bow-to-poison-2: '&7使命中目标获得剧毒和缓慢效果'
+  modular-bow-to-punch-1: '&a已将变幻之弓模式设为: &6冲击'
+  modular-bow-to-punch-2: '&7使箭矢有冲击I附魔'
+  modular-bow-lore-1: '&e模式1:冲击'
+  modular-bow-lore-2: '&e模式2:剧毒'
+  modular-bow-lore-3: '&e模式3:闪电'
+  modular-bow-lore-4: '&e左键切换模式'
+  bow-not-critical: '&c你必须满蓄力射击才能触发!'
+  flask: '&8Flask of Cleansing'
+  flask-hit: '&c你被肃清之瓶击中, 失去了所有药水效果, 并且在20秒内将无法治愈!'
+  fusion-armor: '&8Fusion Armor'
+  fusion-helmet: '&a聚变头盔'
+  fusion-chestplate: '&a聚变胸甲'
+  fusion-leggings: '&a聚变护腿'
+  fusion-boots: '&a聚变战靴'
+  fusion-info-1: '&e穿戴整套聚变之甲时'
+  fusion-info-2: '&e获得抗性提升I'
+  deus-ex-machina: '&8Deus Ex Machina'
+  excalibur: '&8Excalibur'
+  perun: '&8Axe of Perun'
+  death: '&8Death''s Scythe'
+  death-message: '&a你的死神镰刀造成&e{damage}&a点伤害并回复你&e{heal}&a点血量!'
+  miner: '&8Miner''s Blessing'
+  cant-enchant: '&e无法使用铁砧或附魔台'
+  anduril: '&8Andúril'
+  bloodlust: '&8Bloodlust'
+  apprentice-sword: '&8Apprentice Sword'
+  apprentice-bow: '&8Apprentice Bow'
+pvp:
+  enabled: PVP 已开启!
+  start-in: PVP 即将开始于
+event:
+  time-reward: '&e你游玩了 %time% , 收到了 %money% 硬币, 总游戏时长为 %totaltime%'
+  kill-reward: '&e你获得了一次击杀, 收到了 %money% 硬币'
+  win-reward: '&e你获得了一场比赛的胜利, 收到了 %money% 硬币'
+scenarios:
+  global:
+    description-header: '&5%scenario%&7:'
+    description-prefix: '&7- '
+    inventory: '&6&l特殊规则 &7(点击显示信息)'
+    inventory-edit: '&6&l特殊规则 &7(编辑)'
+    inventory-vote: '&6&l投票 &7(转到投票)'
+    item-edit: '&6编辑'
+    item-back: '&6返回'
+    item-next: '&6下一个'
+    item-hotbar: '&6右键显示已激活的特殊规则'
+    item-color: '&5'
+    item-info: '&7(右键显示信息)'
+    vote-max: '&c最高投票达到了 (%max%)'
+  cutclean:
+    name: 极速模式
+    description:
+    - 无需熔炉.
+    - 矿物和动物掉落会自动熔炼
+    - 苹果掉率是 5%, 燧石掉率是 90%
+    - 附魔无需青金石
+  fireless:
+    name: 抗火模式
+    description:
+    - 你不会受到火焰伤害.
+  bowless:
+    name: Bowless
+    description:
+    - You are not able to craft bows.
+    error: '&4[Bowless] &cYou can''t craft bows!'
+  rodless:
+    name: Rodless
+    description:
+    - Fishing rods are not craftable.
+    error: '&4[Rodless] &cYou can''t craft fishing rods!'
+  shieldless:
+    name: 禁用盾牌
+    description:
+    - 盾牌将无法被合成
+    error: '&4[禁用盾牌] &c你无法合成盾牌!'
+  blood_diamonds:
+    name: Blood Diamonds
+    description:
+    - When mining a diamond ore, the player will take half a heart of damage.
+  timber:
+    name: 伐木工
+    description:
+    - 破坏一棵树上的一块原木会导致整棵树倒下
+  horseless:
+    name: Horseless
+    description:
+    - You are not able to tame horses/donkeys.
+    error: '&4[Horseless] &cYou can''t ride that horse!'
+  timebomb:
+    name: Timebomb
+    description:
+    - After killing a player, their loot will drop into a double chest.
+    - The chest will explode 30 seconds later.
+    chest: '&6&l%player%''s Timebomb'
+  no_fall:
+    name: No Fall
+    description:
+    - Fall damage is off.
+  best_pve:
+    name: 最佳PvE者
+    description:
+    - 每个玩家会在开局时被加入到"最佳PvE者"列表中
+    - 当你在列表中时, 你每10分钟能得到额外的一颗心血量
+    - 一旦某个玩家受到伤害, 此玩家就会被移出列表
+    - 如果你杀了一个玩家, 你就会被重新加入到列表中
+    added: '&4[最佳PvE者] &a你被加入到"最佳PvE者"列表中'
+    removed: '&4[[最佳PvE者] &c你现在被移出"最佳PvE者"列表. 取得击杀 会使你被重新加入到列表中'
+    back: '&4[[最佳PvE者] &a你被重新加入到"最佳PvE者"列表中'
+  triple_ores:
+    name: 三倍矿物
+    description:
+    - 矿物将三倍掉落
+  double_ores:
+    name: 双倍矿物
+    description:
+    - 矿物将双倍掉落
+  team_inventory:
+    name: 队伍背包
+    description:
+    - 每个队伍有一个额外的背包
+    - 且队伍所有的成员都能通过/teaminventory指令查看
+    error: '&c你只能在游玩时打开队伍背包!'
+    disabled: '&c队伍背包已被禁用!'
+    open: '&a正在打开队伍背包 ...'
+  no_clean:
+    name: No Clean
+    description:
+    - Gives you 30 seconds of invincibility after a kill.
+    - Attacking other players will remove this PvP Protection.
+    invulnerable: '&4[NoClean] &aYou are now invulnerable for 30 seconds!'
+    vulnerable: '&4[NoClean] &cYou can now take damage again!'
+    error: '&4[NoClean] &cYou can''t damage this player!'
+  hastey_boys:
+    name: 急迫
+    description:
+    - 你合成的每把镐子都会附魔效率3和耐久1
+  lucky_leaves:
+    name: 幸运树叶
+    description:
+    - 树叶有 0.5% 的概率掉落金苹果
+  bleeding_sweets:
+    name: 击杀奖励
+    description:
+    - 玩家死亡时掉落 1 颗钻石, 5 块金锭, 1 本书, 2 根线和 16 根箭
+  double_gold:
+    name: Double Gold
+    description:
+    - The original amount of gold will double when mined.
+  goldless:
+    name: Goldless
+    description:
+    - When gold is mined, it will disappear and is not obtainable.
+  flower_power:
+    name: 花之力量
+    description:
+    - 破坏花随机获得物品
+  switcheroo:
+    name: Switcheroo
+    description:
+    - When you shoot someone, you trade places with them
+    switch: '&4[Switcheroo] &6You have switched positions with &3%player%'
+  vein_miner:
+    name: 连锁挖矿
+    description:
+    - 在潜行的时候挖掘一个方块会破坏相同类型的方块, 形成连锁反应
+    - 使用方块对应的工具才会生效
+  dragon_rush:
+    name: 屠龙行动
+    description:
+    - 在屠龙行动中的目标是击杀末影龙
+    - 第一个击杀末影龙的队伍获得胜利!
+    - 一个末地传送门会出现在0 0点.
+  love_at_first_sight:
+    name: 一见钟情
+    description:
+    - 在此特殊规则中你无法通过队伍选择器选择队友
+    - 队伍在游戏中点击玩家时被创建
+    join-error: '&c无法加入队伍!'
+    join-broadcast: '&4[一见钟情] &a%player% 已加入 %leader% 的队伍'
+  fast_leaves_decay:
+    name: Fast Leaves Decay
+    description:
+    - In this scenario after breaking all logs of a tree the leaves will be gone within
+      seconds
+  sky_high:
+    name: Sky High
+    description:
+    - In this scenario after 30 minutes you will start taking damage every 30 seconds
+      while not above y=120
+    damage: '&4[Sky High] &cYou''re taking damage as your under y=120'
+  fast_smelting:
+    name: 快速熔炼
+    description:
+    - 物品熔炼速度提升到原先的 5 倍
+  superheroes:
+    name: 超级英雄
+    description:
+    - 每个玩家会获得一个特殊能力
+    - 能力是速度 1, 力量 1, 抗性提升 2, 隐身, 额外的 6 颗心, 跳跃提升 4
+  anonymous:
+    name: 匿名
+    description:
+    - 所有玩家名会被隐藏
+  gone_fishing:
+    name: Gone Fishing
+    description:
+    - At the beginning of the game everyone gets a lure 3 luck of the sea 3 rod.
+  infinite_enchants:
+    name: Infinite Enchants
+    description:
+    - At the beginning of the game everyone gets 64 enchantment tables, anvils, lapis
+      blocks and a lot of XP.
+  children_left_unattended:
+    name: Children Left Unattended
+    description:
+    - When a teammate dies you receive a speed potion and a tamed wolf.
+  silent_night:
+    name: 寂静之夜
+    description:
+    - 在夜晚时, 消息和名牌会被隐藏
+    error: '&4[寂静之夜] &c寂静之夜已被启用!'
+  permakill:
+    name: 永恒的杀戮
+    description:
+    - 当玩家死亡时, 将会切换到永久的白天/夜晚
+  weakest_link:
+    name: Weakest Link
+    description:
+    - Every 10 minutes the person with the least health will perish.
+    - If everyone is at the same health no one will die.
+    kill: '&4[Weakest Link] &c%player% has been killed!'
+  eggs:
+    name: Eggs
+    description:
+    - When you throw an egg, a random mob will spawn where it lands.
+    - This includes enderdragons and withers.
+    - When you kill a chicken, there is a 5% chance of it dropping an egg.
+  no_going_back:
+    name: 不归路
+    description:
+    - 一旦在主世界进入下界传送门, 你就无法回去了
+    error: '&4[不归路] &c你被困在下界了!'
+  double_dates:
+    name: Double Dates
+    description:
+    - Players join with a chosen team and are combined randomly with another team.
+  fly_high:
+    name: Fly High
+    description:
+    - Players spawn with a elytra.
+  randomized_drops:
+    name: 幸运方块
+    description:
+    - 每个方块都会随机掉落物品
+  upside_down_crafting:
+    name: Upside Down Crafting
+    description:
+    - This scenario flips all crafts upside down.
+  randomized_crafts:
+    name: 随机合成
+    description:
+    - 在此特殊规则中合成结果随机
+  monsters_inc:
+    name: 任意门
+    description:
+    - 在此特殊规则中门被连接至传送门
+    error: '&4[任意门] &c停止你的行为!'
+  achievement_hunter:
+    name: Achievement Hunter
+    description:
+    - Players start with 5 hearts.
+    - For every achievement players get a half heart of health.
+  nine_slots:
+    name: Nine Slots
+    description:
+    - You can only use your hotbar to hold items.
+  nether_start:
+    name: 下界开局
+    description:
+    - 你将在下界开始游戏

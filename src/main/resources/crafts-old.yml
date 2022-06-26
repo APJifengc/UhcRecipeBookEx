@@ -1,0 +1,554 @@
+# Configure custom crafts, to get rid of all custom crafts delete the 'custom-crafts' section.
+custom-crafts:
+  # Name of your craft, then 1, 2, 3 for every line in the crafting table
+  # Please respect the json-item syntax! (You can use the /iteminfo command to generate this syntax.)
+  # Set limit to -1 to allow unlimited crafts, set to to a value greater than 0 to limit crafts by player
+  # You can add enchantments in the enchants list (see the war-axe example)
+  # Set default name to true to keep the default minecraft name. This means the custom crafted items will stack with other items created using default minecraft crafts.
+  # (NOTE: When default name is enabled you will not be able to use craft limit and craft permissions!)
+
+#  '简易火药(2次)':
+#    '1': '{"type":"GRAVEL"} {"type":"GRAVEL"} {"type":"GRAVEL"}'
+#    '2': '{"type":"GRAVEL"} {"type":"GRAVEL"} {"type":"GRAVEL"}'
+#    '3': '{"type":"GRAVEL"} {"type":"GRAVEL"} {"type":"GRAVEL"}'
+#    craft: '{"type":"GUNPOWDER"}'
+#    default-name: false
+#    limit: 2
+
+  '冶铁(4次)':
+    '1': '{"type":"RAW_IRON"} {"type":"RAW_IRON"} {"type":"RAW_IRON"}'
+    '2': '{"type":"RAW_IRON"} {"type":"COAL"} {"type":"RAW_IRON"}'
+    '3': '{"type":"RAW_IRON"} {"type":"RAW_IRON"} {"type":"RAW_IRON"}'
+    craft: '{"type":"IRON_INGOT","amount":10,"lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '冶金(4次)':
+    '1': '{"type":"RAW_GOLD"} {"type":"RAW_GOLD"} {"type":"RAW_GOLD"}'
+    '2': '{"type":"RAW_GOLD"} {"type":"COAL"} {"type":"RAW_GOLD"}'
+    '3': '{"type":"RAW_GOLD"} {"type":"RAW_GOLD"} {"type":"RAW_GOLD"}'
+    craft: '{"type":"GOLD_INGOT","amount":10,"lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '皮革(4次)':
+    '1': '{"type":"STICK"} {"type":"LEATHER"} {"type":"STICK"}'
+    '2': '{"type":"STICK"} {"type":"LEATHER"} {"type":"STICK"}'
+    '3': '{"type":"STICK"} {"type":"LEATHER"} {"type":"STICK"}'
+    craft: '{"type":"LEATHER","amount":8,"lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '荧石粉(4次)':
+    '1': '{"type":"REDSTONE"} {"type":"REDSTONE"} {"type":"REDSTONE"}'
+    '2': '{"type":"REDSTONE"} {"type":"FLINT_AND_STEEL"} {"type":"REDSTONE"}'
+    '3': '{"type":"REDSTONE"} {"type":"REDSTONE"} {"type":"REDSTONE"}'
+    craft: '{"type":"GLOWSTONE_DUST","amount":8,"lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '黑曜石(4次)':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"LAVA_BUCKET"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"WATER_BUCKET"} {"type":"AIR"}'
+    craft: '{"type":"OBSIDIAN","lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '马鞍(4次)':
+    '1': '{"type":"LEATHER"} {"type":"LEATHER"} {"type":"LEATHER"}'
+    '2': '{"type":"STRING"} {"type":"LEATHER"} {"type":"STRING"}'
+    '3': '{"type":"IRON_INGOT"} {"type":"AIR"} {"type":"IRON_INGOT"}'
+    craft: '{"type":"SADDLE","lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '甘蔗(4次)':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"OAK_SAPLING"} {"type":"AIR"}'
+    '3': '{"type":"WHEAT_SEEDS"} {"type":"SUGAR"} {"type":"WHEAT_SEEDS"}'
+    craft: '{"type":"SUGAR_CANE","amount":4,"lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '下界疣(4次)':
+    '1': '{"type":"AIR"} {"type":"WHEAT_SEEDS"} {"type":"AIR"}'
+    '2': '{"type":"WHEAT_SEEDS"} {"type":"FERMENTED_SPIDER_EYE"} {"type":"WHEAT_SEEDS"}'
+    '3': '{"type":"AIR"} {"type":"WHEAT_SEEDS"} {"type":"AIR"}'
+    craft: '{"type":"NETHER_WART","amount":1,"lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '烈焰棒(2次)':
+    '1': '{"type":"ORANGE_STAINED_GLASS"} {"type":"LAVA_BUCKET"} {"type":"ORANGE_STAINED_GLASS"}'
+    '2': '{"type":"ORANGE_STAINED_GLASS"} {"type":"FIREWORK_ROCKET"} {"type":"ORANGE_STAINED_GLASS"}'
+    '3': '{"type":"ORANGE_STAINED_GLASS"} {"type":"LAVA_BUCKET"} {"type":"ORANGE_STAINED_GLASS"}'
+    craft: '{"type":"BLAZE_ROD","lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 2
+
+  '苹果(4次)':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"BONE_MEAL"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"APPLE"} {"type":"AIR"}'
+    craft: '{"type":"APPLE","amount":2,"lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '西瓜片(4次)':
+    '1': '{"type":"BONE_MEAL"} {"type":"WHEAT_SEEDS"} {"type":"BONE_MEAL"}'
+    '2': '{"type":"WHEAT_SEEDS"} {"type":"APPLE"} {"type":"WHEAT_SEEDS"}'
+    '3': '{"type":"BONE_MEAL"} {"type":"WHEAT_SEEDS"} {"type":"BONE_MEAL"}'
+    craft: '{"type":"MELON_SLICE","amount":1,"lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '附魔之瓶(4次)':
+    '1': '{"type":"AIR"} {"type":"REDSTONE_BLOCK"} {"type":"AIR"}'
+    '2': '{"type":"REDSTONE_BLOCK"} {"type":"GLASS_BOTTLE"} {"type":"REDSTONE_BLOCK"}'
+    '3': '{"type":"AIR"} {"type":"REDSTONE_BLOCK"} {"type":"AIR"}'
+    craft: '{"type":"EXPERIENCE_BOTTLE","amount":8,"lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '大量附魔之瓶(4次)':
+    '1': '{"type":"OAK_LEAVES"} {"type":"ENCHANTING_TABLE"} {"type":"OAK_LEAVES"}'
+    '2': '{"type":"GLOWSTONE"} {"type":"GLASS_BOTTLE"} {"type":"GLOWSTONE"}'
+    '3': '{"type":"OAK_LEAVES"} {"type":"REDSTONE_BLOCK"} {"type":"OAK_LEAVES"}'
+    craft: '{"type":"EXPERIENCE_BOTTLE","amount":32,"lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '简易下界合金锭(4次)':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"NETHERITE_SCRAP"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GOLD_INGOT"} {"type":"AIR"}'
+    craft: '{"type":"NETHERITE_INGOT","lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '潜影盒(4次)':
+    '1': '{"type":"STICK"} {"type":"LEATHER"} {"type":"STICK"}'
+    '2': '{"type":"STICK"} {"type":"CHEST"} {"type":"STICK"}'
+    '3': '{"type":"STICK"} {"type":"LEATHER"} {"type":"STICK"}'
+    craft: '{"type":"SHULKER_BOX","lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '经济箭矢(4次)':
+    '1': '{"type":"FLINT"} {"type":"FLINT"} {"type":"FLINT"}'
+    '2': '{"type":"STICK"} {"type":"STICK"} {"type":"STICK"}'
+    '3': '{"type":"FEATHER"} {"type":"FEATHER"} {"type":"FEATHER"}'
+    craft: '{"type":"ARROW","amount":20,"lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '简易铁砧(4次)':
+    '1': '{"type":"IRON_INGOT"} {"type":"IRON_INGOT"} {"type":"IRON_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"IRON_BLOCK"} {"type":"AIR"}'
+    '3': '{"type":"IRON_INGOT"} {"type":"IRON_INGOT"} {"type":"IRON_INGOT"}'
+    craft: '{"type":"ANVIL","lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '简易附魔台(4次)':
+    '1': '{"type":"AIR"} {"type":"BOOKSHELF"} {"type":"AIR"}'
+    '2': '{"type":"OBSIDIAN"} {"type":"DIAMOND"} {"type":"OBSIDIAN"}'
+    '3': '{"type":"OBSIDIAN"} {"type":"EXPERIENCE_BOTTLE"} {"type":"OBSIDIAN"}'
+    craft: '{"type":"ENCHANTING_TABLE","lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '简易金苹果(4次)':
+    '1': '{"type":"AIR"} {"type":"GOLD_INGOT"} {"type":"AIR"}'
+    '2': '{"type":"GOLD_INGOT"} {"type":"APPLE"} {"type":"GOLD_INGOT"}'
+    '3': '{"type":"AIR"} {"type":"GOLD_INGOT"} {"type":"AIR"}'
+    craft: '{"type":"GOLDEN_APPLE","lore":["&8物品(丢出后消除命名)"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '甘露(4次)':
+    '1': '{"type":"AIR"} {"type":"EMERALD"} {"type":"AIR"}'
+    '2': '{"type":"GOLD_INGOT"} {"type":"MELON_SLICE"} {"type":"GOLD_INGOT"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","base-effect":{"type":"UNCRAFTABLE"},"custom-effects":[{"type":"REGENERATION","duration":200,"amplifier":1}],"lore":[" ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '速度药水(4次)':
+    '1': '{"type":"AIR"} {"type":"BROWN_DYE"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"SUGAR"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"SPLASH_POTION","base-effect":{"type":"THICK"},"custom-effects":[{"type":"SPEED","duration":240,"amplifier":2}],"lore":[" ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '伤害吸收药水(4次)':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_13"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}],"lore":[" ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '抵抗药水(4次)':
+    '1': '{"type":"AIR"} {"type":"SLIME_BALL"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"SNOW_BLOCK"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","base-effect":{"type":"UNCRAFTABLE"},"custom-effects":[{"type":"DAMAGE_RESISTANCE","duration":2400,"amplifier":1}],"lore":[" ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '永生之酒(4次)':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"PLAYER_HEAD"} {"type":"GLISTERING_MELON_SLICE"} {"type":"PLAYER_HEAD"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","base-effect":{"type":"UNCRAFTABLE"},"custom-effects":[{"type":"ABSORPTION","duration":1200,"amplifier":1},{"type":"HEAL","duration":1,"amplifier":2}],"lore":[" ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '腐蚀灵液(1次)':
+    '1': '{"type":"AIR"} {"type":"PLAYER_HEAD"} {"type":"AIR"}'
+    '2': '{"type":"BROWN_MUSHROOM"} {"type":"GLASS_BOTTLE"} {"type":"BROWN_MUSHROOM"}'
+    '3': '{"type":"AIR"} {"type":"INK_SAC"} {"type":"AIR"}'
+    craft: '{"type":"SPLASH_POTION","base-effect":{"type":"AWKWARD"},"custom-effects":[{"type":"HARM","duration":1,"amplifier":2}],"lore":[" ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 1
+
+  '锋利附魔书(4次)':
+    '1': '{"type":"FLINT"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"PAPER"} {"type":"PAPER"}'
+    '3': '{"type":"AIR"} {"type":"PAPER"} {"type":"IRON_SWORD"}'
+    craft: '{"type":"ENCHANTED_BOOK","enchantments":[{"type":"sharpness","level":1}],"lore":["&8锋利附魔书"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '力量附魔书(4次)':
+    '1': '{"type":"FLINT"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"PAPER"} {"type":"PAPER"}'
+    '3': '{"type":"AIR"} {"type":"PAPER"} {"type":"BONE"}'
+    craft: '{"type":"ENCHANTED_BOOK","enchantments":[{"type":"power","level":1}],"lore":["&8力量附魔书"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '保护附魔书(4次)':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"PAPER"} {"type":"PAPER"}'
+    '3': '{"type":"AIR"} {"type":"PAPER"} {"type":"IRON_INGOT"}'
+    craft: '{"type":"ENCHANTED_BOOK","enchantments":[{"type":"protection","level":1}],"lore":["&8保护附魔书"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '弹射物保护附魔书(4次)':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"PAPER"} {"type":"PAPER"}'
+    '3': '{"type":"AIR"} {"type":"PAPER"} {"type":"ARROW"}'
+    craft: '{"type":"ENCHANTED_BOOK","enchantments":[{"type":"projectile_protection","level":1}],"lore":["&8弹射物保护附魔书"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '月神之书(2次)':
+    '1': '{"type":"ENDER_EYE"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"PAPER"} {"type":"PAPER"}'
+    '3': '{"type":"AIR"} {"type":"PAPER"} {"type":"FIRE_CHARGE"}'
+    craft: '{"type":"ENCHANTED_BOOK","enchantments":[{"type":"projectile_protection","level":3},{"type":"sharpness","level":2},{"type":"power","level":2},{"type":"punch","level":1},{"type":"fire_aspect","level":1}],"lore":["&8月神之书"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 2
+
+  '命运之书(2次)':
+    '1': '{"type":"AIR"} {"type":"MAGMA_CREAM"} {"type":"AIR"}'
+    '2': '{"type":"DIAMOND_SWORD"} {"type":"WRITABLE_BOOK"} {"type":"BOW"}'
+    '3': '{"type":"EXPERIENCE_BOTTLE"} {"type":"EXPERIENCE_BOTTLE"} {"type":"EXPERIENCE_BOTTLE"}'
+    craft: '{"type":"ENCHANTED_BOOK","enchantments":[{"type":"projectile_protection","level":4},{"type":"sharpness","level":3},{"type":"power","level":3},{"type":"fire_aspect","level":1}],"lore":["&8命运之书"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 2
+
+  '效率铁镐(4次)':
+    '1': '{"type":"RAW_IRON"} {"type":"RAW_IRON"} {"type":"RAW_IRON"}'
+    '2': '{"type":"COAL"} {"type":"STICK"} {"type":"COAL"}'
+    '3': '{"type":"AIR"} {"type":"STICK"} {"type":"AIR"}'
+    craft: '{"type":"IRON_PICKAXE","enchantments":[{"type":"efficiency","level":1}],"lore":["&8效率铁镐"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 4
+
+  '哲人之镐(2次)':
+    '1': '{"type":"RAW_IRON"} {"type":"RAW_GOLD"} {"type":"RAW_IRON"}'
+    '2': '{"type":"LAPIS_BLOCK"} {"type":"STICK"} {"type":"LAPIS_BLOCK"}'
+    '3': '{"type":"AIR"} {"type":"STICK"} {"type":"AIR"}'
+    craft: '{"type":"DIAMOND_PICKAXE","enchantments":[{"type":"fortune","level":2}],"durability":1559,"lore":["&8哲人之镐"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 2
+
+  '王之钓竿':
+    '1': '{"type":"AIR"} {"type":"FISHING_ROD"} {"type":"AIR"}'
+    '2': '{"type":"LILY_PAD"} {"type":"COMPASS"} {"type":"LILY_PAD"}'
+    '3': '{"type":"AIR"} {"type":"WATER_BUCKET"} {"type":"AIR"}'
+    craft: '{"type":"FISHING_ROD","enchantments":[{"type":"unbreaking","level":10},{"type":"luck_of_the_sea","level":10},{"type":"lure","level":5}],"lore":[" ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: -1
+
+  '大师罗盘':
+    '1': '{"type":"REDSTONE"} {"type":"REDSTONE_TORCH"} {"type":"REDSTONE"}'
+    '2': '{"type":"REDSTONE"} {"type":"COMPASS"} {"type":"REDSTONE"}'
+    '3': '{"type":"REDSTONE"} {"type":"REDSTONE"} {"type":"REDSTONE"}'
+    craft: '{"type":"WARPED_FUNGUS_ON_A_STICK","lore":["&8大师罗盘","&8右键产生一道光柱","&8并指向128格外最近玩家"," ","&c合成时请左键拿取","&c且拿取时鼠标光标不要持有物品"]}'
+    default-name: false
+    limit: 1
+
+#  '战争之斧':
+#    '1': '{"type":"DIAMOND"} {"type":"DIAMOND"} {"type":"AIR"}'
+#    '2': '{"type":"DIAMOND"} {"type":"IRON_BLOCK"} {"type":"AIR"}'
+#    '3': '{"type":"AIR"} {"type":"IRON_BLOCK"} {"type":"AIR"}'
+#    craft: '{"type":"STONE_AXE","enchantments":[{"type":"unbreaking","level":3},{"type":"fire_aspect","level":1}]}'
+#    default-name: false
+#    limit: 1
+
+  '霹隆之斧':
+    '1': '{"type":"DIAMOND"} {"type":"TNT"} {"type":"FIRE_CHARGE"}'
+    '2': '{"type":"DIAMOND"} {"type":"STICK"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"STICK"} {"type":"AIR"}'
+    craft: '{"type":"mmoitems::AXE::PERUN"}'
+    default-name: false
+    limit: -1
+
+  '学徒之剑':
+    '1': '{"type":"AIR"} {"type":"REDSTONE_BLOCK"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"IRON_SWORD"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"REDSTONE_BLOCK"} {"type":"AIR"}'
+    craft: '{"type":"IRON_SWORD","display-name":"学徒之剑","lore":["&8学徒之剑等级:[0]","&e游戏开始10分钟 -> 锋利I","&e游戏开始25分钟 -> 锋利II","&e游戏开始50分钟 -> 锋利III"]}'
+    default-name: false
+    limit: -1
+
+  '斩首之剑':
+    '1': '{"type":"AIR"} {"type":"BONE"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"IRON_SWORD"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"ROTTEN_FLESH"} {"type":"AIR"}'
+    craft: '{"type":"IRON_SWORD","enchantments":[{"type":"smite","level":2},{"type":"bane_of_arthropods","level":2},{"type":"looting","level":2}]}'
+    default-name: false
+    limit: -1
+
+  '巨龙之剑':
+    '1': '{"type":"AIR"} {"type":"BLAZE_POWDER"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"DIAMOND_SWORD"} {"type":"AIR"}'
+    '3': '{"type":"OBSIDIAN"} {"type":"BLAZE_POWDER"} {"type":"OBSIDIAN"}'
+    craft: '{"type":"mmoitems::SWORD::DRAGON"}'
+    default-name: false
+    limit: -1
+
+  '夺魂之刃':
+    '1': '{"type":"REDSTONE_BLOCK"} {"type":"DIAMOND"} {"type":"REDSTONE_BLOCK"}'
+    '2': '{"type":"REDSTONE_BLOCK"} {"type":"DIAMOND_SWORD"} {"type":"REDSTONE_BLOCK"}'
+    '3': '{"type":"REDSTONE_BLOCK"} {"type":"EXPERIENCE_BOTTLE"} {"type":"REDSTONE_BLOCK"}'
+    craft: '{"type":"DIAMOND_SWORD","display-name":"夺魂之刃","lore":["&8夺魂之刃等级:[1]","&e击杀数1 -> 锋利II","&e击杀数3 -> 锋利III","&e击杀数6 -> 锋利IV","&e击杀数10 -> 锋利V"],"enchantments":[{"type":"sharpness","level":1}]}'
+    default-name: false
+    limit: -1
+
+  '安都瑞尔之剑':
+    '1': '{"type":"FEATHER"} {"type":"IRON_BLOCK"} {"type":"FEATHER"}'
+    '2': '{"type":"FEATHER"} {"type":"IRON_BLOCK"} {"type":"FEATHER"}'
+    '3': '{"type":"FEATHER"} {"type":"BLAZE_ROD"} {"type":"FEATHER"}'
+    craft: '{"type":"mmoitems::SWORD::ANDURIL"}'
+    default-name: false
+    limit: -1
+
+  '誓约胜利之剑':
+    '1': '{"type":"QUARTZ"} {"type":"FIRE_CHARGE"} {"type":"QUARTZ"}'
+    '2': '{"type":"QUARTZ"} {"type":"TNT"} {"type":"QUARTZ"}'
+    '3': '{"type":"QUARTZ"} {"type":"DIAMOND_SWORD"} {"type":"QUARTZ"}'
+    craft: '{"type":"mmoitems::SWORD::EXCALIBUR"}'
+    default-name: false
+    limit: -1
+
+  '学徒之弓':
+    '1': '{"type":"AIR"} {"type":"REDSTONE_TORCH"} {"type":"STRING"}'
+    '2': '{"type":"REDSTONE_TORCH"} {"type":"AIR"} {"type":"STRING"}'
+    '3': '{"type":"AIR"} {"type":"REDSTONE_TORCH"} {"type":"STRING"}'
+    craft: '{"type":"BOW","display-name":"学徒之弓","lore":["&8学徒之弓等级:[0]","&e游戏开始10分钟 -> 力量I","&e游戏开始25分钟 -> 力量II","&e游戏开始50分钟 -> 力量III"]}'
+    default-name: false
+    limit: -1
+
+  '丘比特之弓':
+    '1': '{"type":"AIR"} {"type":"BLAZE_ROD"} {"type":"AIR"}'
+    '2': '{"type":"PLAYER_HEAD"} {"type":"BOW"} {"type":"PLAYER_HEAD"}'
+    '3': '{"type":"AIR"} {"type":"LAVA_BUCKET"} {"type":"AIR"}'
+    craft: '{"type":"BOW","enchantments":[{"type":"power","level":2},{"type":"flame","level":1}]}'
+    default-name: false
+    limit: -1
+
+  '雷鸣之弓':
+    '1': '{"type":"AIR"} {"type":"CLOCK"} {"type":"AIR"}'
+    '2': '{"type":"BLAZE_POWDER"} {"type":"BOW"} {"type":"BLAZE_POWDER"}'
+    '3': '{"type":"SPIDER_EYE"} {"type":"SLIME_BALL"} {"type":"SPIDER_EYE"}'
+    craft: '{"type":"mmoitems::BOW::LIGHTNING"}'
+    default-name: false
+    limit: -1
+
+  '学徒之盔':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"IRON_INGOT"} {"type":"IRON_INGOT"} {"type":"IRON_INGOT"}'
+    '3': '{"type":"IRON_INGOT"} {"type":"REDSTONE_TORCH"} {"type":"IRON_INGOT"}'
+    craft: '{"type":"IRON_HELMET","enchantments":[{"type":"protection","level":1},{"type":"blast_protection","level":1},{"type":"fire_protection","level":1},{"type":"projectile_protection","level":1}]}'
+    default-name: true
+    limit: -1
+
+  '冰斗湖之盔':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"DIAMOND"} {"type":"IRON_INGOT"} {"type":"DIAMOND"}'
+    '3': '{"type":"DIAMOND"} {"type":"REDSTONE_BLOCK"} {"type":"DIAMOND"}'
+    craft: '{"type":"DIAMOND_HELMET","enchantments":[{"type":"protection","level":1},{"type":"fire_protection","level":1},{"type":"aqua_affinity","level":1}]}'
+    default-name: true
+    limit: -1
+
+  '永生之盔':
+    '1': '{"type":"DIAMOND"} {"type":"DIAMOND"} {"type":"DIAMOND"}'
+    '2': '{"type":"DIAMOND"} {"type":"PLAYER_HEAD"} {"type":"DIAMOND"}'
+    '3': '{"type":"EMERALD"} {"type":"GOLDEN_CARROT"} {"type":"EMERALD"}'
+    craft: '{"type":"mmoitems::ARMOR::EXODUS"}'
+    default-name: false
+    limit: -1
+
+  '巨龙之甲':
+    '1': '{"type":"AIR"} {"type":"MAGMA_CREAM"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"DIAMOND_CHESTPLATE"} {"type":"AIR"}'
+    '3': '{"type":"OBSIDIAN"} {"type":"ANVIL"} {"type":"OBSIDIAN"}'
+    craft: '{"type":"DIAMOND_CHESTPLATE","enchantments":[{"type":"protection","level":4}]}'
+    default-name: false
+    limit: -1
+
+  '蛮族之甲':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"BLAZE_ROD"} {"type":"IRON_INGOT"} {"type":"BLAZE_ROD"}'
+    '3': '{"type":"IRON_BLOCK"} {"type":"POTION","base-effect":{"type":"STRENGTH","extended":true}} {"type":"IRON_BLOCK"}'
+    craft: '{"type":"mmoitems::ARMOR::BARBARIAN_CHESTPLATE"}'
+    default-name: false
+    limit: -1
+
+  '潮汐护腿':
+    '1': '{"type":"LAPIS_BLOCK"} {"type":"WATER_BUCKET"} {"type":"LAPIS_BLOCK"}'
+    '2': '{"type":"DIAMOND"} {"type":"DIAMOND_LEGGINGS"} {"type":"DIAMOND"}'
+    '3': '{"type":"LILY_PAD"} {"type":"AIR"} {"type":"LILY_PAD"}'
+    craft: '{"type":"DIAMOND_LEGGINGS","enchantments":[{"type":"aqua_affinity","level":1},{"type":"protection","level":4},{"type":"respiration","level":3}]}'
+    default-name: false
+    limit: -1
+
+  '七国战靴':
+    '1': '{"type":"FEATHER"} {"type":"ENDER_PEARL"} {"type":"FEATHER"}'
+    '2': '{"type":"FEATHER"} {"type":"DIAMOND_BOOTS"} {"type":"FEATHER"}'
+    '3': '{"type":"FEATHER"} {"type":"WATER_BUCKET"} {"type":"FEATHER"}'
+    craft: '{"type":"DIAMOND_BOOTS","enchantments":[{"type":"protection","level":3},{"type":"feather_falling","level":3}]}'
+    default-name: false
+    limit: -1
+
+  '维达战靴':
+    '1': '{"type":"AIR"} {"type":"PUFFERFISH"} {"type":"AIR"}'
+    '2': '{"type":"POTION","base-effect":{"type":"WATER"}} {"type":"DIAMOND_BOOTS"} {"type":"POTION","base-effect":{"type":"WATER"}}'
+    '3': '{"type":"AIR"} {"type":"FISHING_ROD"} {"type":"AIR"}'
+    craft: '{"type":"DIAMOND_BOOTS","enchantments":[{"type":"depth_strider","level":2},{"type":"unbreaking","level":3},{"type":"projectile_protection","level":2},{"type":"thorns","level":1}]}'
+    default-name: false
+    limit: -1
+
+  '盗贼之靴':
+    '1': '{"type":"DIAMOND"} {"type":"PLAYER_HEAD"} {"type":"DIAMOND"}'
+    '2': '{"type":"BLAZE_POWDER"} {"type":"DIAMOND_BOOTS"} {"type":"BLAZE_POWDER"}'
+    '3': '{"type":"FEATHER"} {"type":"AIR"} {"type":"FEATHER"}'
+    craft: '{"type":"mmoitems::ARMOR::THIEF_BOOTS"}'
+    default-name: false
+    limit: -1
+
+  # Example of item that when crafted will revive a team member.
+  # Remove '#' symbols to enable.
+#  '团队恢复':
+#    '1': '{"type":"GOLD_BLOCK"} {"type":"GOLD_BLOCK"} {"type":"GOLD_BLOCK"}'
+#    '2': '{"type":"GOLD_BLOCK"} {"type":"DIAMOND_BLOCK"} {"type":"GOLD_BLOCK"}'
+#    '3': '{"type":"GOLD_BLOCK"} {"type":"GOLD_BLOCK"} {"type":"GOLD_BLOCK"}'
+#    craft: '{"type":"NETHER_STAR","lore":["&7合成这个物品来复活一名队友"]}'
+#    default-name: false
+#    revive-item: true
+#    revive-with-inventory: true
+#    limit: -1
+
+  '简易高炉(无限)':
+    '1': '{"type":"AIR"} {"type":"COAL"} {"type":"AIR"}'
+    '2': '{"type":"COAL"} {"type":"FURNACE"} {"type":"COAL"}'
+    '3': '{"type":"AIR"} {"type":"COAL"} {"type":"AIR"}'
+    craft: '{"type":"BLAST_FURNACE"}'
+    default-name: true
+    limit: -1
+
+  '金头颅(4次)':
+    '1': '{"type":"GOLD_INGOT"} {"type":"GOLD_INGOT"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"GOLD_INGOT"} {"type":"PLAYER_HEAD"} {"type":"GOLD_INGOT"}'
+    '3': '{"type":"GOLD_INGOT"} {"type":"GOLD_INGOT"} {"type":"GOLD_INGOT"}'
+    craft: '{"type":"mmoitems::CONSUMABLE::GOLDEN_HEAD"}'
+    default-name: true
+    limit: 4
+
+  '学徒之盔1':
+    '1': '{"type":"IRON_INGOT"} {"type":"IRON_INGOT"} {"type":"IRON_INGOT"}'
+    '2': '{"type":"IRON_INGOT"} {"type":"REDSTONE_TORCH"} {"type":"IRON_INGOT"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"IRON_HELMET","enchantments":[{"type":"protection","level":1},{"type":"blast_protection","level":1},{"type":"fire_protection","level":1},{"type":"projectile_protection","level":1}]}'
+    default-name: true
+    limit: -1
+
+  '冰斗湖之盔1':
+    '1': '{"type":"DIAMOND"} {"type":"IRON_INGOT"} {"type":"DIAMOND"}'
+    '2': '{"type":"DIAMOND"} {"type":"REDSTONE_BLOCK"} {"type":"DIAMOND"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"DIAMOND_HELMET","enchantments":[{"type":"protection","level":1},{"type":"fire_protection","level":1},{"type":"aqua_affinity","level":1}]}'
+    default-name: true
+    limit: -1
+
+  '巨龙之甲1':
+    '1': '{"type":"AIR"} {"type":"MAGMA_CREAM"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"DIAMOND_CHESTPLATE"} {"type":"AIR"}'
+    '3': '{"type":"OBSIDIAN"} {"type":"CHIPPED_ANVIL"} {"type":"OBSIDIAN"}'
+    craft: '{"type":"DIAMOND_CHESTPLATE","enchantments":[{"type":"protection","level":4}]}'
+    default-name: false
+    limit: -1
+
+  '巨龙之甲2':
+    '1': '{"type":"AIR"} {"type":"MAGMA_CREAM"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"DIAMOND_CHESTPLATE"} {"type":"AIR"}'
+    '3': '{"type":"OBSIDIAN"} {"type":"DAMAGED_ANVIL"} {"type":"OBSIDIAN"}'
+    craft: '{"type":"DIAMOND_CHESTPLATE","enchantments":[{"type":"protection","level":4}]}'
+    default-name: false
+    limit: -1
+
+#  '铁锭':
+#    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    '2': '{"type":"AIR"} {"type":"IRON_INGOT"} {"type":"AIR"}'
+#    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    craft: '{"type":"IRON_INGOT"}'
+#    default-name: true
+#    limit: -1
+
+#  '金锭':
+#    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    '2': '{"type":"AIR"} {"type":"GOLD_INGOT"} {"type":"AIR"}'
+#    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    craft: '{"type":"GOLD_INGOT"}'
+#    default-name: true
+#    limit: -1
+
+#  '烈焰棒':
+#    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    '2': '{"type":"AIR"} {"type":"BLAZE_ROD"} {"type":"AIR"}'
+#    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    craft: '{"type":"BLAZE_ROD"}'
+#    default-name: true
+#    limit: -1
+
+#  '甘蔗':
+#    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    '2': '{"type":"AIR"} {"type":"SUGAR_CANE"} {"type":"AIR"}'
+#    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    craft: '{"type":"SUGAR_CANE"}'
+#    default-name: true
+#    limit: -1
+
+#A list of items that you don't want players to be able to craft
+# Please respect the json-item syntax! (You can use the /iteminfo command to generate this syntax.)
+# To remove all items change to "ban-items-crafts: []"
+ban-items-crafts:
+#  - '{"type":"SHIELD"}'

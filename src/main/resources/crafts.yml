@@ -1,0 +1,1195 @@
+# Configure custom crafts, to get rid of all custom crafts delete the 'custom-crafts' section.
+custom-crafts:
+  # Name of your craft, then 1, 2, 3 for every line in the crafting table
+  # Please respect the json-item syntax! (You can use the /iteminfo command to generate this syntax.)
+  # Set limit to -1 to allow unlimited crafts, set to to a value greater than 0 to limit crafts by player
+  # You can add enchantments in the enchants list (see the war-axe example)
+  # Set default name to true to keep the default minecraft name. This means the custom crafted items will stack with other items created using default minecraft crafts.
+  # (NOTE: When default name is enabled you will not be able to use craft limit and craft permissions!)
+
+  # '简易火药':
+  #  '1': '{"type":"GRAVEL"} {"type":"GRAVEL"} {"type":"GRAVEL"}'
+  #  '2': '{"type":"GRAVEL"} {"type":"GRAVEL"} {"type":"GRAVEL"}'
+  #  '3': '{"type":"GRAVEL"} {"type":"GRAVEL"} {"type":"GRAVEL"}'
+  #  craft: '{"type":"GUNPOWDER"}'
+  #  default-name: false
+  #  limit: 4
+
+  '炼铁':
+    '1': '{"type":"RAW_IRON"} {"type":"RAW_IRON"} {"type":"RAW_IRON"}'
+    '2': '{"type":"RAW_IRON"} {"type":"COAL"} {"type":"RAW_IRON"}'
+    '3': '{"type":"RAW_IRON"} {"type":"RAW_IRON"} {"type":"RAW_IRON"}'
+    craft: '{"type":"IRON_INGOT","amount":10}'
+    default-name: true
+    limit: 4
+
+  '炼铁1':
+    '1': '{"type":"IRON_ORE"} {"type":"IRON_ORE"} {"type":"IRON_ORE"}'
+    '2': '{"type":"IRON_ORE"} {"type":"COAL"} {"type":"IRON_ORE"}'
+    '3': '{"type":"IRON_ORE"} {"type":"IRON_ORE"} {"type":"IRON_ORE"}'
+    craft: '{"type":"IRON_INGOT","amount":10}'
+    default-name: true
+    limit: 4
+
+  '炼铁2':
+    '1': '{"type":"RAW_IRON"} {"type":"RAW_IRON"} {"type":"RAW_IRON"}'
+    '2': '{"type":"RAW_IRON"} {"type":"CHARCOAL"} {"type":"RAW_IRON"}'
+    '3': '{"type":"RAW_IRON"} {"type":"RAW_IRON"} {"type":"RAW_IRON"}'
+    craft: '{"type":"IRON_INGOT","amount":10}'
+    default-name: true
+    limit: 4
+
+  '炼铁3':
+    '1': '{"type":"IRON_ORE"} {"type":"IRON_ORE"} {"type":"IRON_ORE"}'
+    '2': '{"type":"IRON_ORE"} {"type":"CHARCOAL"} {"type":"IRON_ORE"}'
+    '3': '{"type":"IRON_ORE"} {"type":"IRON_ORE"} {"type":"IRON_ORE"}'
+    craft: '{"type":"IRON_INGOT","amount":10}'
+    default-name: true
+    limit: 4
+
+  '炼金':
+    '1': '{"type":"RAW_GOLD"} {"type":"RAW_GOLD"} {"type":"RAW_GOLD"}'
+    '2': '{"type":"RAW_GOLD"} {"type":"COAL"} {"type":"RAW_GOLD"}'
+    '3': '{"type":"RAW_GOLD"} {"type":"RAW_GOLD"} {"type":"RAW_GOLD"}'
+    craft: '{"type":"GOLD_INGOT","amount":10}'
+    default-name: true
+    limit: 4
+
+  '炼金1':
+    '1': '{"type":"GOLD_ORE"} {"type":"GOLD_ORE"} {"type":"GOLD_ORE"}'
+    '2': '{"type":"GOLD_ORE"} {"type":"COAL"} {"type":"GOLD_ORE"}'
+    '3': '{"type":"GOLD_ORE"} {"type":"GOLD_ORE"} {"type":"GOLD_ORE"}'
+    craft: '{"type":"GOLD_INGOT","amount":10}'
+    default-name: true
+    limit: 4
+
+  '炼金2':
+    '1': '{"type":"RAW_GOLD"} {"type":"RAW_GOLD"} {"type":"RAW_GOLD"}'
+    '2': '{"type":"RAW_GOLD"} {"type":"CHARCOAL"} {"type":"RAW_GOLD"}'
+    '3': '{"type":"RAW_GOLD"} {"type":"RAW_GOLD"} {"type":"RAW_GOLD"}'
+    craft: '{"type":"GOLD_INGOT","amount":10}'
+    default-name: true
+    limit: 4
+
+  '炼金3':
+    '1': '{"type":"GOLD_ORE"} {"type":"GOLD_ORE"} {"type":"GOLD_ORE"}'
+    '2': '{"type":"GOLD_ORE"} {"type":"CHARCOAL"} {"type":"GOLD_ORE"}'
+    '3': '{"type":"GOLD_ORE"} {"type":"GOLD_ORE"} {"type":"GOLD_ORE"}'
+    craft: '{"type":"GOLD_INGOT","amount":10}'
+    default-name: true
+    limit: 4
+
+  '炼铜':
+    '1': '{"type":"RAW_COPPER"} {"type":"RAW_COPPER"} {"type":"RAW_COPPER"}'
+    '2': '{"type":"RAW_COPPER"} {"type":"COAL"} {"type":"RAW_COPPER"}'
+    '3': '{"type":"RAW_COPPER"} {"type":"RAW_COPPER"} {"type":"RAW_COPPER"}'
+    craft: '{"type":"COPPER_INGOT","amount":10}'
+    default-name: true
+    limit: 4
+
+  '炼铜1':
+    '1': '{"type":"COPPER_ORE"} {"type":"COPPER_ORE"} {"type":"COPPER_ORE"}'
+    '2': '{"type":"COPPER_ORE"} {"type":"COAL"} {"type":"COPPER_ORE"}'
+    '3': '{"type":"COPPER_ORE"} {"type":"COPPER_ORE"} {"type":"COPPER_ORE"}'
+    craft: '{"type":"COPPER_INGOT","amount":10}'
+    default-name: true
+    limit: 4
+
+  '炼铜2':
+    '1': '{"type":"RAW_COPPER"} {"type":"RAW_COPPER"} {"type":"RAW_COPPER"}'
+    '2': '{"type":"RAW_COPPER"} {"type":"CHARCOAL"} {"type":"RAW_COPPER"}'
+    '3': '{"type":"RAW_COPPER"} {"type":"RAW_COPPER"} {"type":"RAW_COPPER"}'
+    craft: '{"type":"COPPER_INGOT","amount":10}'
+    default-name: true
+    limit: 4
+
+  '炼铜3':
+    '1': '{"type":"COPPER_ORE"} {"type":"COPPER_ORE"} {"type":"COPPER_ORE"}'
+    '2': '{"type":"COPPER_ORE"} {"type":"CHARCOAL"} {"type":"COPPER_ORE"}'
+    '3': '{"type":"COPPER_ORE"} {"type":"COPPER_ORE"} {"type":"COPPER_ORE"}'
+    craft: '{"type":"COPPER_INGOT","amount":10}'
+    default-name: true
+    limit: 4
+
+  '牛排':
+    '1': '{"type":"BEEF"} {"type":"BEEF"} {"type":"BEEF"}'
+    '2': '{"type":"BEEF"} {"type":"COAL"} {"type":"BEEF"}'
+    '3': '{"type":"BEEF"} {"type":"BEEF"} {"type":"BEEF"}'
+    craft: '{"type":"COOKED_BEEF","amount":10}'
+    default-name: true
+    limit: 4
+
+  '牛排1':
+    '1': '{"type":"BEEF"} {"type":"BEEF"} {"type":"BEEF"}'
+    '2': '{"type":"BEEF"} {"type":"CHARCOAL"} {"type":"BEEF"}'
+    '3': '{"type":"BEEF"} {"type":"BEEF"} {"type":"BEEF"}'
+    craft: '{"type":"COOKED_BEEF","amount":10}'
+    default-name: true
+    limit: 4
+
+  # '玻璃':
+  #   '1': '{"type":"SAND"} {"type":"SAND"} {"type":"SAND"}'
+  #   '2': '{"type":"SAND"} {"type":"COAL_BLOCK"} {"type":"SAND"}'
+  #   '3': '{"type":"SAND"} {"type":"SAND"} {"type":"SAND"}'
+  #   craft: '{"type":"GLASS","amount":8}'
+  #   default-name: true
+  #   limit: 4
+
+  '皮革':
+    '1': '{"type":"STICK"} {"type":"LEATHER"} {"type":"STICK"}'
+    '2': '{"type":"STICK"} {"type":"LEATHER"} {"type":"STICK"}'
+    '3': '{"type":"STICK"} {"type":"LEATHER"} {"type":"STICK"}'
+    craft: '{"type":"LEATHER","amount":8}'
+    default-name: true
+    limit: 4
+
+  '荧石粉':
+    '1': '{"type":"REDSTONE"} {"type":"REDSTONE"} {"type":"REDSTONE"}'
+    '2': '{"type":"REDSTONE"} {"type":"FLINT_AND_STEEL"} {"type":"REDSTONE"}'
+    '3': '{"type":"REDSTONE"} {"type":"REDSTONE"} {"type":"REDSTONE"}'
+    craft: '{"type":"GLOWSTONE_DUST","amount":8}'
+    default-name: true
+    limit: 4
+
+  '黑曜石':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"LAVA_BUCKET"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"WATER_BUCKET"} {"type":"AIR"}'
+    craft: '{"type":"OBSIDIAN"}'
+    default-name: true
+    limit: 4
+
+  '马鞍':
+    '1': '{"type":"LEATHER"} {"type":"LEATHER"} {"type":"LEATHER"}'
+    '2': '{"type":"STRING"} {"type":"LEATHER"} {"type":"STRING"}'
+    '3': '{"type":"IRON_INGOT"} {"type":"AIR"} {"type":"IRON_INGOT"}'
+    craft: '{"type":"SADDLE"}'
+    default-name: true
+    limit: 4
+
+  '甘蔗':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"OAK_SAPLING"} {"type":"AIR"}'
+    '3': '{"type":"WHEAT_SEEDS"} {"type":"SUGAR"} {"type":"WHEAT_SEEDS"}'
+    craft: '{"type":"SUGAR_CANE","amount":4}'
+    default-name: true
+    limit: 4
+
+  '下界疣':
+    '1': '{"type":"AIR"} {"type":"WHEAT_SEEDS"} {"type":"AIR"}'
+    '2': '{"type":"WHEAT_SEEDS"} {"type":"FERMENTED_SPIDER_EYE"} {"type":"WHEAT_SEEDS"}'
+    '3': '{"type":"AIR"} {"type":"WHEAT_SEEDS"} {"type":"AIR"}'
+    craft: '{"type":"NETHER_WART","amount":1}'
+    default-name: true
+    limit: 4
+
+  '烈焰棒':
+    '1': '{"type":"ORANGE_STAINED_GLASS"} {"type":"LAVA_BUCKET"} {"type":"ORANGE_STAINED_GLASS"}'
+    '2': '{"type":"ORANGE_STAINED_GLASS"} {"type":"FIREWORK_ROCKET"} {"type":"ORANGE_STAINED_GLASS"}'
+    '3': '{"type":"ORANGE_STAINED_GLASS"} {"type":"LAVA_BUCKET"} {"type":"ORANGE_STAINED_GLASS"}'
+    craft: '{"type":"BLAZE_ROD"}'
+    default-name: true
+    limit: 2
+
+  '不死图腾':
+    '1': '{"type":"COPPER_INGOT"} {"type":"COPPER_INGOT"} {"type":"COPPER_INGOT"}'
+    '2': '{"type":"COPPER_INGOT"} {"type":"NETHER_STAR"} {"type":"COPPER_INGOT"}'
+    '3': '{"type":"COPPER_INGOT"} {"type":"COPPER_INGOT"} {"type":"COPPER_INGOT"}'
+    craft: '{"type":"TOTEM_OF_UNDYING"}'
+    default-name: false
+    limit: 1
+
+  '苹果':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"BONE_MEAL"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"APPLE"} {"type":"AIR"}'
+    craft: '{"type":"APPLE","amount":2}'
+    default-name: true
+    limit: 4
+
+  '西瓜片':
+    '1': '{"type":"BONE_MEAL"} {"type":"WHEAT_SEEDS"} {"type":"BONE_MEAL"}'
+    '2': '{"type":"WHEAT_SEEDS"} {"type":"APPLE"} {"type":"WHEAT_SEEDS"}'
+    '3': '{"type":"BONE_MEAL"} {"type":"WHEAT_SEEDS"} {"type":"BONE_MEAL"}'
+    craft: '{"type":"MELON_SLICE","amount":1}'
+    default-name: true
+    limit: 4
+
+  '附魔之瓶':
+    '1': '{"type":"AIR"} {"type":"REDSTONE_BLOCK"} {"type":"AIR"}'
+    '2': '{"type":"REDSTONE_BLOCK"} {"type":"GLASS_BOTTLE"} {"type":"REDSTONE_BLOCK"}'
+    '3': '{"type":"AIR"} {"type":"REDSTONE_BLOCK"} {"type":"AIR"}'
+    craft: '{"type":"EXPERIENCE_BOTTLE","amount":8}'
+    default-name: true
+    limit: 4
+
+  # '大量附魔之瓶':
+  #   '1': '{"type":"OAK_LEAVES"} {"type":"ENCHANTING_TABLE"} {"type":"OAK_LEAVES"}'
+  #   '2': '{"type":"GLOWSTONE"} {"type":"GLASS_BOTTLE"} {"type":"GLOWSTONE"}'
+  #   '3': '{"type":"OAK_LEAVES"} {"type":"REDSTONE_BLOCK"} {"type":"OAK_LEAVES"}'
+  #   craft: '{"type":"EXPERIENCE_BOTTLE","amount":32}'
+  #   default-name: true
+  #   limit: 4
+
+  # '简易下界合金锭':
+  #   '1': '{"type":"GOLD_NUGGET"} {"type":"GOLD_NUGGET"} {"type":"GOLD_NUGGET"}'
+  #   '2': '{"type":"GOLD_NUGGET"} {"type":"NETHERITE_SCRAP"} {"type":"GOLD_NUGGET"}'
+  #   '3': '{"type":"GOLD_NUGGET"} {"type":"GOLD_NUGGET"} {"type":"GOLD_NUGGET"}'
+  #   craft: '{"type":"NETHERITE_INGOT"}'
+  #   default-name: true
+  #   limit: 4
+
+  '潜影盒':
+    '1': '{"type":"STICK"} {"type":"LEATHER"} {"type":"STICK"}'
+    '2': '{"type":"STICK"} {"type":"CHEST"} {"type":"STICK"}'
+    '3': '{"type":"STICK"} {"type":"LEATHER"} {"type":"STICK"}'
+    craft: '{"type":"SHULKER_BOX"}'
+    default-name: true
+    limit: 4
+
+  '经济箭矢':
+    '1': '{"type":"FLINT"} {"type":"FLINT"} {"type":"FLINT"}'
+    '2': '{"type":"STICK"} {"type":"STICK"} {"type":"STICK"}'
+    '3': '{"type":"FEATHER"} {"type":"FEATHER"} {"type":"FEATHER"}'
+    craft: '{"type":"ARROW","amount":20}'
+    default-name: true
+    limit: 4
+
+  '简易铁砧':
+    '1': '{"type":"IRON_INGOT"} {"type":"IRON_INGOT"} {"type":"IRON_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"IRON_BLOCK"} {"type":"AIR"}'
+    '3': '{"type":"IRON_INGOT"} {"type":"IRON_INGOT"} {"type":"IRON_INGOT"}'
+    craft: '{"type":"ANVIL"}'
+    default-name: true
+    limit: 4
+
+  '简易附魔台':
+    '1': '{"type":"AIR"} {"type":"BOOKSHELF"} {"type":"AIR"}'
+    '2': '{"type":"OBSIDIAN"} {"type":"DIAMOND"} {"type":"OBSIDIAN"}'
+    '3': '{"type":"OBSIDIAN"} {"type":"EXPERIENCE_BOTTLE"} {"type":"OBSIDIAN"}'
+    craft: '{"type":"ENCHANTING_TABLE"}'
+    default-name: true
+    limit: 4
+
+  '蜘蛛网':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"BONE_MEAL"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"WHITE_WOOL"} {"type":"AIR"}'
+    craft: '{"type":"COBWEB","amount":4}'
+    default-name: true
+    limit: 2
+
+  '简易金苹果':
+    '1': '{"type":"AIR"} {"type":"GOLD_INGOT"} {"type":"AIR"}'
+    '2': '{"type":"GOLD_INGOT"} {"type":"APPLE"} {"type":"GOLD_INGOT"}'
+    '3': '{"type":"AIR"} {"type":"GOLD_INGOT"} {"type":"AIR"}'
+    craft: '{"type":"GOLDEN_APPLE"}'
+    default-name: true
+    limit: 2
+
+  '丰饶之角':
+    '1': '{"type":"CARROT"} {"type":"CARROT"} {"type":"CARROT"}'
+    '2': '{"type":"CARROT"} {"type":"GOLDEN_APPLE"} {"type":"CARROT"}'
+    '3': '{"type":"CARROT"} {"type":"CARROT"} {"type":"CARROT"}'
+    craft: '{"type":"GOLDEN_CARROT","amount":3,"lore":["&8Cornucopia","&e使用获得10秒生命回复II和10分钟饱和I"]}'
+    default-name: false
+    limit: 4
+
+  '甘露':
+    '1': '{"type":"AIR"} {"type":"EMERALD"} {"type":"AIR"}'
+    '2': '{"type":"GOLD_INGOT"} {"type":"MELON_SLICE"} {"type":"GOLD_INGOT"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a甘露","base-effect":{"type":"UNCRAFTABLE"},"custom-effects":[{"type":"REGENERATION","duration":200,"amplifier":1}]}'
+    default-name: false
+    limit: 4
+
+  '速度药水':
+    '1': '{"type":"AIR"} {"type":"BROWN_DYE"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"SUGAR"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"SPLASH_POTION","display-name":"§a速度药水","base-effect":{"type":"THICK"},"custom-effects":[{"type":"SPEED","duration":240,"amplifier":2}]}'
+    default-name: false
+    limit: 4
+
+  '圣水':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_13"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a圣水","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}]}'
+    default-name: false
+    limit: 4
+
+  '抵抗药水':
+    '1': '{"type":"AIR"} {"type":"SLIME_BALL"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"SNOW_BLOCK"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a抵抗药水","base-effect":{"type":"UNCRAFTABLE"},"custom-effects":[{"type":"DAMAGE_RESISTANCE","duration":2400,"amplifier":1}]}'
+    default-name: false
+    limit: 4
+
+  '永生之酒':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"PLAYER_HEAD"} {"type":"GLISTERING_MELON_SLICE"} {"type":"PLAYER_HEAD"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a永生之酒","base-effect":{"type":"UNCRAFTABLE"},"custom-effects":[{"type":"ABSORPTION","duration":1200,"amplifier":1},{"type":"HEAL","duration":1,"amplifier":4}]}'
+    default-name: false
+    limit: 4
+
+  '永生之酒1':
+    '1': '{"type":"PLAYER_HEAD"} {"type":"GLISTERING_MELON_SLICE"} {"type":"PLAYER_HEAD"}'
+    '2': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a永生之酒","base-effect":{"type":"UNCRAFTABLE"},"custom-effects":[{"type":"ABSORPTION","duration":1200,"amplifier":1},{"type":"HEAL","duration":1,"amplifier":4}]}'
+    default-name: false
+    limit: 4
+
+  '腐蚀灵液':
+    '1': '{"type":"AIR"} {"type":"PLAYER_HEAD"} {"type":"AIR"}'
+    '2': '{"type":"BROWN_MUSHROOM"} {"type":"GLASS_BOTTLE"} {"type":"BROWN_MUSHROOM"}'
+    '3': '{"type":"AIR"} {"type":"INK_SAC"} {"type":"AIR"}'
+    craft: '{"type":"SPLASH_POTION","lore":["&8Flask of Ichor"],"display-name":"§a腐蚀灵液","base-effect":{"type":"AWKWARD"},"custom-effects":[{"type":"HARM","duration":1,"amplifier":2}]}'
+    default-name: false
+    limit: 4
+
+  '肃清之瓶':
+    '1': '{"type":"AIR"} {"type":"SKELETON_SKULL"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"MILK_BUCKET"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"SPLASH_POTION","lore":["&8Flask of Cleansing","&e清空命中玩家的所有药水效果","&e并使其在20秒内无法治愈"],"base-effect":{"type":"AWKWARD"},"custom-effects":[{"type":"WEAKNESS","duration":100,"amplifier":1}]}'
+    default-name: false
+    limit: 1
+
+  '无敌药水':
+    '1': '{"type":"AIR"} {"type":"EMERALD"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"PLAYER_HEAD"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","lore":["&8Deus Ex Machina","&e消耗你的1/2血量来合成","&e使用后20秒内无视攻击"],"base-effect":{"type":"AWKWARD"},"custom-effects":[{"type":"DAMAGE_RESISTANCE","duration":300,"amplifier":4}]}'
+    default-name: false
+    limit: 1
+
+  '锋利附魔书':
+    '1': '{"type":"FLINT"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"PAPER"} {"type":"PAPER"}'
+    '3': '{"type":"AIR"} {"type":"PAPER"} {"type":"IRON_SWORD"}'
+    craft: '{"type":"ENCHANTED_BOOK","enchantments":[{"type":"sharpness","level":1}]}'
+    default-name: true
+    limit: 4
+
+  '力量附魔书':
+    '1': '{"type":"FLINT"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"PAPER"} {"type":"PAPER"}'
+    '3': '{"type":"AIR"} {"type":"PAPER"} {"type":"BONE"}'
+    craft: '{"type":"ENCHANTED_BOOK","enchantments":[{"type":"power","level":1}]}'
+    default-name: true
+    limit: 4
+
+  '保护附魔书':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"PAPER"} {"type":"PAPER"}'
+    '3': '{"type":"AIR"} {"type":"PAPER"} {"type":"IRON_INGOT"}'
+    craft: '{"type":"ENCHANTED_BOOK","enchantments":[{"type":"protection","level":1}]}'
+    default-name: true
+    limit: 4
+
+  '弹射物保护附魔书':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"PAPER"} {"type":"PAPER"}'
+    '3': '{"type":"AIR"} {"type":"PAPER"} {"type":"ARROW"}'
+    craft: '{"type":"ENCHANTED_BOOK","enchantments":[{"type":"projectile_protection","level":1}]}'
+    default-name: true
+    limit: 4
+
+  '月神之书':
+    '1': '{"type":"ENDER_EYE"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"PAPER"} {"type":"PAPER"}'
+    '3': '{"type":"AIR"} {"type":"PAPER"} {"type":"FIRE_CHARGE"}'
+    craft: '{"type":"ENCHANTED_BOOK","enchantments":[{"type":"projectile_protection","level":3},{"type":"sharpness","level":2},{"type":"power","level":2},{"type":"punch","level":1},{"type":"fire_aspect","level":1}],"lore":["&8Book of Thoth"]}'
+    default-name: false
+    limit: 2
+
+  '命运之书':
+    '1': '{"type":"AIR"} {"type":"MAGMA_CREAM"} {"type":"AIR"}'
+    '2': '{"type":"DIAMOND_SWORD"} {"type":"WRITABLE_BOOK"} {"type":"BOW"}'
+    '3': '{"type":"EXPERIENCE_BOTTLE"} {"type":"EXPERIENCE_BOTTLE"} {"type":"EXPERIENCE_BOTTLE"}'
+    craft: '{"type":"ENCHANTED_BOOK","enchantments":[{"type":"projectile_protection","level":4},{"type":"sharpness","level":3},{"type":"power","level":3},{"type":"fire_aspect","level":1}],"lore":["&8Tablets of Destiny"]}'
+    default-name: false
+    limit: 2
+
+  '效率铁镐':
+    '1': '{"type":"RAW_IRON"} {"type":"RAW_IRON"} {"type":"RAW_IRON"}'
+    '2': '{"type":"COAL"} {"type":"STICK"} {"type":"COAL"}'
+    '3': '{"type":"AIR"} {"type":"STICK"} {"type":"AIR"}'
+    craft: '{"type":"IRON_PICKAXE","display-name":"§a效率铁镐","enchantments":[{"type":"efficiency","level":1}],"lore":["&8Quick Pick"]}'
+    default-name: true
+    limit: 4
+
+  '效率铁镐1':
+    '1': '{"type":"IRON_ORE"} {"type":"IRON_ORE"} {"type":"IRON_ORE"}'
+    '2': '{"type":"COAL"} {"type":"STICK"} {"type":"COAL"}'
+    '3': '{"type":"AIR"} {"type":"STICK"} {"type":"AIR"}'
+    craft: '{"type":"IRON_PICKAXE","display-name":"§a效率铁镐","enchantments":[{"type":"efficiency","level":1}],"lore":["&8Quick Pick"]}'
+    default-name: true
+    limit: 4
+
+  '效率铁镐2':
+    '1': '{"type":"RAW_IRON"} {"type":"RAW_IRON"} {"type":"RAW_IRON"}'
+    '2': '{"type":"CHARCOAL"} {"type":"STICK"} {"type":"CHARCOAL"}'
+    '3': '{"type":"AIR"} {"type":"STICK"} {"type":"AIR"}'
+    craft: '{"type":"IRON_PICKAXE","display-name":"§a效率铁镐","enchantments":[{"type":"efficiency","level":1}],"lore":["&8Quick Pick"]}'
+    default-name: true
+    limit: 4
+
+  '效率铁镐3':
+    '1': '{"type":"IRON_ORE"} {"type":"IRON_ORE"} {"type":"IRON_ORE"}'
+    '2': '{"type":"CHARCOAL"} {"type":"STICK"} {"type":"CHARCOAL"}'
+    '3': '{"type":"AIR"} {"type":"STICK"} {"type":"AIR"}'
+    craft: '{"type":"IRON_PICKAXE","display-name":"§a效率铁镐","enchantments":[{"type":"efficiency","level":1}],"lore":["&8Quick Pick"]}'
+    default-name: true
+    limit: 4
+
+  '哲人之镐':
+    '1': '{"type":"RAW_IRON"} {"type":"RAW_GOLD"} {"type":"RAW_IRON"}'
+    '2': '{"type":"LAPIS_BLOCK"} {"type":"STICK"} {"type":"LAPIS_BLOCK"}'
+    '3': '{"type":"AIR"} {"type":"STICK"} {"type":"AIR"}'
+    craft: '{"type":"DIAMOND_PICKAXE","display-name":"§a哲人之镐","enchantments":[{"type":"fortune","level":2}],"durability":1559,"lore":["&8Philospher''s Pickaxe","&e无法使用铁砧或附魔台"]}'
+    default-name: true
+    limit: 2
+
+  '哲人之镐1':
+    '1': '{"type":"IRON_ORE"} {"type":"GOLD_ORE"} {"type":"IRON_ORE"}'
+    '2': '{"type":"LAPIS_BLOCK"} {"type":"STICK"} {"type":"LAPIS_BLOCK"}'
+    '3': '{"type":"AIR"} {"type":"STICK"} {"type":"AIR"}'
+    craft: '{"type":"DIAMOND_PICKAXE","display-name":"§a哲人之镐","enchantments":[{"type":"fortune","level":2}],"durability":1558,"lore":["&8Philospher''s Pickaxe","&e无法使用铁砧或附魔台"]}'
+    default-name: true
+    limit: 2
+
+  '矿神的祝福':
+    '1': '{"type":"EXPERIENCE_BOTTLE"} {"type":"IRON_SWORD"} {"type":"EXPERIENCE_BOTTLE"}'
+    '2': '{"type":"EXPERIENCE_BOTTLE"} {"type":"DIAMOND_PICKAXE"} {"type":"EXPERIENCE_BOTTLE"}'
+    '3': '{"type":"BOOKSHELF"} {"type":"BOOKSHELF"} {"type":"BOOKSHELF"}'
+    craft: '{"type":"DIAMOND_PICKAXE","lore":["&8Miner''s Blessing","&e每消耗100点耐久获得5秒生命回复I","&e每消耗250点耐久增加2级锋利和1级效率","&e手持获得饱和III","&e无法使用铁砧或附魔台"]}'
+    default-name: false
+    limit: 4
+
+  '王之钓竿':
+    '1': '{"type":"AIR"} {"type":"FISHING_ROD"} {"type":"AIR"}'
+    '2': '{"type":"LILY_PAD"} {"type":"COMPASS"} {"type":"LILY_PAD"}'
+    '3': '{"type":"AIR"} {"type":"WATER_BUCKET"} {"type":"AIR"}'
+    craft: '{"type":"FISHING_ROD","enchantments":[{"type":"unbreaking","level":10},{"type":"luck_of_the_sea","level":10},{"type":"lure","level":5}],"lore":["&8King''s Rod"]}'
+    default-name: false
+    limit: 1
+
+  '锻炉':
+    '1': '{"type":"COBBLESTONE"} {"type":"COBBLESTONE"} {"type":"COBBLESTONE"}'
+    '2': '{"type":"COBBLESTONE"} {"type":"COAL_BLOCK"} {"type":"COBBLESTONE"}'
+    '3': '{"type":"COBBLESTONE"} {"type":"COBBLESTONE"} {"type":"COBBLESTONE"}'
+    craft: '{"type":"forge::10"}'
+    default-name: true
+    limit: 4
+
+  '上帝之骰':
+    '1': '{"type":"MOSSY_COBBLESTONE"} {"type":"PLAYER_HEAD"} {"type":"MOSSY_COBBLESTONE"}'
+    '2': '{"type":"MOSSY_COBBLESTONE"} {"type":"JUKEBOX"} {"type":"MOSSY_COBBLESTONE"}'
+    '3': '{"type":"MOSSY_COBBLESTONE"} {"type":"MOSSY_COBBLESTONE"} {"type":"MOSSY_COBBLESTONE"}'
+    craft: '{"type":"END_PORTAL_FRAME","lore":["&8Dice of God","&e右键获得随机物品"]}'
+    default-name: false
+    limit: 1
+
+  '大师罗盘':
+    '1': '{"type":"REDSTONE"} {"type":"REDSTONE_TORCH"} {"type":"REDSTONE"}'
+    '2': '{"type":"REDSTONE"} {"type":"COMPASS"} {"type":"REDSTONE"}'
+    '3': '{"type":"REDSTONE"} {"type":"REDSTONE"} {"type":"REDSTONE"}'
+    craft: '{"type":"COMPASS","lore":["&8Master''s Compass","&e右键产生一道光柱","&e并指向最近的敌方玩家"],"enchantments":[{"type":"unbreaking","level":1}]}'
+    default-name: false
+    limit: 1
+
+  '芬里厄巨狼':
+    '1': '{"type":"LEATHER"} {"type":"LEATHER"} {"type":"LEATHER"}'
+    '2': '{"type":"BONE"} {"type":"EXPERIENCE_BOTTLE"} {"type":"BONE"}'
+    '3': '{"type":"LEATHER"} {"type":"LEATHER"} {"type":"LEATHER"}'
+    craft: '{"type":"WOLF_SPAWN_EGG","lore":["&8Fenrir","&e实体种类: 狼","&e实体属性:","&e  - 速度","&e  - 抗性","&e  - 力量","&e已驯服并效忠于你"]}'
+    default-name: false
+    limit: 2
+
+  '恐惧战马':
+    '1': '{"type":"PLAYER_HEAD"} {"type":"SADDLE"} {"type":"AIR"}'
+    '2': '{"type":"BONE"} {"type":"BONE"} {"type":"BONE"}'
+    '3': '{"type":"BONE"} {"type":"AIR"} {"type":"BONE"}'
+    craft: '{"type":"SKELETON_HORSE_SPAWN_EGG","lore":["&8Daredevil","&e实体种类: 骷髅马","&e最高血量: 50","&e移动速度: 最大","&e跳跃力度: 1","&e生成时自带马鞍"]}'
+    default-name: false
+    limit: 1
+
+#  '战争之斧':
+#    '1': '{"type":"DIAMOND"} {"type":"DIAMOND"} {"type":"AIR"}'
+#    '2': '{"type":"DIAMOND"} {"type":"IRON_BLOCK"} {"type":"AIR"}'
+#    '3': '{"type":"AIR"} {"type":"IRON_BLOCK"} {"type":"AIR"}'
+#    craft: '{"type":"STONE_AXE","enchantments":[{"type":"unbreaking","level":3},{"type":"fire_aspect","level":1}]}'
+#    default-name: false
+#    limit: 4
+
+  '铜盾':
+    '1': '{"type":"COPPER_INGOT"} {"type":"IRON_INGOT"} {"type":"COPPER_INGOT"}'
+    '2': '{"type":"COPPER_INGOT"} {"type":"COPPER_INGOT"} {"type":"COPPER_INGOT"}'
+    '3': '{"type":"AIR"} {"type":"COPPER_INGOT"} {"type":"AIR"}'
+    craft: '{"type":"SHIELD","lore":["&8Copper Shield"],"enchantments":[{"type":"unbreaking","level":1}]}'
+    default-name: false
+    limit: 4
+
+  '霹隆之斧':
+    '1': '{"type":"DIAMOND"} {"type":"TNT"} {"type":"FIRE_CHARGE"}'
+    '2': '{"type":"DIAMOND"} {"type":"STICK"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"STICK"} {"type":"AIR"}'
+    craft: '{"type":"GOLDEN_AXE","lore":["&8Axe of Perun","&e攻击造成2点真实伤害","&e冷却时间8秒","&e无法使用铁砧或附魔台"]}'
+    default-name: false
+    limit: 1
+
+  '学徒之剑':
+    '1': '{"type":"AIR"} {"type":"REDSTONE_BLOCK"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"IRON_SWORD"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"REDSTONE_BLOCK"} {"type":"AIR"}'
+    craft: '{"type":"IRON_SWORD","lore":["&8Apprentice Sword","&e游戏开始10分钟 -> 锋利I","&e游戏开始25分钟 -> 锋利II","&e游戏开始50分钟 -> 锋利III","&e无法使用铁砧或附魔台"]}'
+    default-name: false
+    limit: 1
+
+  '斩首之剑':
+    '1': '{"type":"AIR"} {"type":"BONE"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"IRON_SWORD"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"ROTTEN_FLESH"} {"type":"AIR"}'
+    craft: '{"type":"IRON_SWORD","enchantments":[{"type":"smite","level":2},{"type":"bane_of_arthropods","level":2},{"type":"looting","level":2}],"lore":["&8Vorpal Sword","&e无法使用铁砧或附魔台"]}'
+    default-name: false
+    limit: 4
+
+  '巨龙之剑':
+    '1': '{"type":"AIR"} {"type":"BLAZE_POWDER"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"DIAMOND_SWORD"} {"type":"AIR"}'
+    '3': '{"type":"OBSIDIAN"} {"type":"BLAZE_POWDER"} {"type":"OBSIDIAN"}'
+    craft: '{"type":"NETHERITE_SWORD","lore":["&8Dragon Sword"]}'
+    default-name: false
+    limit: 1
+
+  '夺魂之刃':
+    '1': '{"type":"REDSTONE_BLOCK"} {"type":"DIAMOND"} {"type":"REDSTONE_BLOCK"}'
+    '2': '{"type":"REDSTONE_BLOCK"} {"type":"DIAMOND_SWORD"} {"type":"REDSTONE_BLOCK"}'
+    '3': '{"type":"REDSTONE_BLOCK"} {"type":"EXPERIENCE_BOTTLE"} {"type":"REDSTONE_BLOCK"}'
+    craft: '{"type":"DIAMOND_SWORD","lore":["&8Bloodlust","&e击杀数1 -> 锋利II","&e击杀数3 -> 锋利III","&e击杀数6 -> 锋利IV","&e击杀数10 -> 锋利V","&e无法使用铁砧或附魔台"],"enchantments":[{"type":"sharpness","level":1}]}'
+    default-name: false
+    limit: 1
+
+  '安都瑞尔之剑':
+    '1': '{"type":"FEATHER"} {"type":"IRON_BLOCK"} {"type":"FEATHER"}'
+    '2': '{"type":"FEATHER"} {"type":"IRON_BLOCK"} {"type":"FEATHER"}'
+    '3': '{"type":"FEATHER"} {"type":"BLAZE_ROD"} {"type":"FEATHER"}'
+    craft: '{"type":"IRON_SWORD","lore":["&8Andúril","&e手持获得速度I和抗性提升I","&e无法使用铁砧或附魔台"],"enchantments":[{"type":"sharpness","level":2}]}'
+    default-name: false
+    limit: 1
+
+  '誓约胜利之剑':
+    '1': '{"type":"QUARTZ"} {"type":"FIRE_CHARGE"} {"type":"QUARTZ"}'
+    '2': '{"type":"QUARTZ"} {"type":"TNT"} {"type":"QUARTZ"}'
+    '3': '{"type":"QUARTZ"} {"type":"DIAMOND_SWORD"} {"type":"QUARTZ"}'
+    craft: '{"type":"DIAMOND_SWORD","lore":["&8Excalibur","&e攻击造成3点真实伤害","&e冷却时间5秒","&e无法使用铁砧或附魔台"],"enchantments":[{"type":"unbreaking","level":1}]}'
+    default-name: false
+    limit: 1
+
+  '死神镰刀':
+    '1': '{"type":"AIR"} {"type":"PLAYER_HEAD"} {"type":"PLAYER_HEAD"}'
+    '2': '{"type":"AIR"} {"type":"BONE"} {"type":"CLOCK"}'
+    '3': '{"type":"BONE"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"IRON_HOE","lore":["&8Death''s Scythe","&e攻击夺取敌方剩余血量的1/5","&e并且回复自己造成伤害量的1/4","&e无法使用铁砧或附魔台"]}'
+    default-name: false
+    limit: 1
+
+  '学徒之弓':
+    '1': '{"type":"AIR"} {"type":"REDSTONE_TORCH"} {"type":"STRING"}'
+    '2': '{"type":"REDSTONE_TORCH"} {"type":"AIR"} {"type":"STRING"}'
+    '3': '{"type":"AIR"} {"type":"REDSTONE_TORCH"} {"type":"STRING"}'
+    craft: '{"type":"BOW","lore":["&8Apprentice Bow","&e游戏开始10分钟 -> 力量I","&e游戏开始25分钟 -> 力量II","&e游戏开始50分钟 -> 力量III","&e无法使用铁砧或附魔台"]}'
+    default-name: false
+    limit: 1
+
+  '丘比特之弓':
+    '1': '{"type":"AIR"} {"type":"BLAZE_ROD"} {"type":"AIR"}'
+    '2': '{"type":"PLAYER_HEAD"} {"type":"BOW"} {"type":"PLAYER_HEAD"}'
+    '3': '{"type":"AIR"} {"type":"LAVA_BUCKET"} {"type":"AIR"}'
+    craft: '{"type":"BOW","enchantments":[{"type":"power","level":2},{"type":"flame","level":1}],"lore":["&8Cupid''s Bow","&e无法使用铁砧或附魔台"]}'
+    default-name: false
+    limit: 4
+
+  '变幻之弓':
+    '1': '{"type":"AIR"} {"type":"CLOCK"} {"type":"AIR"}'
+    '2': '{"type":"BLAZE_POWDER"} {"type":"BOW"} {"type":"BLAZE_POWDER"}'
+    '3': '{"type":"SPIDER_EYE"} {"type":"SLIME_BALL"} {"type":"SPIDER_EYE"}'
+    craft: '{"type":"BOW","lore":["&8Modular Bow:[Punch]","&e模式1:冲击","&e模式2:剧毒","&e模式3:闪电","&e左键切换模式","&e无法使用铁砧或附魔台"],"enchantments":[{"type":"punch","level":1}]}'
+    default-name: false
+    limit: 1
+
+  '阿尔忒弥斯之弓':
+    '1': '{"type":"FEATHER"} {"type":"DIAMOND"} {"type":"FEATHER"}'
+    '2': '{"type":"FEATHER"} {"type":"BOW"} {"type":"FEATHER"}'
+    '3': '{"type":"FEATHER"} {"type":"ENDER_EYE"} {"type":"FEATHER"}'
+    craft: '{"type":"BOW","lore":["&8Artemis'' Bow","&e满蓄力射出的箭","&e有1/3几率自动瞄准敌人","&e无法使用铁砧或附魔台"],"enchantments":[{"type":"power","level":3}]}'
+    default-name: false
+    limit: 1
+
+  '学徒之盔':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"IRON_INGOT"} {"type":"IRON_INGOT"} {"type":"IRON_INGOT"}'
+    '3': '{"type":"IRON_INGOT"} {"type":"REDSTONE_TORCH"} {"type":"IRON_INGOT"}'
+    craft: '{"type":"IRON_HELMET","display-name":"§a学徒之盔","enchantments":[{"type":"protection","level":1},{"type":"blast_protection","level":1},{"type":"fire_protection","level":1},{"type":"projectile_protection","level":1}],"lore":["&8Apprentice Helmet","&e无法使用铁砧或附魔台"]}'
+    default-name: true
+    limit: 1
+    
+  '学徒之盔1':
+    '1': '{"type":"IRON_INGOT"} {"type":"IRON_INGOT"} {"type":"IRON_INGOT"}'
+    '2': '{"type":"IRON_INGOT"} {"type":"REDSTONE_TORCH"} {"type":"IRON_INGOT"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"IRON_HELMET","display-name":"§a学徒之盔","enchantments":[{"type":"protection","level":1},{"type":"blast_protection","level":1},{"type":"fire_protection","level":1},{"type":"projectile_protection","level":1}],"lore":["&8Apprentice Helmet","&e无法使用铁砧或附魔台"]}'
+    default-name: true
+    limit: 1
+
+  '冰斗湖头盔':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"DIAMOND"} {"type":"IRON_INGOT"} {"type":"DIAMOND"}'
+    '3': '{"type":"DIAMOND"} {"type":"REDSTONE_BLOCK"} {"type":"DIAMOND"}'
+    craft: '{"type":"DIAMOND_HELMET","display-name":"§a冰斗湖头盔","enchantments":[{"type":"protection","level":1},{"type":"fire_protection","level":1},{"type":"aqua_affinity","level":1}],"lore":["&8Tarnhelm","&e无法使用铁砧或附魔台"]}'
+    default-name: true
+    limit: 4
+
+  '冰斗湖头盔1':
+    '1': '{"type":"DIAMOND"} {"type":"IRON_INGOT"} {"type":"DIAMOND"}'
+    '2': '{"type":"DIAMOND"} {"type":"REDSTONE_BLOCK"} {"type":"DIAMOND"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"DIAMOND_HELMET","display-name":"§a冰斗湖头盔","enchantments":[{"type":"protection","level":1},{"type":"fire_protection","level":1},{"type":"aqua_affinity","level":1}],"lore":["&8Tarnhelm","&e无法使用铁砧或附魔台"]}'
+    default-name: true
+    limit: 4
+
+  '永生帽':
+    '1': '{"type":"DIAMOND"} {"type":"DIAMOND"} {"type":"DIAMOND"}'
+    '2': '{"type":"DIAMOND"} {"type":"PLAYER_HEAD"} {"type":"DIAMOND"}'
+    '3': '{"type":"EMERALD"} {"type":"GOLDEN_CARROT"} {"type":"EMERALD"}'
+    craft: '{"type":"DIAMOND_HELMET","enchantments":[{"type":"unbreaking","level":3}],"lore":["&8Exodus","&e攻击获得2秒生命回复II","&e冷却时间2秒","&e无法使用铁砧或附魔台"]}'
+    default-name: false
+    limit: 1
+
+  '刃甲':
+    '1': '{"type":"AIR"} {"type":"LILY_PAD"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"CACTUS"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"LEATHER_CHESTPLATE"} {"type":"AIR"}'
+    craft: '{"type":"LEATHER_CHESTPLATE","enchantments":[{"type":"protection","level":5},{"type":"unbreaking","level":10},{"type":"thorns","level":1}],"color":"6192150","lore":["&8Spiked Armor","&e无法使用铁砧或附魔台"]}'
+    default-name: false
+    limit: 4
+
+  '巨龙之甲':
+    '1': '{"type":"AIR"} {"type":"MAGMA_CREAM"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"DIAMOND_CHESTPLATE"} {"type":"AIR"}'
+    '3': '{"type":"OBSIDIAN"} {"type":"ANVIL"} {"type":"OBSIDIAN"}'
+    craft: '{"type":"DIAMOND_CHESTPLATE","enchantments":[{"type":"protection","level":4}],"lore":["&8Dragon Armor","&e无法使用铁砧或附魔台"]}'
+    default-name: false
+    limit: 1
+
+  '巨龙之甲1':
+    '1': '{"type":"AIR"} {"type":"MAGMA_CREAM"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"DIAMOND_CHESTPLATE"} {"type":"AIR"}'
+    '3': '{"type":"OBSIDIAN"} {"type":"CHIPPED_ANVIL"} {"type":"OBSIDIAN"}'
+    craft: '{"type":"DIAMOND_CHESTPLATE","display-name":"§a巨龙之甲","enchantments":[{"type":"protection","level":4}],"lore":["&8Dragon Armor","&e无法使用铁砧或附魔台"]}'
+    default-name: true
+    limit: 1
+
+  '巨龙之甲2':
+    '1': '{"type":"AIR"} {"type":"MAGMA_CREAM"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"DIAMOND_CHESTPLATE"} {"type":"AIR"}'
+    '3': '{"type":"OBSIDIAN"} {"type":"DAMAGED_ANVIL"} {"type":"OBSIDIAN"}'
+    craft: '{"type":"DIAMOND_CHESTPLATE","display-name":"§a巨龙之甲","enchantments":[{"type":"protection","level":4}],"lore":["&8Dragon Armor","&e无法使用铁砧或附魔台"]}'
+    default-name: true
+    limit: 1
+
+  '蛮族之甲':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"BLAZE_ROD"} {"type":"DIAMOND_CHESTPLATE"} {"type":"BLAZE_ROD"}'
+    '3': '{"type":"IRON_BLOCK"} {"type":"POTION","base-effect":{"type":"STRENGTH","extended":true}} {"type":"IRON_BLOCK"}'
+    craft: '{"type":"DIAMOND_CHESTPLATE","display-name":"§a蛮族之甲","enchantments":[{"type":"protection","level":1}],"lore":["&8Barbarian Chestplate","&e穿戴获得力量I和抗性提升I","&e无法使用铁砧或附魔台"]}'
+    default-name: true
+    limit: 1
+
+  '蛮族之甲1':
+    '1': '{"type":"BLAZE_ROD"} {"type":"DIAMOND_CHESTPLATE"} {"type":"BLAZE_ROD"}'
+    '2': '{"type":"IRON_BLOCK"} {"type":"POTION","base-effect":{"type":"STRENGTH","extended":true}} {"type":"IRON_BLOCK"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"DIAMOND_CHESTPLATE","display-name":"§a蛮族之甲","enchantments":[{"type":"protection","level":1}],"lore":["&8Barbarian Chestplate","&e穿戴获得力量I和抗性提升I","&e无法使用铁砧或附魔台"]}'
+    default-name: true
+    limit: 1
+
+  '聚变之甲':
+    '1': '{"type":"DIAMOND_HELMET"} {"type":"DIAMOND_CHESTPLATE"} {"type":"DIAMOND_LEGGINGS"}'
+    '2': '{"type":"DIAMOND_BOOTS"} {"type":"DIAMOND_BOOTS"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"DIAMOND_CHESTPLATE","display-name":"§a聚变之甲","enchantments":[{"type":"protection","level":4}],"lore":["&8Fusion Armor","&e用任意五个钻石护甲合成","&e随机获得一个聚变之甲","&e穿戴整套聚变之甲时","&e获得抗性提升I"]}'
+    default-name: true
+    limit: 2
+
+  '术士长裤':
+    '1': '{"type":"IRON_BARS"} {"type":"IRON_BARS"} {"type":"IRON_BARS"}'
+    '2': '{"type":"IRON_BARS"} {"type":"DIAMOND"} {"type":"IRON_BARS"}'
+    '3': '{"type":"BLAZE_POWDER"} {"type":"AIR"} {"type":"BLAZE_POWDER"}'
+    craft: '{"type":"CHAINMAIL_LEGGINGS","lore":["&8Warlock Pants","&e每失去4滴血将提供1/100的伤害减免","&e伤害最多减免1/4","&e无法使用铁砧或附魔台"]}'
+    default-name: false
+    limit: 1
+
+  '潮汐护腿':
+    '1': '{"type":"LAPIS_BLOCK"} {"type":"WATER_BUCKET"} {"type":"LAPIS_BLOCK"}'
+    '2': '{"type":"DIAMOND"} {"type":"DIAMOND_LEGGINGS"} {"type":"DIAMOND"}'
+    '3': '{"type":"LILY_PAD"} {"type":"AIR"} {"type":"LILY_PAD"}'
+    craft: '{"type":"DIAMOND_LEGGINGS","enchantments":[{"type":"aqua_affinity","level":1},{"type":"protection","level":4},{"type":"respiration","level":3}],"lore":["&8Hide of Leviathan","&e无法使用铁砧或附魔台"]}'
+    default-name: false
+    limit: 1
+
+  '七国战靴':
+    '1': '{"type":"FEATHER"} {"type":"ENDER_PEARL"} {"type":"FEATHER"}'
+    '2': '{"type":"FEATHER"} {"type":"DIAMOND_BOOTS"} {"type":"FEATHER"}'
+    '3': '{"type":"FEATHER"} {"type":"WATER_BUCKET"} {"type":"FEATHER"}'
+    craft: '{"type":"DIAMOND_BOOTS","enchantments":[{"type":"protection","level":3},{"type":"feather_falling","level":3}],"lore":["&8Seven-league Boots","&e无法使用铁砧或附魔台"]}'
+    default-name: false
+    limit: 1
+
+  '维达战靴':
+    '1': '{"type":"AIR"} {"type":"PUFFERFISH"} {"type":"AIR"}'
+    '2': '{"type":"POTION","base-effect":{"type":"WATER"}} {"type":"DIAMOND_BOOTS"} {"type":"POTION","base-effect":{"type":"WATER"}}'
+    '3': '{"type":"AIR"} {"type":"FISHING_ROD"} {"type":"AIR"}'
+    craft: '{"type":"DIAMOND_BOOTS","enchantments":[{"type":"depth_strider","level":2},{"type":"unbreaking","level":3},{"type":"projectile_protection","level":2},{"type":"thorns","level":1}],"lore":["&8Shoes of Vidar","&e无法使用铁砧或附魔台"]}'
+    default-name: false
+    limit: 1
+
+  '窃贼之靴':
+    '1': '{"type":"DIAMOND"} {"type":"PLAYER_HEAD"} {"type":"DIAMOND"}'
+    '2': '{"type":"BLAZE_POWDER"} {"type":"DIAMOND_BOOTS"} {"type":"BLAZE_POWDER"}'
+    '3': '{"type":"FEATHER"} {"type":"AIR"} {"type":"FEATHER"}'
+    craft: '{"type":"DIAMOND_BOOTS","lore":["&8Hermes''s Boots","&e穿戴增加10%移动速度","&e无法使用铁砧或附魔台"],"enchantments":[{"type":"feather_falling","level":1},{"type":"protection","level":2},{"type":"unbreaking","level":2}],"attributes":{"GENERIC_ARMOR":[{"name":"generic.armor","amount":3.0,"operation":"ADD_NUMBER","slot":"FEET"}],"GENERIC_ARMOR_TOUGHNESS":[{"name":"generic.armor_toughness","amount":2.0,"operation":"ADD_NUMBER","slot":"FEET"}],"GENERIC_MOVEMENT_SPEED":[{"name":"generic.movement_speed","amount":0.1,"operation":"MULTIPLY_SCALAR_1","slot":"FEET"}]}}'
+    default-name: false
+    limit: 1
+
+  # Example of item that when crafted will revive a team member.
+  # Remove '#' symbols to enable.
+#  '团队恢复':
+#    '1': '{"type":"GOLD_BLOCK"} {"type":"GOLD_BLOCK"} {"type":"GOLD_BLOCK"}'
+#    '2': '{"type":"GOLD_BLOCK"} {"type":"DIAMOND_BLOCK"} {"type":"GOLD_BLOCK"}'
+#    '3': '{"type":"GOLD_BLOCK"} {"type":"GOLD_BLOCK"} {"type":"GOLD_BLOCK"}'
+#    craft: '{"type":"NETHER_STAR","lore":["&8Team Revive","&e合成这个物品来复活一名队友"]}'
+#    default-name: false
+#    revive-item: true
+#    revive-with-inventory: true
+#    limit: 4
+
+#  '金头颅':
+#    '1': '{"type":"GOLD_INGOT"} {"type":"GOLD_INGOT"} {"type":"GOLD_INGOT"}'
+#    '2': '{"type":"GOLD_INGOT"} {"type":"PLAYER_HEAD"} {"type":"GOLD_INGOT"}'
+#    '3': '{"type":"GOLD_INGOT"} {"type":"GOLD_INGOT"} {"type":"GOLD_INGOT"}'
+#    craft: '{"type":"ENCHANTED_GOLDEN_APPLE","lore":["&8Golden Head","&e使用获得5秒生命回复IV","&e120秒伤害吸收I以及20秒速度II"]}'
+#    default-name: true
+#    limit: 4
+
+  '金头颅':
+    '1': '{"type":"GOLD_INGOT"} {"type":"GOLD_INGOT"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"GOLD_INGOT"} {"type":"PLAYER_HEAD"} {"type":"GOLD_INGOT"}'
+    '3': '{"type":"GOLD_INGOT"} {"type":"GOLD_INGOT"} {"type":"GOLD_INGOT"}'
+    craft: '{"type":"golden::head"}'
+    default-name: false
+    limit: 4
+
+  '附魔金苹果':
+    '1': '{"type":"GOLD_BLOCK"} {"type":"GOLD_BLOCK"} {"type":"GOLD_BLOCK"}'
+    '2': '{"type":"GOLD_BLOCK"} {"type":"APPLE"} {"type":"GOLD_BLOCK"}'
+    '3': '{"type":"GOLD_BLOCK"} {"type":"GOLD_BLOCK"} {"type":"GOLD_BLOCK"}'
+    craft: '{"type":"ENCHANTED_GOLDEN_APPLE"}'
+    default-name: true
+    limit: 4
+
+  # '学徒之盔1':
+  #   '1': '{"type":"IRON_INGOT"} {"type":"IRON_INGOT"} {"type":"IRON_INGOT"}'
+  #   '2': '{"type":"IRON_INGOT"} {"type":"REDSTONE_TORCH"} {"type":"IRON_INGOT"}'
+  #   '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+  #   craft: '{"type":"IRON_HELMET","enchantments":[{"type":"protection","level":1},{"type":"blast_protection","level":1},{"type":"fire_protection","level":1},{"type":"projectile_protection","level":1}],"display-name":"&a学徒之盔"}'
+  #   default-name: true
+  #   limit: -1
+
+  # '冰斗湖头盔1':
+  #   '1': '{"type":"DIAMOND"} {"type":"IRON_INGOT"} {"type":"DIAMOND"}'
+  #   '2': '{"type":"DIAMOND"} {"type":"REDSTONE_BLOCK"} {"type":"DIAMOND"}'
+  #   '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+  #   craft: '{"type":"DIAMOND_HELMET","enchantments":[{"type":"protection","level":1},{"type":"fire_protection","level":1},{"type":"aqua_affinity","level":1}],"lore":["&8Tarnhelm"],"display-name":"&a冰斗湖头盔"}'
+  #   default-name: true
+  #   limit: -1
+
+  '苹果1':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"APPLE"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"BONE_MEAL"} {"type":"AIR"}'
+    craft: '{"type":"APPLE","amount":2}'
+    default-name: true
+    limit: 4
+
+  '苹果2':
+    '1': '{"type":"BONE_MEAL"} {"type":"APPLE"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"APPLE","amount":2}'
+    default-name: true
+    limit: 4
+
+  '蜘蛛网1':
+    '1': '{"type":"BONE_MEAL"} {"type":"WHITE_WOOL"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"COBWEB","amount":4}'
+    default-name: true
+    limit: 2
+
+  '蜘蛛网2':
+    '1': '{"type":"WHITE_WOOL"} {"type":"BONE_MEAL"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"COBWEB","amount":4}'
+    default-name: true
+    limit: 2
+
+  '蜘蛛网3':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"WHITE_WOOL"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"BONE_MEAL"} {"type":"AIR"}'
+    craft: '{"type":"COBWEB","amount":4}'
+    default-name: true
+    limit: 2
+
+  '苹果3':
+    '1': '{"type":"APPLE"} {"type":"BONE_MEAL"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"APPLE","amount":2}'
+    default-name: true
+    limit: 4
+
+  '黑曜石1':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"WATER_BUCKET"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"LAVA_BUCKET"} {"type":"AIR"}'
+    craft: '{"type":"OBSIDIAN"}'
+    default-name: true
+    limit: 4
+
+  '黑曜石2':
+    '1': '{"type":"LAVA_BUCKET"} {"type":"WATER_BUCKET"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"OBSIDIAN"}'
+    default-name: true
+    limit: 4
+
+  '黑曜石3':
+    '1': '{"type":"WATER_BUCKET"} {"type":"LAVA_BUCKET"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"OBSIDIAN"}'
+    default-name: true
+    limit: 4
+
+  # '速度药水1':
+  #   '1': '{"type":"BROWN_DYE"} {"type":"AIR"} {"type":"AIR"}'
+  #   '2': '{"type":"SUGAR"} {"type":"AIR"} {"type":"AIR"}'
+  #   '3': '{"type":"GLASS_BOTTLE"} {"type":"AIR"} {"type":"AIR"}'
+  #   craft: '{"type":"SPLASH_POTION","display-name":"§a速度药水","base-effect":{"type":"THICK"},"custom-effects":[{"type":"SPEED","duration":240,"amplifier":2}]}'
+  #   default-name: true
+  #   limit: 4
+    
+  # '速度药水2':
+  #   '1': '{"type":"AIR"} {"type":"AIR"} {"type":"BROWN_DYE"}'
+  #   '2': '{"type":"AIR"} {"type":"AIR"} {"type":"SUGAR"}'
+  #   '3': '{"type":"AIR"} {"type":"AIR"} {"type":"GLASS_BOTTLE"}'
+  #   craft: '{"type":"SPLASH_POTION","display-name":"§a速度药水","base-effect":{"type":"THICK"},"custom-effects":[{"type":"SPEED","duration":240,"amplifier":2}]}'
+  #   default-name: true
+  #   limit: 4
+    
+  # '抵抗药水1':
+  #   '1': '{"type":"SLIME_BALL"} {"type":"AIR"} {"type":"AIR"}'
+  #   '2': '{"type":"SNOW_BLOCK"} {"type":"AIR"} {"type":"AIR"}'
+  #   '3': '{"type":"GLASS_BOTTLE"} {"type":"AIR"} {"type":"AIR"}'
+  #   craft: '{"type":"POTION","display-name":"§a抵抗药水","base-effect":{"type":"UNCRAFTABLE"},"custom-effects":[{"type":"DAMAGE_RESISTANCE","duration":2400,"amplifier":1}]}'
+  #   default-name: true
+  #   limit: 4
+
+  # '抵抗药水2':
+  #   '1': '{"type":"AIR"} {"type":"AIR"} {"type":"SLIME_BALL"}'
+  #   '2': '{"type":"AIR"} {"type":"AIR"} {"type":"SNOW_BLOCK"}'
+  #   '3': '{"type":"AIR"} {"type":"AIR"} {"type":"GLASS_BOTTLE"}'
+  #   craft: '{"type":"POTION","display-name":"§a抵抗药水","base-effect":{"type":"UNCRAFTABLE"},"custom-effects":[{"type":"DAMAGE_RESISTANCE","duration":2400,"amplifier":1}]}'
+  #   default-name: true
+  #   limit: 4
+
+  '圣水1':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_CAT"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a圣水","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}]}'
+    default-name: true
+    limit: 4
+
+  '圣水2':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_BLOCKS"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a圣水","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}]}'
+    default-name: true
+    limit: 4
+
+  '圣水3':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_CHIRP"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a圣水","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}]}'
+    default-name: true
+    limit: 4
+
+  '圣水4':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_FAR"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a圣水","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}]}'
+    default-name: true
+    limit: 4
+
+  '圣水5':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_MALL"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a圣水","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}]}'
+    default-name: true
+    limit: 4
+
+  '圣水6':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_MELLOHI"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a圣水","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}]}'
+    default-name: true
+    limit: 4
+
+  '圣水7':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_STAL"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a圣水","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}]}'
+    default-name: true
+    limit: 4
+
+  '圣水8':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_STRAD"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a圣水","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}]}'
+    default-name: true
+    limit: 4
+
+  '圣水9':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_WARD"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a圣水","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}]}'
+    default-name: true
+    limit: 4
+
+  '圣水10':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_11"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a圣水","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}]}'
+    default-name: true
+    limit: 4
+
+  '圣水11':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_WAIT"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a圣水","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}]}'
+    default-name: true
+    limit: 4
+
+  '圣水12':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_PIGSTEP"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a圣水","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}]}'
+    default-name: true
+    limit: 4
+
+  '圣水13':
+    '1': '{"type":"GOLD_INGOT"} {"type":"REDSTONE_BLOCK"} {"type":"GOLD_INGOT"}'
+    '2': '{"type":"AIR"} {"type":"MUSIC_DISC_OTHERSIDE"} {"type":"AIR"}'
+    '3': '{"type":"AIR"} {"type":"GLASS_BOTTLE"} {"type":"AIR"}'
+    craft: '{"type":"POTION","display-name":"§a圣水","base-effect":{"type":"MUNDANE"},"custom-effects":[{"type":"ABSORPTION","duration":2400,"amplifier":3}]}'
+    default-name: true
+    limit: 4
+
+  # '玻璃1':
+  #   '1': '{"type":"RED_SAND"} {"type":"RED_SAND"} {"type":"RED_SAND"}'
+  #   '2': '{"type":"RED_SAND"} {"type":"COAL_BLOCK"} {"type":"RED_SAND"}'
+  #   '3': '{"type":"RED_SAND"} {"type":"RED_SAND"} {"type":"RED_SAND"}'
+  #   craft: '{"type":"GLASS","amount":10}'
+  #   default-name: true
+  #   limit: 4
+
+  # '虚弱药水1':
+  #   '1': '{"type":"SKELETON_SKULL"} {"type":"AIR"} {"type":"AIR"}'
+  #   '2': '{"type":"MILK_BUCKET"} {"type":"AIR"} {"type":"AIR"}'
+  #   '3': '{"type":"GLASS_BOTTLE"} {"type":"AIR"} {"type":"AIR"}'
+  #   craft: '{"type":"SPLASH_POTION","display-name":"§a虚弱药水","base-effect":{"type":"WEAKNESS"}}'
+  #   default-name: true
+  #   limit: 4
+
+  # '虚弱药水2':
+  #   '1': '{"type":"AIR"} {"type":"AIR"} {"type":"SKELETON_SKULL"}'
+  #   '2': '{"type":"AIR"} {"type":"AIR"} {"type":"MILK_BUCKET"}'
+  #   '3': '{"type":"AIR"} {"type":"AIR"} {"type":"GLASS_BOTTLE"}'
+  #   craft: '{"type":"SPLASH_POTION","display-name":"§a虚弱药水","base-effect":{"type":"WEAKNESS"}}'
+  #   default-name: true
+  #   limit: 4
+
+  # '蛮族之甲1':
+  #   '1': '{"type":"BLAZE_ROD"} {"type":"IRON_INGOT"} {"type":"BLAZE_ROD"}'
+  #   '2': '{"type":"IRON_BLOCK"} {"type":"POTION","base-effect":{"type":"STRENGTH","extended":true}} {"type":"IRON_BLOCK"}'
+  #   '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+  #   craft: '{"type":"DIAMOND_CHESTPLATE","display-name":"§a蛮族之甲","enchantments":[{"type":"protection","level":1}],"lore":["&8Barbarian Chestplate","&e穿戴获得力量I和抗性提升I"]}'
+  #   default-name: true
+  #   limit: 4
+
+  '锻炉1':
+    '1': '{"type":"COBBLED_DEEPSLATE"} {"type":"COBBLED_DEEPSLATE"} {"type":"COBBLED_DEEPSLATE"}'
+    '2': '{"type":"COBBLED_DEEPSLATE"} {"type":"COAL_BLOCK"} {"type":"COBBLED_DEEPSLATE"}'
+    '3': '{"type":"COBBLED_DEEPSLATE"} {"type":"COBBLED_DEEPSLATE"} {"type":"COBBLED_DEEPSLATE"}'
+    craft: '{"type":"forge::10"}'
+    default-name: true
+    limit: 4
+
+  '甘蔗1':
+    '1': '{"type":"AIR"} {"type":"OAK_SAPLING"} {"type":"AIR"}'
+    '2': '{"type":"WHEAT_SEEDS"} {"type":"SUGAR"} {"type":"WHEAT_SEEDS"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"SUGAR_CANE","amount":4}'
+    default-name: true
+    limit: 4
+
+  '甘蔗2':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"SPRUCE_SAPLING"} {"type":"AIR"}'
+    '3': '{"type":"WHEAT_SEEDS"} {"type":"SUGAR"} {"type":"WHEAT_SEEDS"}'
+    craft: '{"type":"SUGAR_CANE","amount":4}'
+    default-name: true
+    limit: 4
+
+  '甘蔗3':
+    '1': '{"type":"AIR"} {"type":"SPRUCE_SAPLING"} {"type":"AIR"}'
+    '2': '{"type":"WHEAT_SEEDS"} {"type":"SUGAR"} {"type":"WHEAT_SEEDS"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"SUGAR_CANE","amount":4}'
+    default-name: true
+    limit: 4
+
+
+  '甘蔗4':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"BIRCH_SAPLING"} {"type":"AIR"}'
+    '3': '{"type":"WHEAT_SEEDS"} {"type":"SUGAR"} {"type":"WHEAT_SEEDS"}'
+    craft: '{"type":"SUGAR_CANE","amount":4}'
+    default-name: true
+    limit: 4
+
+  '甘蔗5':
+    '1': '{"type":"AIR"} {"type":"BIRCH_SAPLING"} {"type":"AIR"}'
+    '2': '{"type":"WHEAT_SEEDS"} {"type":"SUGAR"} {"type":"WHEAT_SEEDS"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"SUGAR_CANE","amount":4}'
+    default-name: true
+    limit: 4
+
+  '甘蔗6':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"JUNGLE_SAPLING"} {"type":"AIR"}'
+    '3': '{"type":"WHEAT_SEEDS"} {"type":"SUGAR"} {"type":"WHEAT_SEEDS"}'
+    craft: '{"type":"SUGAR_CANE","amount":4}'
+    default-name: true
+    limit: 4
+
+  '甘蔗7':
+    '1': '{"type":"AIR"} {"type":"JUNGLE_SAPLING"} {"type":"AIR"}'
+    '2': '{"type":"WHEAT_SEEDS"} {"type":"SUGAR"} {"type":"WHEAT_SEEDS"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"SUGAR_CANE","amount":4}'
+    default-name: true
+    limit: 4
+
+  '甘蔗8':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"ACACIA_SAPLING"} {"type":"AIR"}'
+    '3': '{"type":"WHEAT_SEEDS"} {"type":"SUGAR"} {"type":"WHEAT_SEEDS"}'
+    craft: '{"type":"SUGAR_CANE","amount":4}'
+    default-name: true
+    limit: 4
+
+  '甘蔗9':
+    '1': '{"type":"AIR"} {"type":"ACACIA_SAPLING"} {"type":"AIR"}'
+    '2': '{"type":"WHEAT_SEEDS"} {"type":"SUGAR"} {"type":"WHEAT_SEEDS"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"SUGAR_CANE","amount":4}'
+    default-name: true
+    limit: 4
+
+  '甘蔗10':
+    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    '2': '{"type":"AIR"} {"type":"DARK_OAK_SAPLING"} {"type":"AIR"}'
+    '3': '{"type":"WHEAT_SEEDS"} {"type":"SUGAR"} {"type":"WHEAT_SEEDS"}'
+    craft: '{"type":"SUGAR_CANE","amount":4}'
+    default-name: true
+    limit: 4
+
+  '甘蔗11':
+    '1': '{"type":"AIR"} {"type":"DARK_OAK_SAPLING"} {"type":"AIR"}'
+    '2': '{"type":"WHEAT_SEEDS"} {"type":"SUGAR"} {"type":"WHEAT_SEEDS"}'
+    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+    craft: '{"type":"SUGAR_CANE","amount":4}'
+    default-name: true
+    limit: 4
+
+#  '铁锭':
+#    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    '2': '{"type":"AIR"} {"type":"IRON_INGOT"} {"type":"AIR"}'
+#    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    craft: '{"type":"IRON_INGOT"}'
+#    default-name: true
+#    limit: 4
+
+#  '金锭':
+#    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    '2': '{"type":"AIR"} {"type":"GOLD_INGOT"} {"type":"AIR"}'
+#    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    craft: '{"type":"GOLD_INGOT"}'
+#    default-name: true
+#    limit: 4
+
+#  '烈焰棒':
+#    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    '2': '{"type":"AIR"} {"type":"BLAZE_ROD"} {"type":"AIR"}'
+#    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    craft: '{"type":"BLAZE_ROD"}'
+#    default-name: true
+#    limit: 4
+
+#  '甘蔗':
+#    '1': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    '2': '{"type":"AIR"} {"type":"SUGAR_CANE"} {"type":"AIR"}'
+#    '3': '{"type":"AIR"} {"type":"AIR"} {"type":"AIR"}'
+#    craft: '{"type":"SUGAR_CANE"}'
+#    default-name: true
+#    limit: 4
+
+#A list of items that you don't want players to be able to craft
+# Please respect the json-item syntax! (You can use the /iteminfo command to generate this syntax.)
+# To remove all items change to "ban-items-crafts: []"
+ban-items-crafts:
+#  - '{"type":"SHIELD"}'
