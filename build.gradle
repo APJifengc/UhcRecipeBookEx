@@ -1,65 +1,54 @@
-import org.apache.tools.ant.filters.ReplaceTokens
-
-buildscript {
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:5.1.0'
-    }
+plugins {
+    id 'java'
 }
 
-allprojects {
-    apply plugin: 'java'
-    apply plugin: 'com.github.johnrengelman.shadow'
+group = 'io.github.apjifengc'
+version = '1.2.0'
 
-    group = pluginGroup
-    version = pluginVersion
-
-    sourceCompatibility = 11
-    targetCompatibility = 11
-
-    repositories {
-        mavenCentral()
-        maven { url 'https://hub.spigotmc.org/nexus/content/groups/public/' }
-        maven { url 'https://jitpack.io' }
-        maven { url 'https://maven.enginehub.org/repo/' }
-        maven { url "https://repo.dmulloy2.net/repository/public/" }
-        maven { url 'https://papermc.io/repo/repository/maven-public/' }
-        maven { url 'https://repo.codemc.io/repository/maven-snapshots/' }
-        flatDir { dirs 'libs' }
-        flatDir { dirs 'libs-secret' }
+repositories {
+    mavenCentral()
+    maven {
+        name = 'spigotmc-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
     }
-
-    processResources {
-        from(sourceSets.main.resources.srcDirs) {
-            filter ReplaceTokens, tokens: [version: version]
-        }
+    maven {
+        name = 'sonatype'
+        url = 'https://oss.sonatype.org/content/groups/public/'
     }
 }
 
 dependencies {
-    implementation fileTree('libs')
-    implementation 'org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT'
-    shadow 'com.github.MilkBowl:VaultAPI:1.7'
-    compile name: 'anvilgui-1.5.1-SNAPSHOT'
-    compile name: 'BiomeMapping-1.2'
-    compile "io.papermc:paperlib:1.0.5"
-    shadow 'com.comphenix.protocol:ProtocolLib:4.4.0'
-    compile project('Support-WorldEdit-6')
-    compile project('Support-WorldEdit-7')
-
-    implementation fileTree('libs')
-    implementation fileTree('libs-secret')
-
-    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+    implementation 'org.projectlombok:lombok:1.18.22'
+    implementation files("$rootDir/libs/UhcCore-1.19.4.jar")
+    compileOnly 'org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
 }
 
-shadowJar {
-    classifier = ''
-    configurations = [project.configurations.compile]
-    relocate 'io.papermc.lib', 'com.gmail.val59000mc.paperlib'
+def targetJavaVersion = 11
+java {
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
 }
 
-build.dependsOn(shadowJar)
+tasks.withType(JavaCompile).configureEach {
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        options.release = targetJavaVersion
+    }
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}
+
+tasks.withType(Jar) {
+    destinationDirectory = file("$rootDir/run/plugins/")
+}

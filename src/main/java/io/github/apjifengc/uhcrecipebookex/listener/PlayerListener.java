@@ -6,6 +6,7 @@ import com.gmail.val59000mc.customitems.*;
 import com.gmail.val59000mc.exceptions.UhcTeamException;
 import com.gmail.val59000mc.game.GameManager;
 import com.gmail.val59000mc.game.GameState;
+import com.gmail.val59000mc.game.handlers.ShulkerInventoryHandler;
 import com.gmail.val59000mc.languages.Lang;
 import com.gmail.val59000mc.listeners.ItemsListener;
 import com.gmail.val59000mc.players.PlayerManager;
@@ -148,6 +149,13 @@ public class PlayerListener implements Listener {
         Player player = event.getPlayer();
         UhcPlayer uhcPlayer = GameManager.getGameManager().getPlayerManager().getUhcPlayer(player);
         ItemStack hand = player.getInventory().getItemInMainHand();
+
+        if (hand.getType().equals(Material.SHULKER_BOX) && player.isSneaking()) {
+            event.setCancelled(true);
+            player.playSound(player.getLocation(), Sound.ENTITY_SHULKER_OPEN, 1, 1);
+            player.openInventory(ShulkerInventoryHandler.createShulkerBoxInventory(player, player.getInventory().getItemInMainHand()));
+            return;
+        }
 
         if (GameItem.isGameItem(hand)) {
             event.setCancelled(true);
@@ -445,6 +453,11 @@ public class PlayerListener implements Listener {
                                     if(newStack.getItemMeta()!=null&&newStack.getItemMeta().getLore()!=null&&newStack.getItemMeta().getLore().contains(Lang.ITEMS_DEUS_EX_MACHINA)){
                                         player.setHealth(player.getHealth()/2);
                                     }
+                                    if(newStack.getItemMeta()!=null&&newStack.getItemMeta().getLore()!=null&&newStack.getItemMeta().getLore().contains(Lang.ITEMS_PERUN)){
+                                        ItemMeta meta = newStack.getItemMeta();
+                                        meta.setUnbreakable(true);
+                                        newStack.setItemMeta(meta);
+                                    }
                                     newStack.setAmount(amount);
                                     event.getView().setCursor(newStack);
                                     reduce(inventory, 1);
@@ -635,6 +648,7 @@ public class PlayerListener implements Listener {
             if (stacks[i] == null) {
                 stacks[i] = new ItemStack(Material.AIR);
             }
+
             ItemStack oriItem = stacks[i];
             ItemStack oriTarget = craft.getRecipe().get(i);
             if (!craft.getRecipe().get(i).hasItemMeta()) {

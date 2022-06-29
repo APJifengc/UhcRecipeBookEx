@@ -1,669 +1,161 @@
-#Choose the percentage threshold of ready teams at which the game should start (Ignored when 'team-always-ready' is set to true)
-minimal-ready-teams-percentage-to-start: 60
-
-#Choose the threshold of ready teams at which the game should start (in combination with the percentage condition)
-minimal-ready-teams-to-start: 2
-
-#Choose the minimum number of players connected  to start the countdown when team are ready (in combination with the two above options)
-min-players-to-start: 4
-
-#Choose how much players can be in the same team, set it to 1 to play a game with no teams
-max-players-per-team: 3
-
-#If true every team will get a random team color (This color may be changed in the team color selector).
-#When disabled enemies will be red, team members green.
-use-team-colors: true
-
-# If true the display name of players will change to the color of their team (The display name shows in chat and in messages of other plugins that use display name).
-change-display-names: true
-
-#Choose if new players will be auto assigned to a not full team.
-auto-assign-new-player-team: false
-
-#If true, all players with no team when the game starts, will be assigned to a team that is not full.
-#If no team can be found, the player will remain solo
-#Be warned that it will even force two solo players to be in the same team, resulting in a game with only one team, thus ending instantly.
-#To avoid this wierd case you must set your min-players-to-start value to be higher than the max-players-per-team value
-force-assign-solo-player-to-team-when-starting: false
-
-#Set it to true to prevent players from leaving their team (may be useful with auto-assign set to true)
-prevent-player-from-leaving-team: false
-
-#Forces the teams to be always ready, thus preventing afk players from blocking the beginning of the game
-team-always-ready: true
-
-# Set to false if you don't want players to be able to rename their teams.
-enable-team-names: true
-
-#Choose the countdown time to start the game when enough teams are ready
-#This value must be set to 6 or more. If you set a value of 5 or less, it will cause an unpredictable behavior.
-time-to-start-when-ready: 6
-#300
-
-#The time in seconds before the PVP starts
-time-before-pvp: 1
-#600
-
-# When enabled players of the same team will be able to damage each other.
-enable-friendly-fire: false
-
-# When set to true you won't be able to see enemy name-tags.
-disable-enemy-nametags: false
-
-#Set it to false to kick player when they die. (Give players the permission 'uhc-core.spectate.override' to always allow them to spectate)
-can-spectate-after-death: true
-
-#Set it to true to allow new players to join as spectators when the game is already running (it requires can-spectate-after-death to be true)
-# (Give players the permission 'uhc-core.spectate.override' to always allow them to spectate)
-can-join-as-spectator: true
-
-# Set it to false to block spectators from sending messages in global chat. (Players with the permission 'uhc-core.chat.override' will still be able to in global chat)
-# They will appear in a separate spectator chat only visible for other spectators.
-can-send-messages-after-death: false
-
-# Chat prefix, when enabled, messages starting with @ will display in team chat, when starting with ! they will be displayed in global chat.
-# This means players don't have to use /chat to toggle between team and global chat each time.
-chat-prefix:
-  enable: true
-  team-prefix: '[队伍]'
-  global-prefix: '[全体]'
-
-# Disable motd (Set this to true to stop the plugin from changing the motd and allows you to use a third party plugin to change them.)
-disable-motd: false
-
-# Game difficulty (Choose from this list: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Difficulty.html)
-game-difficulty: HARD
-
-# When set to false, Advancements (1.12+) will not be announced in chat. Achievements (1.8-1.11) can be turned off in your server.properties
-announce-advancements: false
-
-# This feature might not make a lot of sense for UHC but if you want to enable natural health regen you can do it here.
-enable-health-regen: false
-
-#Configure after how many seconds a disconnected player should be considered dead and eliminated
-kill-disconnected-players-after-delay:
-  enable: true
-  delay: 300
-
-# If enabled offline players are replaced by a zombie, if killed the player dies and their items drop.
-spawn-offline-players: true
-
-#Timer in seconds to auto stop/restart the server when the game as ended (Set to -1 to disable)
-time-before-restart-after-end: 120
-
-#Set it to false to prevent the end of the game if there are no players left (may be useful for private servers with friends playing over several days,
-# it still requires the server to be left running while there are no players on it)
-countdown-ending-game-when-all-players-have-left: true
-
-# Enable to have a message and sound every x minutes. (This can be used for youtubers to know when to end their episodes.)
-episode-markers:
-  enable: false
-  # Duration of the episodes in seconds.
-  delay: 900
-
-#Choose the potions effects to be given to the players when the game starts
-#syntax = POTION_NAME/duration_in_ticks/amplifier
-#reference list https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html
-potion-effect-on-start:
-- REGENERATION/400/9
-- FIRE_RESISTANCE/12000/0
-- ABSORPTION/12000/2
-- SATURATION/12000/0
-- DAMAGE_RESISTANCE/12000/1
-
-# Customize game behavior to add non-standard minecraft things
-customize-game-behavior:
-
-  # Set a list of scenarios that are active by default. Set to true when you want to use this feature.
-  enable-default-scenarios: false
-
-  # You can change these for individual game using /scenarios (permission: 'uhc-core.scenarios.edit')
-  # You can choose from these scenarios: cutclean, fireless, bowless, rodless, shieldless, blood_diamonds, timber, horseless,
-  # timebomb, no_fall, best_pve, triple_ores, double_ores, team_inventory, no_clean, hastey_boys, lucky_leaves, bleeding_sweets,
-  # double_gold, goldless, flower_power, switcheroo, vein_miner, dragon_rush, love_at_first_sight, fast_leaves_decay, sky_high,
-  # fast_smelting, superheroes, anonymous, gone_fishing, infinite_enchants, children_left_unattended, silent_night, permakill,
-  # weakest_link, eggs, no_going_back, double_dates, fly_high, randomized_drops, upside_down_crafting, randomized_crafts,
-  # monsters_inc, achievement_hunter, nine_slots, nether_start
-  active-scenarios:
-    - cutclean
-    - hastey_boys
-
-  scenarios:
-    # When enabled players will be able to vote for what scenarios they want to be active.
-    voting:
-      enable: false
-      # The amount of scenarios players can vote for.
-      max-votes: 3
-      # The amount of scenarios with the most votes that will get added at the start of the game.
-      elected-scenarios: 3
-      # Black-list, scenarios under this list can not be voted for.
-      black-list: [flower_power]
-
-
-  # Set it to false to stop ghasts from dropping ghast-tears
-  # Setting it to false is a good way to prevent people from making regeneration potions
-  allow-ghast-tears-drops: true
-
-  # Enable extra experience drops when killing a player (experience quantities reference http://minecraft.gamepedia.com/Experience)
-  add-xp-drops-on-player-death:
-    enable: false
-    quantity: 200
-
-  # Enable random extra gold drops for specific mobs
-  # Entity types reference list here : https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
-  add-gold-drops:
-    enable: false
-    min: 1
-    max: 3
-    drop-chance-percentage: 50
-    affected-mobs:
-      - CREEPER
-      - GHAST
-
-  # Enable extra max life for every player
-  add-player-extra-half-hearts:
-    enable: true
-    extra-half-hearts: 20
-
-  # Set it to true to enable the need of a permission to use a custom craft
-  # Permissions node will be like uhc-core.craft.light-apple (Craft name in lowercase and spaces replaced by dashes.)
-  enable-crafts-permissions: true
-
-  #Max building height (Set to -1 to disable).
-  max-building-height: -1
-#249 + 64 = 313
-
-  # Set it to false to prevent players from entering the nether through a portal
-  # Only set this to true when you are really using it since more worlds loaded means worse performance.
-  enable-nether: true
-
-  # Set it to true to enable the end.
-  # Only set this to true when you are really using it since more worlds loaded means worse performance.
-  enable-the-end: false
-
-  # Set it to true to prevent players from making level II potions with glowstone
-  ban-level-2-potions: false
-
-  # Set it to true to prevent players from enchant axe with sharpness in anvil
-  ban-sharpness-axes: true
-
-  # When enabled the sun will move until 'time-before-permanent-day'
-  day-night-cycle:
-    # Set to false to always have permanent day.
-    enable: false
-    # Time in seconds before permanent day is turned on. (If you want the sun to keep moving the entire day, set to -1)
-    time-before-permanent-day: 1200
-
-
-  # Set it to true to allow droping a player head when a player dies
-  # Eating the head regenerates your team for 5 seconds
-  add-regen-head-drop-on-player-death: true
-  # Set this to true to double the health given to your team.
-  double-regen-head: false
-
-
-  # When golden heads are enabled on players death a skull will drop.
-  # This skull can be placed in a crafting table with 8 gold around it to craft a "Golden Apple".
-  # Golden heads heal 4 hearts instead of 2 for normal golden apples.
-  enable-golden-heads: false
-  # Set to true to place skull on a fence pole instead of dropping it on the ground.
-  place-head-on-fence: false
-
-  # When enabled a lightning strike will happen on the place of the player death
-  stike-lightning-on-death: true
-
-# This section references optional features to allow to run in fast uhc mode ( = uhc run)
-fast-mode:
-
-  # Set to true if you want all playing players to be healed at a set time.
-  final-heal:
-    enable: false
-    delay: 1200
-
-  underground-nether:
-    # Set it to true to allow pasting a nether schematic file in the overworld.
-    # The file should be named nether.schematic and be located in the plugins/UhcCore folder
-    # If enabled, it will be pasted at random places in the world
-    enable: false
-
-    # Choose the min number of times the schematic will be pasted at random places
-    min-ocurrences: 5
-
-    # Choose the max number of times the schematic will be pasted at random places
-    max-ocurrences: 10
-
-    # Choose the height at which the schematic should be pasted
-    paste-nether-at-y: 20
-
-  # Configure customizable block loots
-  # The name of the sub-category should be an existing block material
-  # To view the correct item item data you can use '/iteminfo' in game (Permission: 'uhc-core.commands.iteminfo')
-  # You can set 'loot' and 'add-xp' to drop an item or some xp
-  # Please respect the json-item syntax! (You can use the '/iteminfo [min] [max]' command to generate this syntax.)
-  # If you do not want to have special loots, just leave the config node empty like that block-loot: {}
-  block-loot:
-    enable: false
-
-    loots:
-      ANDESITE:
-        loot: '{"type":"COBBLESTONE","minimum":1,"maximum":1}'
-
-      DIORITE:
-        loot: '{"type":"COBBLESTONE","minimum":1,"maximum":1}'
-
-      GRANITE:
-        loot: '{"type":"COBBLESTONE","minimum":1,"maximum":1}'
-
-      BASALT:
-        loot: '{"type":"COBBLESTONE","minimum":1,"maximum":1}'
-
-      BLACKSTONE:
-        loot: '{"type":"COBBLESTONE","minimum":1,"maximum":1}'
-
-      TUFF:
-        loot: '{"type":"COBBLESTONE","minimum":1,"maximum":1}'
-
-      CALCITE:
-        loot: '{"type":"COBBLESTONE","minimum":1,"maximum":1}'
-
-      WHITE_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-
-      ORANGE_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-
-      MAGENTA_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-
-      LIGHT_BLUE_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-
-      YELLOW_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-
-      LIME_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-
-      PINK_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-        
-      GRAY_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-
-      LIGHT_GRAY_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-
-      CYAN_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-
-      PURPLE_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-        
-      BLUE_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-
-      BROWN_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-
-      GREEN_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-
-      RED_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-        
-      BLACK_WOOL:
-        loot: '{"type":"STRING","minimum":4,"maximum":4}'
-
-      # COBWEB:
-      #   loot: '{"type":"STRING","minimum":1,"maximum":1}'
-
-#      COAL_ORE:
-#        loot: '{"type":"TORCH","minimum":1,"maximum":4}'
-
-      # Same config with other ores ...
-#      IRON_ORE:
-#        loot: '{"type":"IRON_INGOT","minimum":1,"maximum":2}'
-#        add-xp: 3
-
-      # It will drop 1-2 gold ingots when breaking a gold ore block
-      # It will also drop 3 xp
-#      GOLD_ORE:
-#        loot: '{"type":"GOLD_INGOT","minimum":1,"maximum":2}'
-#        add-xp: 3
-
-      # It will drop 1-2 diamonds when breaking a diamond ore block
-      # It will also drop 5 xp
-#      DIAMOND_ORE:
-#        loot: '{"type":"DIAMOND","minimum":1,"maximum":2}'
-#        add-xp: 5
-
-      # It will drop 1-4 arrows when breaking a gravel block
-#      GRAVEL:
-#        loot: '{"type":"ARROW","minimum":1,"maximum":4}'
-
-  # Configure customizable mob loots
-  # The name of the sub-category should be an existing entity type
-  # See reference list here : https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
-  # You can set 'loot' and 'add-xp' to drop an item or some xp
-  # Please respect the json-item syntax! (You can use the '/iteminfo [min] [max]' command to generate this syntax.)
-  # If you do not want to have special loots, just leave the config node empty like that mob-loot: {}
-  mob-loot:
-    # Set to true to enable this feature
-    enable: false
-
-    loots:
-      #It will drop 1-2 string and 2 xp when killing sheep.
-      SHEEP:
-        loot:
-          - '{"type":"STRING","minimum":1,"maximum":2}'
-        add-xp: 2
-
-
-  # Generate extra sugar cane
-  generate-sugar-cane:
-    # Set to true to enable this feature.
-    enable: true
-    # The percentage of spannable blocks populated with sugar cane. (100 means 100% of the grass/sand blocks along water are filled with sugar cane.)
-    percentage: 10
-
-
-  apple-drops:
-    # What percentage of leaves should drop apples? (The default vanilla percentage is 0.5%)
-    percentage: 1.25
-    # Set to true if you want all type of trees to drop apples. (By default only oak and dark oak trees drop apples)
-    all-trees: true
-    # Set to true if you want sheared leaves to drop apples.
-    allow-shears: true
-
-  # Having this enabled means ocean biomes will be replaced with planes and forrest.
-  replace-ocean-biomes: true
-
-  # Having this enabled means ores will only spawn in caves, so no strip mining.
-  # This does take some time to generate so please make sure you have pre-generate-world enabled.
-  cave-ores-only: false
-
-  # Generates more ore in the map
-  generate-vein:
-
-    # Set it to true to enable this feature.
-    # If requires pre-generate-world to be enabled in order to generate more ores
-    enable: true
-
-    # Configure the blocks to be generated
-    # The names should be existing material names
-    # To view the correct item item data you can use '/iteminfo' in game (Permission: 'uhc-core.commands.iteminfo')
-    veins:
-
-      COAL_ORE:
-        # Minimum generated veins per chunk
-        min-veins-per-chunk: 2
-
-        # Maximum generated veins per chunk
-        max-veins-per-chunk: 5
-
-        # Minimum generated block per vein
-        min-blocks-per-vein: 5
-
-        # Maximum generated block per vein
-        max-blocks-per-vein: 10
-
-        # Minimum y height where the vein will be generated
-        min-y: 0
-
-        # Maximum y height where the vein will be generated
-        max-y: 60
-
-      # Same config with other ores ...
-      # IRON_ORE:
-      #   min-veins-per-chunk: 2
-      #   max-veins-per-chunk: 10
-      #   min-blocks-per-vein: 4
-      #   max-blocks-per-vein: 8
-      #   min-y: 0
-      #   max-y: 60
-      # GOLD_ORE:
-      #   min-veins-per-chunk: 2
-      #   max-veins-per-chunk: 5
-      #   min-blocks-per-vein: 2
-      #   max-blocks-per-vein: 8
-      #   min-y: 0
-      #   max-y: 60
-      DIAMOND_ORE:
-        min-veins-per-chunk: 0
-        max-veins-per-chunk: 2
-        min-blocks-per-vein: 2
-        max-blocks-per-vein: 2
-        min-y: 8
-        max-y: 14
-      # LAPIS_ORE:
-      #   min-veins-per-chunk: 2
-      #   max-veins-per-chunk: 4
-      #   min-blocks-per-vein: 2
-      #   max-blocks-per-vein: 4
-      #   min-y: 0
-      #   max-y: 60
-      # REDSTONE_ORE:
-      #   min-veins-per-chunk: 2
-      #   max-veins-per-chunk: 5
-      #   min-blocks-per-vein: 4
-      #   max-blocks-per-vein: 6
-      #   min-y: 0
-      #   max-y: 60
-      # EMERALD_ORE:
-      #   min-veins-per-chunk: 2
-      #   max-veins-per-chunk: 2
-      #   min-blocks-per-vein: 1
-      #   max-blocks-per-vein: 3
-      #   min-y: 0
-      #   max-y: 60
-
-
-#Set it to true to enable kit permissions support.
-#You then have to give players permissions like uhc-core.kit.tools
-enable-kits-permissions: false
-
-#Options to configure the playing compass
-playing-compass:
-  enable: true
-  #Compass mode:
-  # 1 = The compass will point towards teammates when right-clicking it
-  # 2 = The compass will point towards enemy's when right-clicking it
-  # 3 = The compass will point towards all players when right-clicking it
-  mode: 1
-  #How much seconds cool-down there should be between clicking the compass. (Set to -1 to disable)
-  cooldown: 1
-
-# Set to true if you want to enable hearts on tab.
-hearts-on-tab: true
-
-# Set to true if you want to enable hearts below player names.
-hearts-below-name: true
-
-# Set it to true to give the spectating players access to the '/teleport <player>' command to teleport to playing players.
-# Setting this to false also blocks the vanilla spectator mode GUI from working.
-spectating-teleport: true
-
-# Options to pre-generate the world
-# It's highly recommended you enable this for big games!
-pre-generate-world:
-  # If set to true, the plugin will generate every chunks inside the world border to prevent lag during the game
-  # WARNING: Setting this to false might cause players to spawn underground.
-  enable: true
-
-  # Between what number of chunks the server will rest to avoid server crashing
-  rest-every-num-of-chunks-ticks: 200
-
-  # Duration of the rest in ticks
-  rest-duration: 20
-
-#Setting up the world border
-border:
-  #Set it to true to make the border reduce slowly
-  moving: true
-
-  #Starting size of the border (500 means +500x, -500x, +500z, -500z)
-  start-size: 30
-  #1000
-
-  #End size of the border (200means +200x, -200x, +200z, -200z)
-  end-size: 300
-  #500
-
-  #If moving is set to true, the time in seconds for the border to shrink to end-size
-  time-to-shrink: 2400
-
-  #If moving is set to true, the time in seconds for the border before it starts moving
-  time-before-shrink: 600
-
-# Setting up the starting game
-startinggame:
-  delay: 1
-  commands:
-  - skript:willscenario
-
-# Setting up the deathmatch
-deathmatch:
-  # Set it to false to make an endless game until one team wins
-  enable: true
-  # The time in seconds before the deathmatch stats
-  delay: 3000
-  # Set it to true if you want players in deathmatch to be in adventure mode. (false = survival mode)
-  deathmatch-adventure-mode: false
-  commands:
-#  - scoreboard players set UhcCoreTime UhcCoreMain 3000
-  - skript:isdeathmatch
-
-  # Force end the deathmatch when no players died for a certain time.
-  force-end:
-    # Set to true to enable force ending.
-    enable: true
-    # Time in seconds before force ending after last kill.
-    delay: 600
-
-  # To end with a deathmatch arena, you must have WorldEdit installed and your arena.schematic file inside plugins/UhcCore
-  arena-deathmatch:
-    # Choose a rare block type that will create team teleport spots in the deathmatch arena
-    # To view the correct item item data you can use '/iteminfo' in game (Permission: 'uhc-core.commands.iteminfo')
-    teleport-spots-block: BEDROCK
-    # The arena.schematic is pasted at x=10000 z=10000, you can choose here the y coordinate
-    paste-at-y: 255
-#224 + 64 = 288
-
-  # When no deathmatch arena is installed the deathmatch will be at the center of the map.
-  center-deathmatch:
-    #Starting size of the border (200 means +200x, -200x, +200z, -200z)
-    start-size: 100
-    #End size of the border (50means +50x, -50x, +50z, -50z)
-    end-size: 31
-    #If moving is set to true, the time in seconds for the border to shrink to end-size
-    time-to-shrink: 600
-
-# Having this set to true means the name of your uhc world don't change. This is not suggested since it may cause some worlds to not load correctly.
-# It's recommended to use 'lobby-in-default-world' if you want to use NPC's
-permanent-world-names: false
-
-# Having this set to true will move your lobby to the world specified in your server.properties (spawn point: 0, 100, 0).
-# This feature is recommended for servers with big lobbies or lobbies that need entities (like NPC's).
-# Please note that when enabled you're responsible for building a lobby, no schematic or default box will be created.
-lobby-in-default-world: true
-
-#Write custom seeds to be used when creating a new map
-world-seeds:
-  #Set it to true to pick a random seed from this list
-  pick-random-seed-from-list: false
-
-  #Write here custom seeds
-  list:
-    - 8708477303049171819
-    - 4718448332187272495
-
-#Write existing world name in your server folder to copy and play on a map you have created.
-# If you also want a custom nether or end make sure to include those worlds. They will be named (your_world_nether, your_world_the_end)
-world-list:
-  #Set it to true to use that feature (you must set pick random seed to false also)
-  pick-random-world-from-list: false
-  #A list of your existing world folders (Make sure to not use the same world as in your server.properties!)
-  list:
-    - your_world
-    - your_second_world
-
-#Enable bungee-coord support to send players back to the server of your choice when the game ends
-bungee-support:
-  #Set it to true to send players back to a server at the end
-  enable: true
-  #Set it to true if you want players to get a return to lobby item on their hotbar.
-  use-lobby-item: true
-  #The name of the server (same as in your bungee config)
-  send-players-to-server-after-end: login
-  #Time (in seconds) before sending the player to the hub (If spectating after death is disabled and they don't have the permission 'uhc-core.spectate.override').
-  time-before-send-after-death: 0
-  #Time (in seconds) before sending all the players to the hub after the game has ended
-  time-before-send-after-end: 110
-
-#Reward your players for taking achievements (kills, win, playing time).
-#Require Vault and an Economy plugin compatible with Vault (I recommend CraftConomy)
-custom-events:
-  #Reward a player a price in your economy currency every time he is still alive after the interval (in seconds)
-  time:
-    enable: true
-    # Amount of money the player should get (Set to 0 for no money reward)
-    reward: 0
-    # Enter a list of commands that should be executed instead (Change to commands: [] if you do not want any commands to be executed.)
-    commands:
-#    - execute unless score UhcCoreTime UhcCoreMain matches 300.. run scoreboard players set UhcCoreTime UhcCoreMain 300
-    - skript:threadtimeadd 5
-    - skript:forcedeathmatch
-    interval: 300
-#execute if score UhcCoreTime UhcCoreMain matches 2985.. run gamerule doMobSpawning false
-#execute if score UhcCoreTime UhcCoreMain matches ..2982 run gamerule doMobSpawning true
-#execute if score UhcCoreTime UhcCoreMain matches 3003.. run tp @e[type=zombie] 0 -70 0
-#execute if score UhcCoreTime UhcCoreMain matches 3003.. run worldborder center 10000 10000
-#execute at @r run forceload add 9900 9900 10100 10100
-#execute if score UhcCoreTime UhcCoreMain matches 3903.. run effect give @a glowing 10 0 true
-#execute if score UhcCoreTime UhcCoreMain matches 3903 run tellraw @a [{"text":">> ","bold":true},{"text":"全体玩家发光开启!","color":"red"}]
-#execute if score UhcCoreTime UhcCoreMain matches 3003.. run tp @e[type=skeleton] 0 -70 0
-#execute if score UhcCoreTime UhcCoreMain matches 3003.. run tp @e[type=spider] 0 -70 0
-#execute if score UhcCoreTime UhcCoreMain matches 3003.. run tp @e[type=creeper] 0 -70 0
-#execute if score UhcCoreTime UhcCoreMain matches 3003.. run tp @e[type=zombie_villager] 0 -70 0
-#execute if score UhcCoreTime UhcCoreMain matches 3003.. run tp @e[type=enderman] 0 -70 0
-
-
-  #Reward a player a price in your economy currency every time he kills an enemy
-  kill:
-    enable: true
-    reward: 0
-    commands:
-    - tellraw %name% [{"text":"[UHC] ","color":"green"},{"text":"你取得了","color":"gold"},{"text":"1","color":"red"},{"text":"次击杀!","color":"gold"}]
-    - tellraw %name% [{"text":"[UHC] ","color":"green"},{"text":"你获得了20金粒","color":"white"}]
-    - give %name% gold_nugget 24
-    - xp add %name% 4 levels
-    - effect give %name% resistance 15 0 true
-    - effect give %name% strength 8 0 true
-    #- skript:killsadd %name% 1
-  #Reward a price in your economy currency to the winners of the game
-  win:
-    enable: true
-    reward: 0
-    commands:
-    - tag %name% add lastwinner
-    - title @a times 0 100 0
-    - title @a[tag=lastwinner] title [{"text":"胜利!","color":"green","bold":true}]
-    - title @a[tag=lastwinner] subtitle [{"text":"你成为了最后的赢家!","color":"gray"}]
-    - title @a[tag=!lastwinner] title [{"text":"游戏结束!","color":"red","bold":true}]
-    - title @a[tag=!lastwinner] subtitle [{"text":"你不是本场比赛的胜者, 再接再厉!","color":"gray"}]
-    - tellraw %name% [{"text":"[UHC] ","color":"green"},{"text":"你获得了本场比赛的胜利!","color":"aqua"}]
-    - tellraw @a [{"text":"--------------------------------------------","color":"green"}]
-    - tellraw @a [{"text":" "}]
-    - tellraw @a [{"text":" UHC","bold":true}]
-    - tellraw @a [{"text":" 胜者","color":"yellow"},{"text":" - ","color":"gray"},{"selector":"@a[tag=lastwinner]","color":"white"}]
-    - tellraw @a [{"text":" "}]
-    - tellraw @a [{"text":"--------------------------------------------","color":"green"}]
-    - tag @a remove lastwinner
-
-# When set to true, the plugin won't delete the last world, it will just load it. It will also ignore the map pre-generator.
-# This is to allow fast-configuration, to avoid creating new worlds when you only want to configure some other features.
-debug: false
-# When set to true, the game won't end when only one player is left. This can be used to play alone in order to test games.
-one-player-mode: true
-# Set to false if you want to disable auto update.
-auto-update: false
+###############################
+# UhcRecipeBookEx Config File #
+###############################
+
+# The crafts that will be ignored in the recipe book.
+ignore-crafts:
+  - 'War Axe'
+  - '学徒之盔1'
+  - '冰斗湖头盔1'
+  - '巨龙之甲1'
+  - '巨龙之甲2'
+  - '蛮族之甲1'
+  - '速度药水1'
+  - '速度药水2'
+  - '抵抗药水1'
+  - '抵抗药水2'
+  - '圣水1'
+  - '圣水2'
+  - '圣水3'
+  - '圣水4'
+  - '圣水5'
+  - '圣水6'
+  - '圣水7'
+  - '圣水8'
+  - '圣水9'
+  - '圣水10'
+  - '圣水11'
+  - '圣水12'
+  - '圣水13'
+  - '虚弱药水1'
+  - '虚弱药水2'
+  - '锻炉1'
+  - '炼铁1'
+  - '炼金1'
+  - '炼铜1'
+  - '炼铁2'
+  - '炼金2'
+  - '炼铜2'
+  - '炼铁3'
+  - '炼金3'
+  - '炼铜3'
+  - '牛排1'
+  - '甘蔗1'
+  - '甘蔗2'
+  - '甘蔗3'
+  - '甘蔗4'
+  - '甘蔗5'
+  - '甘蔗6'
+  - '甘蔗7'
+  - '甘蔗8'
+  - '甘蔗9'
+  - '甘蔗10'
+  - '甘蔗11'
+  - '苹果1'
+  - '苹果2'
+  - '苹果3'
+  - '黑曜石1'
+  - '黑曜石2'
+  - '黑曜石3'
+  - "哲人之镐1"
+  - "效率铁镐1"
+  - "效率铁镐2"
+  - "效率铁镐3"
+
+inventory:
+  # The gui name.
+  # You can use {page_num} for the page number.
+  # You can also use it in the item's name & lore.
+  name: "&8({page_num}/4)配方书"
+
+ # The gui pattern of the crafting GUI.
+  # There can be 1~6 lines, and each line must be exactly 9 characters long.
+  # The characters from 0 to 9 is builtin, and 1-9 means 9 ingredients, the 0 is the crafted item.
+  crafting-pattern: |
+    &&&&&&&&&
+    &&123&&&&
+    &&456&0&&
+    &&789&&&&
+    &&&&&&&&&
+
+  # The crafting GUI's title.
+  crafting-name: "&8工作台"
+
+  click-to-craft: "&3点击合成物品!"
+
+  limit-times: "&a限制次数: {times}/{limit}"
+  # The gui pattern of the recipe book.
+  # There can be 1~6 lines, and each line must be exactly 9 characters long.
+  inventory-pattern: |
+    _________
+    _#######_
+    _#######_
+    _#######_
+    _________
+    <___o___>
+
+  # The gui pattern of the recipe viewer.
+  # There can be 1~6 lines, and each line must be exactly 9 characters long.
+  # The characters from 0 to 9 is builtin, and 1-9 means 9 ingredients, the 0 is the crafted item.
+  recipe-viewer-pattern: |
+    &&&&&&&&&
+    &&123&&&&
+    &&456&0&&
+    &&789&&&&
+    &&&&&&&&&
+    &&&&@&&&&
+
+  # The recipe viewer's gui name.
+  # You can use {item_name} for the item's name.
+  recipe-view-name: "&8查看&7{item_name}&8的配方"
+
+  # Every character means what item.
+  items:
+    '_':
+      type: item
+      material: AIR
+    '#':
+      type: slot
+      fallback: '_' # if the slot is empty, what item will it show
+    '<':
+      type: previous-page
+      material: ARROW
+      name: "&a上一页"
+      fallback: '_' # if the slot is not available (the first page), what item will it show
+      # other configs is same as item
+    '>':
+      type: next-page
+      material: ARROW
+      name: "&a下一页"
+      fallback: '_'
+    'o': # This is an example of the item config.
+      type: item
+      material: PAPER
+      name: "&a自定义合成"
+      lore: |
+        &e这些是全部的自定义合成
+        &e你可以在游戏中合成!
+        &e尝试去合理地利用它们!
+      glow: true
+      amount: 1
+    '&':
+      type: item
+      material: GRAY_STAINED_GLASS_PANE
+      name: ""
+    '@':
+      type: go-back
+      material: ARROW
+      name: "&a返回"
+      lore: |
+        &7至配方书
+    '+':
+      type: item
+      material: REDSTONE_TORCH
+      name: "&a提示"
+      lore: |
+        &e如果你无法正常合成物品
+        &e可尝试输入/ci清除手持物品数据
+
+message:
+  right-click-open: "&3点击查看配方!"
+  limit-show: "&a你已合成&e{item}&a! (&e{times}&a/{limit})"
