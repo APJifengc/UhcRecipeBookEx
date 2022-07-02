@@ -38,7 +38,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.potion.Potion;
+import org.bukkit.potion.PotionType;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.*;
@@ -53,6 +56,9 @@ public class PlayerListener implements Listener {
     GameManager gm = GameManager.getGameManager();
     public static final ItemStack BARRIER = new ItemStack(Material.BARRIER);
     public static final ItemStack AIR = new ItemStack(Material.AIR);
+
+    Material[] itemStacks;
+    public static Map<Integer, Craft> craftMap = new HashMap<>();
 
     private final Map<Player,Long> modularUsingLastUpdate = new HashMap<>();
 
@@ -395,11 +401,13 @@ public class PlayerListener implements Listener {
                         event.setCancelled(true);
                         Optional<CraftRecipe> craftOptional = getCurrentCraft(inventory, player);
                         if (craftOptional.isEmpty()) {
+                            //broadcastMessage("(java.400)");
                             return;
                         }
                         CraftRecipe craft = craftOptional.get();
                         ItemStack itemStack = craft.getCraft();
                         if(itemStack == null || itemStack.getType().equals(Material.AIR)){
+                            //broadcastMessage("(java.406)");
                             return;
                         }
                         if (gm.getConfig().get(MainConfig.ENABLE_CRAFTS_PERMISSIONS) && itemStack.getItemMeta() != null && itemStack.getItemMeta().getLore() != null) {
@@ -410,16 +418,30 @@ public class PlayerListener implements Listener {
                                 return;
                             }
                         }
+                        //broadcastMessage("passed");
                         if (event.isShiftClick()) {
                             ItemStack addedItems = itemStack.clone();
+                            //broadcastMessage(addedItems.toString());
                             if(addedItems.getItemMeta()!=null&&addedItems.getItemMeta().getLore()!=null&&addedItems.getItemMeta().getLore().contains(Lang.ITEMS_FUSION_ARMOR)){
                                 addedItems = UhcItems.createFusionArmor();
                             }
+                            //broadcastMessage("pass 1  " + addedItems.toString());
+                            if(addedItems.getItemMeta()!=null&&addedItems.getItemMeta().getLore()!=null&&addedItems.getItemMeta().getLore().contains(Lang.ITEMS_DEUS_EX_MACHINA)){
+                                player.setHealth(player.getHealth()/2);
+                            }
+                            //broadcastMessage("pass 2  " + addedItems.toString());
+                            if(craft.getRealCraft()!=null && craft.getRealCraft().isUnbreakable()){
+                                ItemMeta meta = addedItems.getItemMeta();
+                                meta.setUnbreakable(true);
+                                addedItems.setItemMeta(meta);
+                            }
+                            //broadcastMessage("pass 3  " + addedItems.toString());
                             int addedItemCount = ((int) Math.floor(
                                     (double) Math.min(getAddableItemCount(event.getView().getBottomInventory(), addedItems),
                                             itemStack.getAmount() * getMaximumCrafts(inventory)) / itemStack.getAmount())
                             );
-                            if (craft.hasLimit()) {
+                            //broadcastMessage("pass 4  "+addedItems.toString()+addedItemCount);
+                            if (craft.getRealCraft()!=null && craft.hasLimit()) {
                                 addedItemCount = Math.min(addedItemCount, craft.getLimit() - getCraftedTimes(player, craft.getRealCraft()));
                             }
                             if (itemStack.getType().getMaxStackSize()==1){
@@ -435,6 +457,7 @@ public class PlayerListener implements Listener {
                             showLimitMessage(player, craft);
                         } else {
                             if (craft.hasLimit() && getCraftedTimes(player, craft.getRealCraft()) == craft.getLimit()) {
+                                //broadcastMessage("(java.452)");
                                 return;
                             }
                             ItemStack cursor = event.getCursor();
@@ -453,7 +476,7 @@ public class PlayerListener implements Listener {
                                     if(newStack.getItemMeta()!=null&&newStack.getItemMeta().getLore()!=null&&newStack.getItemMeta().getLore().contains(Lang.ITEMS_DEUS_EX_MACHINA)){
                                         player.setHealth(player.getHealth()/2);
                                     }
-                                    if(newStack.getItemMeta()!=null&&newStack.getItemMeta().getLore()!=null&&newStack.getItemMeta().getLore().contains(Lang.ITEMS_PERUN)){
+                                    if(craft.getRealCraft()!=null && craft.getRealCraft().isUnbreakable()){
                                         ItemMeta meta = newStack.getItemMeta();
                                         meta.setUnbreakable(true);
                                         newStack.setItemMeta(meta);
@@ -743,7 +766,31 @@ public class PlayerListener implements Listener {
                 }
             }
         }
-        for (Craft craft : CraftsManager.getCrafts()) {
+
+        /*if (itemStacks[4]!=null && itemStacks[4].getType().equals(Material.POTION)){
+            PotionMeta potionMeta = (PotionMeta) itemStacks[4].getItemMeta();
+            assert potionMeta != null;
+            if(!(potionMeta.getBasePotionData().isExtended()&&potionMeta.getBasePotionData().getType().equals(PotionType.STRENGTH))){
+                return Optional.empty();
+            }
+        }
+
+        if (itemStacks[7]!=null && itemStacks[7].getType().equals(Material.POTION)){
+            PotionMeta potionMeta = (PotionMeta) itemStacks[7].getItemMeta();
+            assert potionMeta != null;
+            if(!(potionMeta.getBasePotionData().isExtended()&&potionMeta.getBasePotionData().getType().equals(PotionType.STRENGTH))){
+                return Optional.empty();
+            }
+        }*/
+
+        craftMap = CraftsManager.getCraftMap();
+
+        if (craftMap.containsKey(itemStacksHashCode(itemStacks))){
+            Craft craft = craftMap.get(itemStacksHashCode(itemStacks));
+            return Optional.of(new CraftRecipe(craft.getLimit(), craft.getCraft(), craft));
+        }
+
+        /*for (Craft craft : CraftsManager.getCrafts()) {
             if (matches(itemStacks, craft)) {
                 return Optional.of(new CraftRecipe(craft.getLimit(), craft.getCraft(), craft));
             }else if(fusionMatches(itemStacks, craft)
@@ -752,12 +799,25 @@ public class PlayerListener implements Listener {
                     &&craft.getCraft().getItemMeta().getLore().contains(Lang.ITEMS_FUSION_ARMOR)){
                 return Optional.of(new CraftRecipe(craft.getLimit(), craft.getCraft(), craft));
             }
-        }
+        }*/
+
         Recipe recipe = Bukkit.getCraftingRecipe(itemStacks, player.getWorld());
         if (recipe != null) {
             return Optional.of(new CraftRecipe(-1, recipe.getResult(), null));
         }
         return Optional.empty();
+    }
+
+    private int itemStacksHashCode(ItemStack[] itemStacks) {
+        int hash = 0;
+        for(int i = 0; i < itemStacks.length; ++i) {
+            if (itemStacks[i] != null) {
+                hash += (i + 1) * itemStacks[i].getType().hashCode();
+                if (itemStacks[i].getType().equals(Material.POTION)){
+                }
+            }
+        }
+        return hash;
     }
 
     /*@EventHandler(priority = EventPriority.HIGHEST)
